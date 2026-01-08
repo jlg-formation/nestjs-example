@@ -12,7 +12,7 @@ Chaque tâche contient :
 
 ## 02-demarrage-nestjs
 
-- [ ] id01 Bootstrapper le projet NestJS (structure + scripts) — Intention: démarrer une app Nest standard ; Livrable: app qui démarre en dev (specifications/nestjs-backend-3j/02-demarrage-nestjs/04-process-bootstrap-projet.yaml)
+- [x] id01 Bootstrapper le projet NestJS (structure + scripts) — Intention: démarrer une app Nest standard ; Livrable: app qui démarre en dev (specifications/nestjs-backend-3j/02-demarrage-nestjs/04-process-bootstrap-projet.yaml)
 - [ ] id02 Utiliser Nest CLI pour générer du code (module/controller/service) — Intention: pratiquer l’outillage ; Livrable: génération via CLI sans casser le démarrage (specifications/nestjs-backend-3j/02-demarrage-nestjs/05-demo-nest-cli.yaml)
 - [ ] id03 Créer un controller minimal avec `@Controller/@Get/@Post` — Intention: comprendre le routing Nest ; Livrable: routes `GET /soldes/ping` + `POST /soldes/recharge` (specifications/nestjs-backend-3j/02-demarrage-nestjs/09-code-example-controller-get-post.yaml)
 - [ ] id04 Créer un service `@Injectable()` pour la logique métier — Intention: séparer HTTP et métier ; Livrable: `SoldesService.getBalance(clientId)` (specifications/nestjs-backend-3j/02-demarrage-nestjs/11-code-example-service-injectable.yaml)
