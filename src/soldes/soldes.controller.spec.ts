@@ -15,4 +15,19 @@ describe('SoldesController', () => {
   it('should be defined', () => {
     expect(controller).toBeDefined();
   });
+
+  describe('ping', () => {
+    it('should return { ok: true }', () => {
+      expect(controller.ping()).toEqual({ ok: true });
+    });
+  });
+
+  describe('recharge', () => {
+    it('should return ok + amount from body', () => {
+      expect(controller.recharge({ amount: 100 })).toEqual({
+        ok: true,
+        amount: 100,
+      });
+    });
+  });
 });
