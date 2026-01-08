@@ -17,7 +17,7 @@ Chaque tâche contient :
 - [x] id03 Créer un controller minimal avec `@Controller/@Get/@Post` — Intention: comprendre le routing Nest ; Livrable: routes `GET /soldes/ping` + `POST /soldes/recharge` (specifications/nestjs-backend-3j/02-demarrage-nestjs/09-code-example-controller-get-post.yaml)
 - [x] id04 Créer un service `@Injectable()` pour la logique métier — Intention: séparer HTTP et métier ; Livrable: `SoldesService.getBalance(clientId)` (specifications/nestjs-backend-3j/02-demarrage-nestjs/11-code-example-service-injectable.yaml)
 - [x] id05 Injecter le service dans un controller — Intention: pratiquer la DI ; Livrable: route `GET /clients/:id/soldes` qui délègue au service (specifications/nestjs-backend-3j/02-demarrage-nestjs/13-code-example-controller-inject-service.yaml)
-- [ ] id06 Déclarer controllers/providers dans un module dédié — Intention: comprendre l’assemblage ; Livrable: `SoldesModule` câblé (specifications/nestjs-backend-3j/02-demarrage-nestjs/14-code-example-module-wire.yaml)
+- [x] id06 Déclarer controllers/providers dans un module dédié — Intention: comprendre l’assemblage ; Livrable: `SoldesModule` câblé (specifications/nestjs-backend-3j/02-demarrage-nestjs/14-code-example-module-wire.yaml)
 - [ ] id07 TP : créer le module Soldes (controller fin + service) — Intention: livrer une première feature Nest propre ; Livrable: module Soldes opérationnel + route GET en JSON (specifications/nestjs-backend-3j/02-demarrage-nestjs/18-exercise-tp-soldes.yaml)
 
 ## 03-validation-sql-services
