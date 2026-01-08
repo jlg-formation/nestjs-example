@@ -55,7 +55,8 @@ Tu peux ajouter, si utile :
 ## Contraintes
 
 - ⚠️ **Ne réalise PAS la tâche** : ne code rien, ne modifie aucun fichier hors `.github/prompts/`. Tu écris uniquement le prompt.
-- Ne coche jamais une case dans `TODO.md` (seul l’utilisateur valide).
+- Le prompt généré doit exiger qu’une fois la tâche implémentée et validée (tests/CI locaux quand applicable), `TODO.md` soit mis à jour en cochant `[x]` **uniquement** la tâche traitée (celle sélectionnée à l’étape 2, ex: `id10`).
+- Si la tâche n’est pas terminée (blocage, exigences manquantes, tests KO), le prompt doit interdire de cocher la case et demander de décrire clairement le blocage.
 - Ne propose pas de features “bonus” : reste strictement dans le périmètre du livrable de la tâche.
 - Respecte les conventions du repo : consulte `AGENTS.md`, puis `CODING_RULES.md`.
 - Ne traite pas le chapitre `01-typescript-mini-express` (rappel : ce repo l’exclut volontairement).
