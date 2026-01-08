@@ -1,12 +1,20 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { SoldesController } from './soldes.controller';
+import { SoldesService } from './soldes.service';
 
 describe('SoldesController', () => {
   let controller: SoldesController;
+  let soldesService: { ping: jest.Mock; recharge: jest.Mock };
 
   beforeEach(async () => {
+    soldesService = {
+      ping: jest.fn(() => ({ ok: true })),
+      recharge: jest.fn((amount: number) => ({ ok: true, amount })),
+    };
+
     const module: TestingModule = await Test.createTestingModule({
       controllers: [SoldesController],
+      providers: [{ provide: SoldesService, useValue: soldesService }],
     }).compile();
 
     controller = module.get<SoldesController>(SoldesController);
@@ -19,6 +27,7 @@ describe('SoldesController', () => {
   describe('ping', () => {
     it('should return { ok: true }', () => {
       expect(controller.ping()).toEqual({ ok: true });
+      expect(soldesService.ping).toHaveBeenCalledTimes(1);
     });
   });
 
@@ -28,6 +37,9 @@ describe('SoldesController', () => {
         ok: true,
         amount: 100,
       });
+
+      expect(soldesService.recharge).toHaveBeenCalledTimes(1);
+      expect(soldesService.recharge).toHaveBeenCalledWith(100);
     });
   });
 });

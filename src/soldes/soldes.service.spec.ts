@@ -16,6 +16,18 @@ describe('SoldesService', () => {
     expect(service).toBeDefined();
   });
 
+  describe('ping', () => {
+    it('should return { ok: true }', () => {
+      expect(service.ping()).toEqual({ ok: true });
+    });
+  });
+
+  describe('recharge', () => {
+    it('should return ok + amount', () => {
+      expect(service.recharge(100)).toEqual({ ok: true, amount: 100 });
+    });
+  });
+
   describe('getBalance', () => {
     it('should throw an error when clientId is invalid', () => {
       expect(() => service.getBalance(0)).toThrow('Invalid clientId');
