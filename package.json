@@ -9,6 +9,8 @@
     "build": "nest build",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
     "kill-port": "ts-node scripts/kill-port.ts",
+    "startdb": "ts-node scripts/startdb.ts",
+    "initdb": "ts-node scripts/initdb.ts",
     "start": "nest start",
     "start:dev": "nest start --watch",
     "start:debug": "nest start --debug --watch",

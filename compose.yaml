@@ -1,0 +1,27 @@
+services:
+  db:
+    image: mariadb:11
+    container_name: nestjs-example-mariadb
+    environment:
+      MARIADB_ROOT_PASSWORD: devroot
+    ports:
+      - '3306:3306'
+    volumes:
+      - mariadb_data:/var/lib/mysql
+    healthcheck:
+      test:
+        [
+          'CMD',
+          'mariadb-admin',
+          'ping',
+          '-h',
+          'localhost',
+          '-uroot',
+          '-pdevroot',
+        ]
+      interval: 2s
+      timeout: 2s
+      retries: 20
+
+volumes:
+  mariadb_data:
