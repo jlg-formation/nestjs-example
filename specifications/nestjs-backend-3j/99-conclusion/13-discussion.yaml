@@ -1,0 +1,44 @@
+id: nestjs-backend-3j-99-discussion-next-steps
+type: discussion
+title: "Discussion : qu'est-ce que vous appliquez dès lundi ?"
+
+layout:
+  template: discussion
+  density: low
+  emphasis: text
+
+visual:
+  kind: icon
+  query: "group discussion planning"
+  source: local
+  placement: left
+  alt: "Icône discussion"
+
+covers:
+  - "Revue complète du projet"
+
+discussion:
+  question: "Quelle pratique va le plus améliorer votre prochain backend NestJS ?"
+  duration: "6 minutes"
+  format: "small_groups"
+  prompts:
+    - "Contrat : DTO + validation + erreurs cohérentes"
+    - "Architecture : séparer controller/service/repository"
+    - "Qualité : tests e2e comme non-régression"
+    - "Opérationnel : logging, auth, doc Swagger"
+  debrief: "Lister 3 pratiques communes à toute l'équipe"
+
+notes_formateur: |
+  ## Déroulé (8 min)
+
+  ### Organisation
+  Groupes de 3-4, 4 min puis 2 min de restitution.
+
+  ### Relance
+  "Choisissez UNE pratique, pas une liste."
+
+notes_stagiaire: |
+  ## À retenir
+
+  **Objectif** : repartir avec 1 action concrète.
+  Notez : la pratique + comment l'imposer (lint/review/checklist).

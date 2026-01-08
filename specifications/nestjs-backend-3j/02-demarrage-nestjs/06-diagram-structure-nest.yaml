@@ -1,0 +1,43 @@
+id: ch2-diagram-structure
+type: diagram
+title: "Structure NestJS : qui fait quoi ?"
+covers:
+  - "Structure : modules, contrôleurs, services"
+
+layout:
+  template: diagram
+  density: low
+  emphasis: visual
+
+visual:
+  kind: diagram
+  query: "nestjs module controller service dependency injection diagram"
+  source: ai
+  placement: full
+  alt: "Schéma module → controller → service"
+
+diagram:
+  description: "Module assemble, Controller expose HTTP, Service porte le métier"
+  components:
+    - name: "Module"
+      role: "Assemble les providers et contrôleurs d'un domaine"
+    - name: "Controller"
+      role: "Reçoit HTTP, valide l'entrée, délègue au service"
+    - name: "Service"
+      role: "Logique métier, orchestration, appels repo/DB"
+    - name: "DI Container"
+      role: "Instancie et injecte les dépendances"
+  flow: "HTTP → Controller → Service → (Repo/DB) → Response"
+
+notes_formateur: |
+  ## Déroulé (4 min)
+  - Faire répéter : controller = HTTP, service = métier.
+  - Dire : NestJS vous force à séparer les responsabilités.
+
+notes_stagiaire: |
+  ## À retenir
+  Retenir la règle :
+  - Controller : HTTP
+  - Service : logique métier
+  - Module : assemble et déclare
+  - DI : injecte les dépendances

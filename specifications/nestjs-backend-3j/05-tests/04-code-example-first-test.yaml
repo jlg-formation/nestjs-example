@@ -1,0 +1,57 @@
+id: nestjs-backend-3j-05-code-first-test
+type: code_example
+title: "Premier test Jest : arrange / act / assert"
+subtitle: "Une structure qui rend les tests lisibles"
+
+layout:
+  template: code_example
+  density: medium
+  emphasis: text
+
+visual:
+  kind: code_render
+  source: none
+  placement: full
+  alt: "Code Jest : AAA"
+
+code:
+  language: "ts"
+  snippet: |
+    describe('balance rules', () => {
+      it('refuse un débit si le solde est insuffisant', () => {
+        // arrange
+        const balance = 10;
+        const amount = 15;
+
+        // act
+        const allowed = balance >= amount;
+
+        // assert
+        expect(allowed).toBe(false);
+      });
+    });
+  callouts:
+    - line: 3
+      text: "Un titre qui décrit le comportement"
+    - line: 4
+      text: "Arrange/Act/Assert = lecture immédiate"
+  expected_output: "Le test passe : allowed = false"
+
+covers:
+  - "Introduction aux tests Jest"
+
+notes_formateur: |
+  ## Déroulé (4 min)
+
+  ### Points clés
+  - AAA est un repère : on lit le test comme une mini-histoire.
+  - Un bon test décrit un comportement, pas une ligne de code.
+
+  ### Transition
+  Dans NestJS, on va vite avoir des dépendances → mocks.
+
+notes_stagiaire: |
+  ## À retenir
+
+  **AAA** : arrange (préparer) → act (agir) → assert (vérifier).
+  **Titre** : doit exprimer le comportement attendu.

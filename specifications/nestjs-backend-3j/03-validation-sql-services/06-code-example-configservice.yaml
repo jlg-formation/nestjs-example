@@ -1,0 +1,74 @@
+id: nestjs-backend-3j-03-configservice
+type: code_example
+title: "Lire `.env` avec ConfigModule"
+subtitle: "Injecter la configuration dans un service"
+
+layout:
+  template: code_example
+  density: medium
+  emphasis: text
+
+visual:
+  kind: code_render
+  source: none
+  placement: full
+  alt: "Code NestJS : ConfigModule et ConfigService"
+
+code:
+  language: "ts"
+  snippet: |
+    // app.module.ts
+    import { Module } from '@nestjs/common';
+    import { ConfigModule } from '@nestjs/config';
+
+    @Module({
+      imports: [
+        ConfigModule.forRoot({ isGlobal: true }),
+      ],
+    })
+    export class AppModule {}
+
+    // any.service.ts
+    import { Injectable } from '@nestjs/common';
+    import { ConfigService } from '@nestjs/config';
+
+    @Injectable()
+    export class DbInfoService {
+      constructor(private readonly config: ConfigService) {}
+
+      getDbHost() {
+        return this.config.get<string>('DB_HOST', 'localhost');
+      }
+    }
+  callouts:
+    - line: 7
+      text: "isGlobal: true évite d'importer ConfigModule partout"
+    - line: 18
+      text: "Default : utile en dev pour démarrer vite"
+  expected_output: "DB_HOST absent → 'localhost'"
+
+covers:
+  - "Variables d’environnement (.env)"
+  - "Services et décorateur @Injectable"
+
+notes_formateur: |
+  ## Déroulé (4 min)
+
+  ### Points clés à aborder
+  - `ConfigModule.forRoot()` charge `.env` en dev.
+  - `ConfigService.get()` permet un default.
+
+  ### Question
+  "Quelles variables sont indispensables pour votre app ?"
+
+  ### Transition
+  Maintenant qu'on lit de l'entrée (payload HTTP), on doit valider.
+
+notes_stagiaire: |
+  ## À retenir
+
+  **ConfigModule** charge `.env` et expose `ConfigService`.
+
+  **Bon réflexe** : définir des defaults raisonnables en dev.
+
+  **En prod** : variables fournies par l'environnement (pas forcément `.env`).

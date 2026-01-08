@@ -1,0 +1,53 @@
+id: ch2-code-controller-inject
+type: code_example
+title: "Injecter un service dans un controller"
+subtitle: "constructor(private readonly ...)"
+covers:
+  - "Injection de dépendances"
+  - "Logique métier dans les services"
+
+layout:
+  template: code_example
+  density: medium
+  emphasis: text
+
+visual:
+  kind: code_render
+  source: none
+  placement: full
+  alt: "Injection dans controller"
+
+code:
+  language: "ts"
+  snippet: |
+    import { Controller, Get, Param } from "@nestjs/common";
+    import { SoldesService } from "./soldes.service";
+
+    @Controller("clients")
+    export class ClientsController {
+      constructor(private readonly soldes: SoldesService) {}
+
+      @Get(":id/soldes")
+      getSoldes(@Param("id") id: string) {
+        const balance = this.soldes.getBalance(Number(id));
+        return { clientId: Number(id), balance };
+      }
+    }
+  callouts:
+    - line: 6
+      text: "Le service est injecté par Nest"
+    - line: 8
+      text: "Route : /clients/:id/soldes"
+    - line: 10
+      text: "Le controller délègue au service"
+  expected_output: "GET /clients/1/soldes → { clientId: 1, balance: 0 }"
+
+notes_formateur: |
+  ## Déroulé (4 min)
+  - Insister : pas de 'new SoldesService()'.
+  - Dire : validation du param id viendra avec DTO/pipe.
+
+notes_stagiaire: |
+  ## À retenir
+  Le controller reçoit le service via le constructeur.
+  Le service contient la logique ; le controller expose HTTP.

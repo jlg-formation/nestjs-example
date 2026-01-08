@@ -1,0 +1,62 @@
+id: nestjs-backend-3j-99-code-example-validation-pipe
+type: code_example
+title: "Validation globale : refuser les payloads 'bizarres'"
+subtitle: "ValidationPipe + whitelist = API plus sûre"
+
+layout:
+  template: code_example
+  density: medium
+  emphasis: text
+
+visual:
+  kind: code_render
+  source: none
+  placement: full
+  alt: "Code NestJS : ValidationPipe"
+
+covers:
+  - "Validation avec class-validator / class-transformer"
+
+code:
+  language: "ts"
+  snippet: |
+    import { ValidationPipe } from '@nestjs/common';
+
+    async function bootstrap() {
+      const app = await NestFactory.create(AppModule);
+
+      app.useGlobalPipes(
+        new ValidationPipe({
+          transform: true,
+          whitelist: true,
+          forbidNonWhitelisted: true,
+        }),
+      );
+
+      await app.listen(3000);
+    }
+  callouts:
+    - line: 8
+      text: "transform: convertit vers vos DTOs (types)"
+    - line: 9
+      text: "whitelist: supprime les champs inconnus"
+    - line: 10
+      text: "forbidNonWhitelisted: rejette si champ inconnu"
+  expected_output: "Les requêtes avec champs non attendus répondent 400 avec un message explicite"
+
+notes_formateur: |
+  ## Déroulé (4 min)
+
+  ### Points clés
+  - transform simplifie le code côté service.
+  - whitelist/forbid = sécurité et propreté.
+
+  ### Question
+  "Vous préférez ignorer ou refuser les champs inconnus ? Pourquoi ?"
+
+notes_stagiaire: |
+  ## À retenir
+
+  **ValidationPipe global** : applique la validation partout.
+  **Bon réglage** : whitelist + forbidNonWhitelisted.
+  Résultat : moins de bugs, moins d'attaque par payload.

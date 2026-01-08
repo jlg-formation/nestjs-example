@@ -1,0 +1,59 @@
+id: nestjs-backend-3j-06-code-middleware-logger
+type: code_example
+title: "Middleware : logger méthode + route + durée"
+subtitle: "Un signal utile, sans bruit"
+
+layout:
+  template: code_example
+  density: medium
+  emphasis: text
+
+visual:
+  kind: code_render
+  source: none
+  placement: full
+  alt: "Middleware logger"
+
+code:
+  language: "ts"
+  snippet: |
+    import { Injectable, NestMiddleware } from '@nestjs/common';
+
+    @Injectable()
+    export class LoggerMiddleware implements NestMiddleware {
+      use(req: any, res: any, next: () => void) {
+        const start = Date.now();
+        res.on('finish', () => {
+          const ms = Date.now() - start;
+          console.log(`${req.method} ${req.originalUrl} -> ${res.statusCode} (${ms}ms)`);
+        });
+        next();
+      }
+    }
+  callouts:
+    - line: 4
+      text: "Middleware injectable"
+    - line: 6
+      text: "Mesure simple de durée"
+    - line: 8
+      text: "Log au moment où la réponse est finie"
+  expected_output: "GET /clients/... → log avec status et durée"
+
+covers:
+  - "Middlewares : logging et filtrage"
+
+notes_formateur: |
+  ## Déroulé (5 min)
+
+  ### Points clés
+  - Log minimal : méthode + URL + status + durée.
+  - On peut ensuite remplacer `console.log` par un logger.
+
+  ### Transition
+  Filtrer : un exemple simple et dangereux si mal fait.
+
+notes_stagiaire: |
+  ## À retenir
+
+  **Bon log** : utile, court, reproductible.
+  **Mesure** : `finish` pour avoir le status final.

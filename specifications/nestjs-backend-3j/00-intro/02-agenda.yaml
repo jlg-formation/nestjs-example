@@ -1,0 +1,51 @@
+id: agenda-nestjs-backend-3j
+type: agenda
+title: "Programme des 3 jours"
+
+layout:
+  template: agenda
+  density: low
+  emphasis: text
+
+visual:
+  kind: icon
+  query: "calendar checklist"
+  source: local
+  placement: left
+  alt: "Icône calendrier"
+
+agenda:
+  items:
+    - "TypeScript essentiel + mini Express (route, SQL, middlewares)"
+    - "Démarrer NestJS : modules, contrôleurs, services, injection"
+    - "Validation, configuration (.env) et gestion centralisée des erreurs"
+    - "SQL brut : relations + CRUD complet (clients, soldes, réservations)"
+    - "Qualité : tests Jest (unit/e2e) + Swagger + guards/interceptors"
+
+notes_formateur: |
+  ## Déroulé (2 min)
+
+  ### Points clés à aborder
+  - Jour 1 : bases TS puis mise en route NestJS (architecture + DI)
+  - Jour 2 : validation, configuration, SQL brut et structuration pro
+  - Jour 3 : tests, qualité, puis middleware/guards/interceptors + Swagger
+
+  ### Rythme
+  - Alternance théorie / démo / TP guidés
+  - On garde un fil rouge "API clients / soldes / réservations"
+
+  ### Question
+  - "Vous visez plutôt la maîtrise de NestJS, des tests, ou du SQL ?"
+
+  ### Transition
+  Passons aux objectifs concrets : ce que vous saurez faire à la fin.
+
+notes_stagiaire: |
+  ## À retenir
+
+  **Jour 1** : TypeScript essentiel, mini Express, démarrage NestJS.
+  **Jour 2** : validation, config, SQL brut et CRUD complet.
+  **Jour 3** : tests unitaires & e2e, puis middlewares/guards/interceptors
+  et documentation Swagger.
+
+  **Format** : théorie + démo + TP guidés (progressifs).

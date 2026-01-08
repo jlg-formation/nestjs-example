@@ -1,0 +1,40 @@
+id: title-nestjs-backend-3j
+type: title
+title: "Construire une API pro en NestJS en 3 jours"
+subtitle: "TypeScript, SQL brut, validation, tests et Swagger"
+
+layout:
+  template: title
+  density: low
+  emphasis: visual
+
+visual:
+  kind: none
+  source: none
+  placement: background
+  alt: null
+
+notes_formateur: |
+  ## Déroulé (2 min)
+  ### Accroche
+  Bienvenue ! En 3 jours, on construit une API NestJS "pro" et maintenable.
+  ### Fil rouge
+  - API "clients / soldes / réservations" avec SQL brut
+  - DTOs validés + gestion d'erreurs cohérente
+  - Tests (unit + e2e) + documentation Swagger
+  ### Tour de table
+  - Expérience Node/TS ? Niveau SQL ? Attente principale ?
+  ### Transition
+  On déroule le programme des 3 jours.
+
+notes_stagiaire: |
+  ## À retenir
+
+  **But** : apprendre à construire une API backend moderne avec NestJS.
+
+  **Au programme** :
+  - Architecture NestJS (modules, contrôleurs, services, DI)
+  - Validation des entrées avec DTOs
+  - Accès base en SQL brut via des repositories
+  - Gestion des erreurs + réponses cohérentes
+  - Tests (Jest, e2e) + documentation Swagger

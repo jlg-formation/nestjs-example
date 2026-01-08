@@ -1,0 +1,38 @@
+formation:
+  id: nestjs-backend-3j
+  title: "Développement Backend Node.js / NestJS"
+  total_chapters: 8
+
+progress:
+  - chapter: "00-intro"
+    title: "Introduction"
+    status: done
+    slides_count: 3
+  - chapter: "01-typescript-mini-express"
+    title: "TypeScript essentiel + mini Express"
+    status: done
+    slides_count: 28
+  - chapter: "02-demarrage-nestjs"
+    title: "Démarrage NestJS : architecture, modules, contrôleurs, services"
+    status: done
+    slides_count: 23
+  - chapter: "03-validation-sql-services"
+    title: "Validation, configuration et SQL brut"
+    status: done
+    slides_count: 25
+  - chapter: "04-crud-architecture"
+    title: "Architecture API complète & CRUD"
+    status: done
+    slides_count: 25
+  - chapter: "05-tests"
+    title: "Tests unitaires et end-to-end"
+    status: done
+    slides_count: 26
+  - chapter: "06-middleware-guards-interceptors-swagger"
+    title: "Middleware, Guards, Interceptors & Swagger"
+    status: done
+    slides_count: 26
+  - chapter: "99-conclusion"
+    title: "Conclusion"
+    status: done
+    slides_count: 20

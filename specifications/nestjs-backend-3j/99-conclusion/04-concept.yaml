@@ -1,0 +1,48 @@
+id: nestjs-backend-3j-99-concept-dto-contrat
+type: concept
+title: "Les DTOs sont votre contrat d'API"
+
+layout:
+  template: concept
+  density: medium
+  emphasis: balanced
+
+visual:
+  kind: diagram
+  query: "api contract dto validation diagram"
+  source: ai
+  placement: right
+  alt: "Contrat API entre client et serveur"
+
+covers:
+  - "DTOs pour Clients et Réservations"
+  - "Réponses typées et formats standardisés"
+  - "Validation avec class-validator / class-transformer"
+
+concept:
+  definition: "Un DTO décrit ce que l'API accepte et renvoie : c'est un contrat, pas un détail d'implémentation."
+  bullets:
+    - "Validation : rejeter tôt, avec des erreurs lisibles"
+    - "Typage : réduire les ambiguïtés côté client"
+    - "Évolution : versionner sans casser les usages"
+    - "Doc : DTO + Swagger = contrat visible"
+  pitfalls:
+    - "❌ Utiliser directement les entités DB comme DTO"
+    - "❌ Valider dans le service au lieu d'un pipe global"
+
+notes_formateur: |
+  ## Déroulé (3 min)
+
+  ### Points clés
+  - DTO = frontière : ce qui passe / ne passe pas.
+  - Validation = sécurité + qualité.
+
+  ### Transition
+  On transforme ça en checklist opérationnelle.
+
+notes_stagiaire: |
+  ## À retenir
+
+  **DTO = contrat** : entrée/sortie explicites.
+  **Validation** : erreurs précises, pas des 500.
+  **Bon réflexe** : DTO dédiés, pas les modèles DB.

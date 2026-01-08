@@ -1,0 +1,38 @@
+id: ch2-concept-di
+type: concept
+title: "Injection de dépendances : brancher sans câbler à la main"
+covers:
+  - "Injection de dépendances"
+
+layout:
+  template: concept
+  density: medium
+  emphasis: balanced
+
+visual:
+  kind: diagram
+  query: "dependency injection arrows"
+  source: ai
+  placement: right
+  alt: "Schéma DI"
+
+concept:
+  definition: "La DI laisse Nest construire les objets et injecter leurs dépendances automatiquement."
+  bullets:
+    - "Le module déclare les providers"
+    - "Le controller reçoit le service via constructor"
+    - "Facilite les tests (mocks)"
+    - "Réduit le couplage et le 'new' partout"
+  pitfalls:
+    - "❌ Instancier soi-même ses services (new ...)"
+    - "❌ Dépendances cachées via imports globaux"
+
+notes_formateur: |
+  ## Déroulé (3 min)
+  - Faire un parallèle : brancher des Lego plutôt que souder.
+  - Transition : exemple controller + service.
+
+notes_stagiaire: |
+  ## À retenir
+  DI = Nest instancie et injecte.
+  Ça rend les dépendances explicites et les tests plus simples.

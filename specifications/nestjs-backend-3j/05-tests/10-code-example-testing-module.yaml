@@ -1,0 +1,55 @@
+id: nestjs-backend-3j-05-code-testing-module
+type: code_example
+title: "Nest TestingModule : câbler le contrôleur avec un mock"
+subtitle: "Une DI de test, simple et explicite"
+
+layout:
+  template: code_example
+  density: medium
+  emphasis: text
+
+visual:
+  kind: code_render
+  source: none
+  placement: full
+  alt: "TestingModule NestJS"
+
+code:
+  language: "ts"
+  snippet: |
+    import { Test } from '@nestjs/testing';
+
+    const serviceMock = { recharge: jest.fn() };
+
+    const moduleRef = await Test.createTestingModule({
+      controllers: [RechargeController],
+      providers: [{ provide: RechargeService, useValue: serviceMock }],
+    }).compile();
+
+    const controller = moduleRef.get(RechargeController);
+  callouts:
+    - line: 1
+      text: "`@nestjs/testing` pour construire un module de test"
+    - line: 6
+      text: "On injecte un mock via `useValue`"
+    - line: 10
+      text: "On récupère le controller comme en prod"
+  expected_output: "Controller prêt à être testé avec un service mocké"
+
+covers:
+  - "Test des contrôleurs"
+
+notes_formateur: |
+  ## Déroulé (4 min)
+
+  ### Points clés
+  - Le module de test reproduit la DI de Nest.
+  - On remplace uniquement les dépendances.
+
+  ### Transition
+  On formalise la démarche en étapes.
+
+notes_stagiaire: |
+  ## À retenir
+
+  **TestingModule** : même DI que Nest, mais avec mocks.

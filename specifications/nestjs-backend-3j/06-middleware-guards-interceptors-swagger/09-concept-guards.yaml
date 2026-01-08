@@ -1,0 +1,45 @@
+id: nestjs-backend-3j-06-concept-guards
+type: concept
+title: "Guard : autoriser ou refuser une route"
+subtitle: "Le bon endroit pour l'authentification"
+
+layout:
+  template: concept
+  density: medium
+  emphasis: balanced
+
+visual:
+  kind: icon
+  query: "security shield key"
+  source: local
+  placement: right
+  alt: "Icône sécurité"
+
+concept:
+  definition: "Un guard décide si la requête a le droit d'accéder à la route (auth, rôle, clé API)."
+  bullets:
+    - "Retourne true/false"
+    - "Peut lever une exception (401/403)"
+    - "S'applique globalement ou par route"
+    - "Ne dépend pas du métier de l'endpoint"
+  pitfalls:
+    - "❌ Mettre l'auth dans le controller"
+    - "❌ Auth différente selon routes (incohérence)"
+
+covers:
+  - "Guards : authentification par clé API"
+
+notes_formateur: |
+  ## Déroulé (3 min)
+
+  ### Points clés
+  - 401 = non authentifié, 403 = authentifié mais interdit.
+
+  ### Transition
+  Implémentons une auth simple : clé API.
+
+notes_stagiaire: |
+  ## À retenir
+
+  **Guard** : contrôle d'accès aux routes.
+  **Usage** : authentification et autorisations.

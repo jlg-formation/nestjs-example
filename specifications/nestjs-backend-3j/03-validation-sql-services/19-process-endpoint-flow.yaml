@@ -1,0 +1,47 @@
+id: nestjs-backend-3j-03-process-endpoint-flow
+type: process
+title: "Construire un endpoint propre : la check-list"
+subtitle: "DTO → validation → service → repository"
+
+layout:
+  template: process
+  density: medium
+  emphasis: balanced
+
+visual:
+  kind: diagram
+  query: "checklist steps api endpoint"
+  source: ai
+  placement: right
+  alt: "Étapes pour construire un endpoint"
+
+process:
+  steps:
+    - "Définir le DTO d'entrée (types + contraintes)"
+    - "Activer la validation (ValidationPipe)"
+    - "Écrire la logique métier dans un service"
+    - "Déléguer le SQL à un repository"
+    - "Gérer les erreurs (exceptions + filter)"
+
+covers:
+  - "Services et décorateur @Injectable"
+  - "Validation avec class-validator / class-transformer"
+  - "Gestion centralisée des erreurs"
+  - "Organisation du code avec des repositories SQL bruts"
+
+notes_formateur: |
+  ## Déroulé (4 min)
+
+  ### Points clés
+  - Répéter cette check-list pour chaque endpoint.
+  - On évite les retours "bizarres" et le code spaghetti.
+
+  ### Transition
+  On fait une petite démo : payload invalide → 400 propre.
+
+notes_stagiaire: |
+  ## À retenir
+
+  **Check-list** : DTO → validation → service → repository → erreurs.
+
+  **But** : un endpoint lisible et maintenable.

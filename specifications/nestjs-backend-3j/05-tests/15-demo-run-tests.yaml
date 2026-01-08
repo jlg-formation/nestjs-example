@@ -1,0 +1,42 @@
+id: nestjs-backend-3j-05-demo-run-tests
+type: demo
+title: "Démo : exécuter les tests (watch + e2e)"
+
+layout:
+  template: demo
+  density: low
+  emphasis: visual
+
+visual:
+  kind: icon
+  query: "terminal live demo"
+  source: local
+  placement: left
+  alt: "Icône démo"
+
+demo:
+  objective: "Montrer le feedback loop : modifier une ligne → test qui casse → fix → test vert"
+  tool: "Jest (watch) + tests e2e"
+  duration: "3 minutes"
+  steps:
+    - "Lancer les tests en watch"
+    - "Casser volontairement un status code/format"
+    - "Observer l'échec et le diff"
+    - "Corriger et revoir la suite passer"
+  fallback: "Captures écran ou log d'exécution enregistré"
+
+covers:
+  - "Introduction aux tests Jest"
+  - "Tests end-to-end (remplacent Postman)"
+
+notes_formateur: |
+  ## Déroulé (3 min)
+
+  ### Points clés
+  - Le test devient un outil de dev, pas juste de CI.
+  - Un test qui casse doit expliquer pourquoi.
+
+notes_stagiaire: |
+  ## À retenir
+
+  **Boucle rapide** : watch → casser → comprendre → corriger.

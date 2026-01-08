@@ -1,0 +1,29 @@
+id: nestjs-backend-3j-03-transition
+type: transition
+title: "CRUD complet et architecture API"
+
+layout:
+  template: transition
+  density: low
+  emphasis: visual
+
+visual:
+  kind: image
+  query: "api architecture blueprint"
+  source: pixabay
+  placement: background
+  alt: "Illustration architecture API"
+
+message: "On applique tout ça à une API complète : DTOs, relations SQL, endpoints."
+
+notes_formateur: |
+  ## Déroulé (30 sec)
+
+  ### Transition
+  "On a les briques pro. Maintenant on les applique au CRUD complet."
+
+notes_stagiaire: |
+  ## À retenir
+
+  **Prochaine étape** : construire une API complète (CRUD + relations)
+  avec la même discipline.

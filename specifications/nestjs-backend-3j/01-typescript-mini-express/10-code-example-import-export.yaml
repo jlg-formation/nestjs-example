@@ -1,0 +1,47 @@
+id: ch1-code-import-export
+type: code_example
+title: "import/export : un mini service réutilisable"
+subtitle: "Extraire la logique hors de la route"
+covers:
+  - "Modules ES, async/await, gestion des erreurs"
+
+layout:
+  template: code_example
+  density: medium
+  emphasis: text
+
+visual:
+  kind: code_render
+  source: none
+  placement: full
+  alt: "Exemple TypeScript import/export"
+
+code:
+  language: "ts"
+  snippet: |
+    // money.ts
+    export function formatEuros(amount: number): string {
+      return `${amount.toFixed(2)} €`;
+    }
+
+    // app.ts
+    import { formatEuros } from "./money.js";
+
+    console.log(formatEuros(9.5));
+  callouts:
+    - line: 2
+      text: "Exporter une fonction utilitaire"
+    - line: 7
+      text: "Importer explicitement ce dont on a besoin"
+    - line: 9
+      text: "Logique réutilisable : pas liée à Express"
+  expected_output: "9.50 €"
+
+notes_formateur: |
+  ## Déroulé (2 min)
+  - Point clé : extraire la logique métier hors des routes.
+  - Relier : en NestJS, service = classe injectable.
+
+notes_stagiaire: |
+  ## À retenir
+  Séparer logique métier et code HTTP simplifie maintenance et tests.

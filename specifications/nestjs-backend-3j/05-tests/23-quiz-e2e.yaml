@@ -1,0 +1,37 @@
+id: nestjs-backend-3j-05-quiz-e2e
+type: quiz
+title: "Quiz : e2e"
+
+layout:
+  template: quiz
+  density: low
+  emphasis: text
+
+visual:
+  kind: none
+  source: none
+  placement: full
+  alt: null
+
+quiz:
+  question: "Dans un test e2e, quelle assertion est la PLUS importante ?"
+  choices:
+    A: "L'ordre exact des appels internes"
+    B: "Le contrat observé : status code + shape de la réponse"
+    C: "Les logs du serveur"
+    D: "Le temps d'exécution au milliseconde près"
+
+notes_formateur: |
+  ## Déroulé (2 min)
+
+  ### Réponse
+  - B : contrat observable.
+
+  ### Transition
+  On passe au TP : écrire 2 tests e2e ciblés.
+
+notes_stagiaire: |
+  ## À retenir
+
+  **Réponse** : B.
+  **E2E** : vérifier ce qu'un client observe.

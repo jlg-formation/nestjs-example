@@ -1,0 +1,78 @@
+id: nestjs-backend-3j-03-exception-filter
+type: code_example
+title: "Exception Filter : format d'erreur unique"
+subtitle: "Mapper les exceptions vers un JSON stable"
+
+layout:
+  template: code_example
+  density: medium
+  emphasis: text
+
+visual:
+  kind: code_render
+  source: none
+  placement: full
+  alt: "Code NestJS : ExceptionFilter"
+
+code:
+  language: "ts"
+  snippet: |
+    import {
+      ArgumentsHost,
+      Catch,
+      ExceptionFilter,
+      HttpException,
+      HttpStatus,
+    } from '@nestjs/common';
+
+    @Catch()
+    export class ApiExceptionFilter implements ExceptionFilter {
+      catch(exception: unknown, host: ArgumentsHost) {
+        const ctx = host.switchToHttp();
+        const response = ctx.getResponse();
+
+        const status =
+          exception instanceof HttpException
+            ? exception.getStatus()
+            : HttpStatus.INTERNAL_SERVER_ERROR;
+
+        response.status(status).json({
+          statusCode: status,
+          message: status === 500 ? 'Internal error' : (exception as any).message,
+          errorCode: status === 500 ? 'INTERNAL_ERROR' : 'BAD_REQUEST',
+        });
+      }
+    }
+  callouts:
+    - line: 9
+      text: "@Catch() intercepte toutes les exceptions"
+    - line: 18
+      text: "500 par défaut si exception inconnue"
+    - line: 21
+      text: "Réponse JSON stable pour le client"
+  expected_output: "Toute erreur → JSON avec statusCode/message/errorCode"
+
+covers:
+  - "Gestion centralisée des erreurs"
+
+notes_formateur: |
+  ## Déroulé (5 min)
+
+  ### Points clés à aborder
+  - On évite d'exposer les détails en 500.
+  - On garde un message simple + un code.
+
+  ### Question
+  "Quels codes d'erreur métiers vous seraient utiles ?"
+
+  ### Transition
+  Attention : ne jamais fuiter stack/SQL dans les réponses.
+
+notes_stagiaire: |
+  ## À retenir
+
+  **Exception Filter** : centralise le format d'erreur.
+
+  **Règle** : en 500, ne pas exposer les détails techniques.
+
+  **Astuce** : utiliser `errorCode` pour gérer les cas côté front.

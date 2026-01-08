@@ -1,0 +1,27 @@
+id: ch1-transition-nestjs
+type: transition
+title: "Passer d'Express à NestJS"
+
+layout:
+  template: transition
+  density: low
+  emphasis: visual
+
+visual:
+  kind: image
+  query: "bridge transition architecture"
+  source: pixabay
+  placement: background
+  alt: "Illustration transition"
+
+message: "Même backend, mais une architecture plus structurée."
+
+notes_formateur: |
+  ## Déroulé (30 sec)
+  - Dire : Express = flexible ; NestJS = structure + conventions.
+  - Transition : on installe le CLI et on crée un projet.
+
+notes_stagiaire: |
+  ## À retenir
+  NestJS reprend les idées (routes, middleware) en les structurant.
+  On passe au chapitre : architecture NestJS.

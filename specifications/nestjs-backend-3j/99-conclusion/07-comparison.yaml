@@ -1,0 +1,53 @@
+id: nestjs-backend-3j-99-comparison-tests
+type: comparison
+title: "Unit vs E2E : deux tests, deux objectifs"
+subtitle: "Vitesse vs confiance"
+
+layout:
+  template: comparison
+  density: medium
+  emphasis: balanced
+
+visual:
+  kind: none
+  source: none
+  placement: full
+  alt: null
+
+covers:
+  - "Introduction aux tests Jest"
+  - "Test des contrôleurs"
+  - "Tests end-to-end (remplacent Postman)"
+
+comparison:
+  left:
+    title: "Unit tests (Jest)"
+    bullets:
+      - "Rapides, nombreux"
+      - "Mocks (services, repositories)"
+      - "Vérifier une règle métier"
+      - "Échec facile à diagnostiquer"
+      - "Ne teste pas l'intégration HTTP"
+  right:
+    title: "E2E tests"
+    bullets:
+      - "Plus lents, moins nombreux"
+      - "API comme un client (HTTP)"
+      - "Valider wiring : pipes/guards/interceptors"
+      - "Détecte les régressions d'intégration"
+      - "Remplace Postman pour le non-régressif"
+
+notes_formateur: |
+  ## Déroulé (3 min)
+
+  ### Message
+  On ne choisit pas : on combine.
+
+  ### Question
+  "Dans votre contexte, qu'est-ce qui casse le plus souvent ?"
+
+notes_stagiaire: |
+  ## À retenir
+
+  **Unit** = rapide, isolé, précis.
+  **E2E** = plus lent, mais confiance sur l'intégration.

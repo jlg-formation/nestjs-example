@@ -1,0 +1,46 @@
+id: objective-nestjs-backend-3j
+type: objective
+title: "Ce que vous saurez livrer à la fin des 3 jours"
+subtitle: "Une API NestJS structurée, validée, testée et documentée"
+
+layout:
+  template: objective
+  density: low
+  emphasis: text
+
+visual:
+  kind: icon
+  query: "target goal"
+  source: local
+  placement: left
+  alt: "Icône cible"
+
+objectives:
+  - "Créer une API NestJS en modules / contrôleurs / services, avec DI"
+  - "Valider les entrées avec DTOs (class-validator / class-transformer)"
+  - "Accéder à la base via SQL brut structuré en repositories"
+  - "Gérer erreurs et réponses de façon cohérente (API 'pro')"
+  - "Écrire des tests unitaires et e2e et publier une doc Swagger"
+
+notes_formateur: |
+  ## Déroulé (2 min)
+  ### Points clés
+  - Compétences pratiques : patterns réutilisables dès demain
+  - Priorité : structure, validation, SQL, tests et documentation
+  ### Hors périmètre (cadrage)
+  - ORMs avancés (Prisma/TypeORM) et déploiement Docker/K8s
+  - Auth complète (OAuth/JWT) : on fera un guard API key simple
+  ### Question
+  "Votre priorité : structure, validation, SQL, tests ou Swagger ?"
+  ### Transition
+  On commence par TypeScript, puis on attaque NestJS.
+
+notes_stagiaire: |
+  ## À retenir
+
+  **À l'issue de la formation, vous saurez** :
+  - Structurer une API NestJS (modules, contrôleurs, services)
+  - Valider les données d'entrée avec des DTOs
+  - Écrire un accès base en SQL brut propre (repositories)
+  - Produire une API robuste (erreurs, réponses standardisées)
+  - Tester (unit + e2e) et documenter (Swagger)

@@ -1,0 +1,48 @@
+id: nestjs-backend-3j-99-example-endpoint-solde
+type: example
+title: "Exemple : un endpoint propre se lit en 30 secondes"
+
+layout:
+  template: example
+  density: low
+  emphasis: balanced
+
+visual:
+  kind: image
+  query: "clean code checklist"
+  source: pixabay
+  placement: right
+  alt: "Illustration checklist"
+
+covers:
+  - "Créer les endpoints :"
+  - "GET /clients/:id/soldes"
+  - "Créer un service SQL brut (SELECT, INSERT) avec DTO validé."
+
+example:
+  variant: simple
+  bullets:
+    - "Contexte : GET /clients/:id/soldes doit être lisible et testable"
+    - "Action : controller minimal → service (règles) → repository (SQL)"
+    - "Résultat : erreurs cohérentes + tests e2e simples à écrire"
+  takeaway: "Si vous ne pouvez pas le tester facilement, c'est souvent trop couplé."
+
+notes_formateur: |
+  ## Déroulé (3 min)
+
+  ### Points clés
+  - Montrer la séparation des responsabilités.
+  - Expliquer : le repository renvoie des données brutes, le service décide.
+
+  ### Question
+  "Votre alerte : contrôleur trop gros ou service trop gros ?"
+
+notes_stagiaire: |
+  ## À retenir
+
+  **Endpoint propre** :
+  - Controller : adapter HTTP
+  - Service : règles métier
+  - Repository : SQL paramétré
+
+  **Bonus** : tests plus simples.

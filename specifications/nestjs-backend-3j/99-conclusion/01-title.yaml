@@ -1,0 +1,30 @@
+id: nestjs-backend-3j-99-title
+type: title
+title: "Vous savez maintenant construire une API NestJS professionnelle"
+subtitle: "Synthèse, bonnes pratiques et prochaines étapes"
+
+layout:
+  template: title
+  density: low
+  emphasis: visual
+
+visual:
+  kind: none
+  source: none
+  placement: background
+  alt: null
+
+notes_formateur: |
+  ## Déroulé (1 min)
+
+  ### Accroche
+  On a couvert le chemin complet : routes → métier → SQL → tests → doc.
+
+  ### Transition
+  On synthétise l'essentiel à emporter.
+
+notes_stagiaire: |
+  ## À retenir
+
+  **Objectif** : repartir avec une checklist réutilisable.
+  On termine par : synthèse, quiz final, et suite à donner.

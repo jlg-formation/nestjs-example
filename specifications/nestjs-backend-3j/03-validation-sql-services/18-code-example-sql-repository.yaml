@@ -1,0 +1,77 @@
+id: nestjs-backend-3j-03-code-sql-repo
+type: code_example
+title: "Repository SQL brut : SELECT et INSERT"
+subtitle: "Encapsuler le SQL dans une classe dédiée"
+
+layout:
+  template: code_example
+  density: medium
+  emphasis: text
+
+visual:
+  kind: code_render
+  source: none
+  placement: full
+  alt: "Code TypeScript : repository SQL brut"
+
+code:
+  language: "ts"
+  snippet: |
+    import { Injectable } from '@nestjs/common';
+
+    type ClientRow = { id: string; name: string };
+
+    @Injectable()
+    export class ClientRepository {
+      constructor(private readonly db: { query: Function }) {}
+
+      async findById(id: string): Promise<ClientRow | null> {
+        const [rows] = await this.db.query(
+          'SELECT id, name FROM clients WHERE id = ?',
+          [id],
+        );
+        const first = (rows as ClientRow[])[0];
+        return first ?? null;
+      }
+
+      async insert(client: ClientRow): Promise<void> {
+        await this.db.query(
+          'INSERT INTO clients (id, name) VALUES (?, ?)',
+          [client.id, client.name],
+        );
+      }
+    }
+  callouts:
+    - line: 6
+      text: "Repository injectable (dépendance db injectée)"
+    - line: 10
+      text: "SQL paramétré (évite l'injection)"
+    - line: 18
+      text: "INSERT encapsulé, pas dans le service"
+  expected_output: "Le service appelle findById/insert sans écrire de SQL"
+
+covers:
+  - "Organisation du code avec des repositories SQL bruts"
+  - "Services et décorateur @Injectable"
+
+notes_formateur: |
+  ## Déroulé (5 min)
+
+  ### Points clés
+  - SQL paramétré (placeholders) pour éviter l'injection.
+  - Typage minimal des rows.
+
+  ### Question
+  "Où gérez-vous les erreurs : ici, ou dans le service ?"
+
+  ### Transition
+  On formalise le flux Controller → Service → Repository.
+
+notes_stagiaire: |
+  ## À retenir
+
+  **Repository** : expose des méthodes (findById, insert).
+
+  **Sécurité** : utiliser du SQL paramétré (`?`).
+
+  **But** : le service ne manipule pas des chaînes SQL.

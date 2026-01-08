@@ -1,0 +1,48 @@
+id: ch2-code-service-injectable
+type: code_example
+title: "@Injectable : un service simple"
+subtitle: "Calculer un solde, sans HTTP"
+covers:
+  - "Logique métier dans les services"
+
+layout:
+  template: code_example
+  density: medium
+  emphasis: text
+
+visual:
+  kind: code_render
+  source: none
+  placement: full
+  alt: "Code NestJS service"
+
+code:
+  language: "ts"
+  snippet: |
+    import { Injectable } from "@nestjs/common";
+
+    @Injectable()
+    export class SoldesService {
+      getBalance(clientId: number): number {
+        if (clientId <= 0) throw new Error("Invalid clientId");
+        return 0;
+      }
+    }
+  callouts:
+    - line: 3
+      text: "@Injectable rend la classe injectable"
+    - line: 5
+      text: "Logique métier : pas de req/res"
+    - line: 6
+      text: "Erreurs métier : on les gérera mieux ensuite"
+  expected_output: "Service réutilisable et testable"
+
+notes_formateur: |
+  ## Déroulé (3 min)
+  - Dire : on remplacera Error par exceptions Nest plus tard.
+  - Transition : comment l'injecter dans le controller.
+
+notes_stagiaire: |
+  ## À retenir
+  @Injectable permet à Nest d'instancier le service.
+  Le service doit rester indépendant de HTTP.

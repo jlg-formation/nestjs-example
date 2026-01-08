@@ -1,0 +1,41 @@
+id: nestjs-backend-3j-99-key-idea-errors
+type: key_idea
+title: "L'idée clé : les erreurs font partie du contrat"
+
+layout:
+  template: key_idea
+  density: low
+  emphasis: visual
+
+visual:
+  kind: icon
+  query: "error handling shield"
+  source: local
+  placement: left
+  alt: "Icône bouclier"
+
+covers:
+  - "Gestion centralisée des erreurs"
+
+message: "Un 404/409 bien expliqué vaut mieux qu'un 500 mystérieux."
+
+supporting_points:
+  - "Standardiser les formats d'erreurs (message, code, détails)"
+  - "Mapper les exceptions métier vers des status HTTP"
+  - "Ne jamais exposer l'erreur SQL brute au client"
+
+notes_formateur: |
+  ## Déroulé (2 min)
+
+  ### Points clés
+  - Erreurs = UX développeur + sécurité.
+  - Exemple : 409 sur réservation impossible.
+
+  ### Transition
+  On conclut avec une checklist 'prod-ready'.
+
+notes_stagiaire: |
+  ## À retenir
+
+  **Erreurs = contrat** : prévisible et cohérent.
+  **Règle** : exposer l'intention, pas le détail interne.

@@ -1,0 +1,55 @@
+id: nestjs-backend-3j-06-exercise-tp
+type: exercise
+title: "TP : guard + interceptor (auth + format)"
+subtitle: "Ajouter sécurité et cohérence sans toucher au métier"
+
+layout:
+  template: exercise
+  density: medium
+  emphasis: text
+
+visual:
+  kind: icon
+  query: "code shield practice"
+  source: local
+  placement: left
+  alt: "Icône exercice"
+
+exercise:
+  goal: "Protéger l'API par clé API et standardiser toutes les réponses"
+  instructions:
+    - "Créer un guard `ApiKeyGuard` (header x-api-key)"
+    - "Configurer la clé via variable d'environnement"
+    - "Appliquer le guard (globalement ou sur un controller)"
+    - "Créer un interceptor `WrapResponseInterceptor`"
+    - "Appliquer l'interceptor globalement pour retourner `{ data }`"
+  deliverable: "API protégée (401 sans clé) et réponses standardisées"
+  success_criteria:
+    - "Sans x-api-key → 401"
+    - "Avec x-api-key → accès OK"
+    - "Réponses : `{ data: ... }` sur les endpoints concernés"
+    - "Controllers restent fins (pas de duplication)"
+
+covers:
+  - "TP :"
+  - "Créer un guard d’authentification + un interceptor de transformation."
+  - "Guards : authentification par clé API"
+  - "Interceptors : transformation de réponse, mesure des temps"
+
+notes_formateur: |
+  ## Déroulé (45 min)
+
+  ### Timing
+  - 15 min : guard
+  - 20 min : interceptor
+  - 10 min : intégration + tests rapides (Swagger ou e2e)
+
+  ### Conseils
+  - D'abord une route protégée, puis généraliser.
+  - Vérifier 401/200 via Swagger UI.
+
+notes_stagiaire: |
+  ## À retenir
+
+  **But** : sécurité + cohérence.
+  **Vérifier** : 401 sans clé, `{ data }` en réponse.

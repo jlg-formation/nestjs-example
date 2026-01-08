@@ -1,0 +1,31 @@
+id: ch2-title-demarrage-nestjs
+type: title
+title: "NestJS : la structure qui évite le chaos en backend"
+subtitle: "Modules, contrôleurs, services, DI : les bases solides"
+
+layout:
+  template: title
+  density: low
+  emphasis: visual
+
+visual:
+  kind: icon
+  query: "nestjs architecture"
+  source: local
+  placement: background
+  alt: "Icône architecture"
+
+notes_formateur: |
+  ## Déroulé (1 min)
+  ### Accroche
+  Express donne la liberté. NestJS donne une architecture par défaut.
+  ### Promesse
+  - Moins de décisions "invisibles"
+  - Plus de code testable et maintenable
+  ### Transition
+  On démarre par le CLI et la création du projet.
+
+notes_stagiaire: |
+  ## À retenir
+  NestJS apporte une structure (inspirée Angular) au backend Node.
+  Objectif : architecture claire + DI + tests facilités.

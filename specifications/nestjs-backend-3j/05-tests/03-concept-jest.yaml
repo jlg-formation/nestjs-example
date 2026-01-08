@@ -1,0 +1,49 @@
+id: nestjs-backend-3j-05-concept-jest
+type: concept
+title: "Jest : un moteur de test rapide et expressif"
+subtitle: "Des assertions lisibles, un feedback immédiat"
+
+layout:
+  template: concept
+  density: medium
+  emphasis: balanced
+
+visual:
+  kind: icon
+  query: "test checkmark speed"
+  source: local
+  placement: right
+  alt: "Icône tests"
+
+concept:
+  definition: "Jest exécute vos tests, fournit des assertions (`expect`) et gère mocks, spies et snapshots."
+  bullets:
+    - "`describe`/`it` pour organiser"
+    - "`expect(...)` pour vérifier"
+    - "Mocks intégrés (`jest.fn`, `jest.spyOn`)"
+    - "Mode watch : feedback rapide"
+  pitfalls:
+    - "❌ Tests trop couplés à l'implémentation"
+    - "❌ Tests lents : on ne les exécute plus"
+
+covers:
+  - "Introduction aux tests Jest"
+
+notes_formateur: |
+  ## Déroulé (3 min)
+
+  ### Points clés
+  - Le but : rendre la régression visible tout de suite.
+  - Bon test = lisible + stable.
+
+  ### Question
+  "Vous préférez découvrir un bug en prod ou en CI ?"
+
+  ### Transition
+  Écrivons un premier test minimal.
+
+notes_stagiaire: |
+  ## À retenir
+
+  **Jest** : framework de tests (runner + assertions + mocks).
+  **Qualité** : tests lisibles et rapides.

@@ -1,0 +1,42 @@
+id: nestjs-backend-3j-05-warning-shared-db
+type: warning
+title: "⚠️ DB partagée = tests flakys"
+
+layout:
+  template: warning
+  density: low
+  emphasis: visual
+
+visual:
+  kind: icon
+  query: "warning database conflict"
+  source: local
+  placement: left
+  alt: "Alerte DB"
+
+warning:
+  danger: "Quand les tests partagent le même état DB, ils peuvent se polluer (ordre, concurrence, données résiduelles)."
+  consequences:
+    - "Tests qui passent en local et cassent en CI"
+    - "Temps perdu à 'réparer' des tests"
+    - "Perte de confiance dans la suite"
+  prevention: "DB dédiée, seed minimal, nettoyage systématique, et exécution isolée"
+  real_case: "Un test supprimait un client que l'autre test attendait"
+
+covers:
+  - "Stratégies de test des requêtes SQL"
+
+notes_formateur: |
+  ## Déroulé (2 min)
+
+  ### Repère
+  - Si un test dépend de l'ordre, il est cassé.
+
+  ### Transition
+  On va discuter : que faut-il mocker ?
+
+notes_stagiaire: |
+  ## À retenir
+
+  **Flaky** = non déterministe.
+  **Solution** : isolation + seed + cleanup.

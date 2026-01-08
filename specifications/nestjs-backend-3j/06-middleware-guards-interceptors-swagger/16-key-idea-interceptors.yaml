@@ -1,0 +1,39 @@
+id: nestjs-backend-3j-06-key-idea-interceptors
+type: key_idea
+title: "L'idée clé : la cohérence vaut plus que la perfection"
+
+layout:
+  template: key_idea
+  density: low
+  emphasis: visual
+
+visual:
+  kind: icon
+  query: "consistency checklist"
+  source: local
+  placement: left
+  alt: "Icône cohérence"
+
+message: "Un interceptor global évite 100 micro-incohérences dans vos controllers."
+
+supporting_points:
+  - "Même format de réponse"
+  - "Même mesure de performance"
+  - "Même comportement sur toute l'API"
+
+covers:
+  - "Interceptors : transformation de réponse, mesure des temps"
+
+notes_formateur: |
+  ## Déroulé (1 min)
+
+  ### Points clés
+  - On veut des règles globales, pas du bricolage par route.
+
+  ### Transition
+  Documenter l'API : Swagger.
+
+notes_stagiaire: |
+  ## À retenir
+
+  **Bénéfice** : moins d'incohérences, plus de maintenance sereine.

@@ -1,0 +1,36 @@
+id: ch2-process-bootstrap
+type: process
+title: "Créer un projet NestJS : le chemin le plus sûr"
+subtitle: "CLI → run → première route"
+covers:
+  - "Installation du CLI et création du projet"
+
+layout:
+  template: process
+  density: medium
+  emphasis: balanced
+
+visual:
+  kind: diagram
+  query: "setup steps checklist"
+  source: ai
+  placement: right
+  alt: "Étapes de setup"
+
+process:
+  steps:
+    - "Installer le Nest CLI"
+    - "Créer le projet (nest new ...)"
+    - "Lancer en dev et vérifier /"
+    - "Lire la structure (src, app.module, app.controller)"
+    - "Ajouter un premier module métier (soldes)"
+
+notes_formateur: |
+  ## Déroulé (3 min)
+  - Mettre l'accent sur : vérifier que ça tourne avant de coder.
+  - Transition : on montre le CLI et la création.
+
+notes_stagiaire: |
+  ## À retenir
+  Démarrer proprement : créer, lancer, vérifier, puis seulement modifier.
+  Le CLI vous donne une structure standard.

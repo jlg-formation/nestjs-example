@@ -1,0 +1,34 @@
+id: ch2-quiz-decorators
+type: quiz
+title: "Quiz : décorateurs"
+
+layout:
+  template: quiz
+  density: low
+  emphasis: text
+
+visual:
+  kind: none
+  source: none
+  placement: full
+  alt: null
+
+quiz:
+  question: "À quoi sert @Controller('soldes') ?"
+  choices:
+    A: "À rendre un service injectable"
+    B: "À définir un préfixe de route pour les endpoints"
+    C: "À ouvrir une connexion SQL"
+    D: "À compiler TypeScript"
+
+notes_formateur: |
+  ## Déroulé (2 min)
+  - Réponse : B.
+  - A : @Injectable.
+  ### Transition
+  On synthétise et on prépare la suite (validation + SQL).
+
+notes_stagiaire: |
+  ## À retenir
+  **Réponse** : B.
+  @Controller définit le préfixe de route.

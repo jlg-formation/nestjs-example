@@ -1,0 +1,57 @@
+id: nestjs-backend-3j-04-exercise-tp
+type: exercise
+title: "TP : livrer les endpoints CRUD"
+subtitle: "Assembler DTO + service + repository + SQL"
+
+layout:
+  template: exercise
+  density: medium
+  emphasis: text
+
+visual:
+  kind: icon
+  query: "code laptop api exercise"
+  source: local
+  placement: left
+  alt: "Icône exercice"
+
+exercise:
+  goal: "Implémenter 3 endpoints cohérents (contrat + SQL brut + architecture pro)"
+  instructions:
+    - "Créer les DTOs : CreateRechargeDto, CreateReservationDto, ClientBalanceDto"
+    - "Créer les controllers : POST /recharge, POST /reservation, GET /clients/:id/soldes"
+    - "Mettre la logique métier dans les services (solde suffisant, 404 si client absent)"
+    - "Écrire le SQL dans des repositories (paramétré)"
+    - "Utiliser une transaction pour les opérations multi-requêtes"
+  deliverable: "Une API fonctionnelle avec réponses standard `{ data: ... }`"
+  success_criteria:
+    - "POST /recharge augmente le solde et garde l'historique"
+    - "POST /reservation refuse si solde insuffisant"
+    - "GET /clients/:id/soldes retourne un DTO de sortie stable"
+    - "Pas de SQL dans les controllers"
+
+covers:
+  - "TP :"
+  - "Créer les endpoints :"
+  - "POST /recharge"
+  - "POST /reservation"
+  - "GET /clients/:id/soldes"
+
+notes_formateur: |
+  ## Déroulé (45 min)
+
+  ### Organisation
+  - 10 min : scaffolding (fichiers, routes)
+  - 25 min : implémentation (service + repo + SQL)
+  - 10 min : debug et revue rapide
+
+  ### Conseils
+  - Commencer par GET /clients/:id/soldes (simple).
+  - Puis POST /recharge (transaction INSERT+UPDATE).
+  - Enfin POST /reservation (règle solde suffisant).
+
+notes_stagiaire: |
+  ## À retenir
+
+  **Objectif** : assembler les couches proprement.
+  **Critère** : endpoints cohérents (contrat, types, erreurs, SQL paramétré).

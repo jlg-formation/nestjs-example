@@ -1,0 +1,52 @@
+id: nestjs-backend-3j-05-comparison-unit-e2e
+type: comparison
+title: "Unit test vs e2e"
+subtitle: "Vitesse contre réalisme"
+
+layout:
+  template: comparison
+  density: medium
+  emphasis: balanced
+
+visual:
+  kind: none
+  source: none
+  placement: full
+  alt: null
+
+comparison:
+  left:
+    title: "Unit"
+    bullets:
+      - "Très rapide"
+      - "Mock dépendances"
+      - "Cible : 1 classe/fonction"
+      - "Bon pour règles métier"
+      - "Peut rater l'intégration"
+  right:
+    title: "E2E"
+    bullets:
+      - "Plus lent"
+      - "Vrai runtime NestJS"
+      - "Cible : endpoint complet"
+      - "Détecte routing/validation"
+      - "Exige une DB de test"
+
+covers:
+  - "Tests end-to-end (remplacent Postman)"
+
+notes_formateur: |
+  ## Déroulé (2 min)
+
+  ### Message clé
+  - On ne choisit pas : on combine.
+
+  ### Transition
+  Voyons un test e2e Supertest.
+
+notes_stagiaire: |
+  ## À retenir
+
+  **Approche** :
+  - beaucoup d'unit (rapides)
+  - quelques e2e (fiables)

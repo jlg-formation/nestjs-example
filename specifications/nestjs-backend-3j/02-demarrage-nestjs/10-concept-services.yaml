@@ -1,0 +1,39 @@
+id: ch2-concept-services
+type: concept
+title: "Service : l'endroit naturel de la logique métier"
+covers:
+  - "Logique métier dans les services"
+  - "Structure : modules, contrôleurs, services"
+
+layout:
+  template: concept
+  density: medium
+  emphasis: balanced
+
+visual:
+  kind: icon
+  query: "gear service business logic"
+  source: local
+  placement: right
+  alt: "Icône service"
+
+concept:
+  definition: "Un service encapsule les règles métier et peut être testé sans HTTP."
+  bullets:
+    - "Reçoit des données, applique des règles"
+    - "Orchestre DB/clients externes via dépendances"
+    - "Testable : on mocke les dépendances"
+    - "Réutilisable : plusieurs controllers peuvent l'appeler"
+  pitfalls:
+    - "❌ Service qui fait du HTTP (req/res)"
+    - "❌ Service trop gros : découper par cas d'usage"
+
+notes_formateur: |
+  ## Déroulé (3 min)
+  - Relier : on veut tester le métier sans lancer un serveur.
+  - Transition : on regarde @Injectable.
+
+notes_stagiaire: |
+  ## À retenir
+  Le service porte les règles métier.
+  Le controller est une façade HTTP.

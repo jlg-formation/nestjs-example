@@ -1,0 +1,38 @@
+id: ch1-concept-json
+type: concept
+title: "JSON : un format simple pour config et données"
+covers:
+  - "Manipulation simple d’un fichier JSON"
+
+layout:
+  template: concept
+  density: medium
+  emphasis: balanced
+
+visual:
+  kind: icon
+  query: "json file brackets"
+  source: local
+  placement: right
+  alt: "Fichier JSON"
+
+concept:
+  definition: "JSON est un format texte pour échanger des objets (API) et stocker de petites données." 
+  bullets:
+    - "Lecture/écriture facile (fs + JSON.parse/stringify)"
+    - "Parfait pour des données simples (seed, config)"
+    - "À valider : un JSON peut être mal formé"
+    - "À typer : interface TypeScript pour clarifier"
+  pitfalls:
+    - "❌ Stocker de gros volumes dans un fichier JSON"
+    - "❌ Faire confiance à JSON.parse sans try/catch"
+
+notes_formateur: |
+  ## Déroulé (2 min)
+  - Rappeler : JSON = texte, donc erreurs possibles.
+  - Donner un usage : config locale, seed, mock de clients.
+
+notes_stagiaire: |
+  ## À retenir
+  JSON est pratique pour démarrer, mais doit être géré avec erreurs.
+  Pour des données métier, on passera rapidement à la base.

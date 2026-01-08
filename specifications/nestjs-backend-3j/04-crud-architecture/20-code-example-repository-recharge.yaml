@@ -1,0 +1,78 @@
+id: nestjs-backend-3j-04-code-repo-recharge
+type: code_example
+title: "Repository : encapsuler le SQL de recharge"
+subtitle: "Une méthode = un cas d'usage data"
+
+layout:
+  template: code_example
+  density: medium
+  emphasis: text
+
+visual:
+  kind: code_render
+  source: none
+  placement: full
+  alt: "Repository : recharge SQL"
+
+code:
+  language: "ts"
+  snippet: |
+    import { Injectable } from '@nestjs/common';
+
+    @Injectable()
+    export class RechargeRepository {
+      constructor(private readonly db: any) {}
+
+      async applyRecharge(clientId: string, amount: number): Promise<ClientDto | null> {
+        await this.db.begin();
+        try {
+          await this.db.query(
+            'INSERT INTO recharges (client_id, amount) VALUES (?, ?)',
+            [clientId, amount],
+          );
+          const [result] = await this.db.query(
+            'UPDATE clients SET balance = balance + ? WHERE id = ?',
+            [amount, clientId],
+          );
+          if ((result as any).affectedRows !== 1) return null;
+          const [rows] = await this.db.query(
+            'SELECT id, name, balance FROM clients WHERE id = ?',
+            [clientId],
+          );
+          await this.db.commit();
+          return (rows as any[])[0] ?? null;
+        } catch (e) {
+          await this.db.rollback();
+          throw e;
+        }
+      }
+    }
+  callouts:
+    - line: 7
+      text: "Transaction courte"
+    - line: 19
+      text: "On retourne un DTO de sortie (row mappée)"
+  expected_output: "Client existant → DTO avec balance mise à jour"
+
+covers:
+  - "Structuration contrôleurs / services / repositories"
+  - "SQL brut : inserts, updates, relations"
+  - "POST /recharge"
+
+notes_formateur: |
+  ## Déroulé (6 min)
+
+  ### Points clés
+  - Le repository garde le SQL et la transaction.
+  - Le service ne voit que des méthodes métier.
+
+  ### Transition
+  Maintenant, le GET de lecture du solde.
+
+notes_stagiaire: |
+  ## À retenir
+
+  **Repository** :
+  - SQL paramétré
+  - transaction
+  - retourne des données prêtes à exposer (DTO)

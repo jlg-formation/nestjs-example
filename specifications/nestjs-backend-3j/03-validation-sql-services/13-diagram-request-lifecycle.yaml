@@ -1,0 +1,55 @@
+id: nestjs-backend-3j-03-diagram-lifecycle
+type: diagram
+title: "Où vivent validation et erreurs dans NestJS ?"
+
+layout:
+  template: diagram
+  density: low
+  emphasis: visual
+
+visual:
+  kind: diagram
+  query: "NestJS request lifecycle pipes guards interceptors filters diagram"
+  source: ai
+  placement: full
+  alt: "Cycle de requête NestJS"
+
+diagram:
+  description: "Le trajet d'une requête HTTP et les points d'extension"
+  components:
+    - name: "Pipes"
+      role: "Validation / transformation des inputs (DTO)"
+    - name: "Controller"
+      role: "Adaptation HTTP (routes, status codes)"
+    - name: "Service"
+      role: "Logique métier et orchestration"
+    - name: "Repository"
+      role: "Accès SQL brut"
+    - name: "Exception Filters"
+      role: "Centraliser les erreurs et leur format"
+  flow: "Request → Pipes → Controller → Service → Repository → (Error) → Exception Filter → Response"
+
+covers:
+  - "Validation avec class-validator / class-transformer"
+  - "Gestion centralisée des erreurs"
+  - "Organisation du code avec des repositories SQL bruts"
+
+notes_formateur: |
+  ## Déroulé (4 min)
+
+  ### Points clés à aborder
+  - Pipe : garde-fou d'entrée.
+  - Filter : format d'erreur homogène.
+  - Séparation des rôles : lisible, testable.
+
+  ### Transition
+  On se focalise maintenant sur la gestion centralisée des erreurs.
+
+notes_stagiaire: |
+  ## À retenir
+
+  **Validation** : dans les pipes (DTO).
+
+  **Erreurs** : centralisées via Exception Filters.
+
+  **Objectif** : un backend prévisible (input → output).

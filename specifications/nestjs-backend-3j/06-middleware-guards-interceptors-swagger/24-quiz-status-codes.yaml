@@ -1,0 +1,36 @@
+id: nestjs-backend-3j-06-quiz-status
+type: quiz
+title: "Quiz : status codes"
+
+layout:
+  template: quiz
+  density: low
+  emphasis: text
+
+visual:
+  kind: none
+  source: none
+  placement: full
+  alt: null
+
+quiz:
+  question: "Sans `x-api-key`, quel status code est le plus cohérent ?"
+  choices:
+    A: "200"
+    B: "400"
+    C: "401"
+    D: "404"
+
+notes_formateur: |
+  ## Déroulé (2 min)
+
+  ### Réponse
+  - C : 401 Unauthorized.
+
+  ### Transition
+  On conclut le chapitre.
+
+notes_stagiaire: |
+  ## À retenir
+
+  **Réponse** : C (401).

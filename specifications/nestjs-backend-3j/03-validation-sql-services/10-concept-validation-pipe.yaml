@@ -1,0 +1,53 @@
+id: nestjs-backend-3j-03-validation-pipe
+type: concept
+title: "ValidationPipe : une barrière automatique à l'entrée"
+subtitle: "Valider et transformer AVANT d'appeler le service"
+
+layout:
+  template: concept
+  density: medium
+  emphasis: balanced
+
+visual:
+  kind: diagram
+  query: "request pipeline validation pipe controller"
+  source: ai
+  placement: right
+  alt: "Requête → ValidationPipe → Controller"
+
+concept:
+  definition: "Un pipe NestJS intercepte les paramètres (body, query, params) pour les transformer et/ou les valider avant le contrôleur."
+  bullets:
+    - "Validation globale : même règle partout"
+    - "Transform : convertir des strings en nombres si demandé"
+    - "Whitelist : ignorer les champs inconnus"
+    - "Erreurs 400 cohérentes"
+  pitfalls:
+    - "❌ Activer `transform` sans comprendre les conversions"
+    - "❌ Laisser passer des champs inattendus"
+
+covers:
+  - "Validation avec class-validator / class-transformer"
+
+notes_formateur: |
+  ## Déroulé (3 min)
+
+  ### Points clés
+  - Pipe global = discipline.
+  - `whitelist` et `forbidNonWhitelisted` rendent l'API stricte.
+
+  ### Question
+  "Préférez-vous ignorer un champ inconnu ou refuser ?"
+
+  ### Transition
+  Démo : activation dans `main.ts`.
+
+notes_stagiaire: |
+  ## À retenir
+
+  **ValidationPipe** : valide le payload automatiquement.
+
+  **Options utiles** :
+  - `whitelist` : garde uniquement les champs attendus
+  - `forbidNonWhitelisted` : refuse si champ inconnu
+  - `transform` : transforme selon les types

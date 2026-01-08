@@ -1,0 +1,41 @@
+id: ch1-concept-sql-mysql2
+type: concept
+title: "SQL brut avec mysql2 : simple, explicite, efficace"
+covers:
+  - "Mini-projet Express réduit :"
+  - "Exemple SQL brut via mysql2"
+
+layout:
+  template: concept
+  density: medium
+  emphasis: balanced
+
+visual:
+  kind: icon
+  query: "sql database query"
+  source: local
+  placement: right
+  alt: "Icône base de données"
+
+concept:
+  definition: "Le SQL brut consiste à écrire vos requêtes explicitement, sans ORM, pour garder le contrôle."
+  bullets:
+    - "Requêtes claires : SELECT/INSERT/UPDATE"
+    - "Paramètres : éviter l'injection SQL"
+    - "Mapping simple : rows → objets"
+    - "Bonne base pour comprendre l'accès aux données"
+  pitfalls:
+    - "❌ Concaténer des strings avec des entrées utilisateur"
+    - "❌ Mélanger SQL et HTTP dans la même fonction"
+
+notes_formateur: |
+  ## Déroulé (3 min)
+  - Insister : paramètres SQL obligatoires.
+  - Dire : on structurera en repository en NestJS.
+  ### Transition
+  On écrit un SELECT via mysql2.
+
+notes_stagiaire: |
+  ## À retenir
+  SQL brut = contrôle et compréhension.
+  Toujours utiliser des requêtes paramétrées.

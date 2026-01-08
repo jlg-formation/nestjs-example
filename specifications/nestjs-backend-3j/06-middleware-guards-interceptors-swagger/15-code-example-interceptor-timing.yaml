@@ -1,0 +1,57 @@
+id: nestjs-backend-3j-06-code-interceptor-timing
+type: code_example
+title: "Interceptor : mesurer le temps d'un endpoint"
+subtitle: "Un signal de performance simple"
+
+layout:
+  template: code_example
+  density: medium
+  emphasis: text
+
+visual:
+  kind: code_render
+  source: none
+  placement: full
+  alt: "Interceptor timing"
+
+code:
+  language: "ts"
+  snippet: |
+    import { CallHandler, ExecutionContext, Injectable, NestInterceptor } from '@nestjs/common';
+    import { tap } from 'rxjs';
+
+    @Injectable()
+    export class TimingInterceptor implements NestInterceptor {
+      intercept(context: ExecutionContext, next: CallHandler) {
+        const start = Date.now();
+        const req = context.switchToHttp().getRequest();
+        return next.handle().pipe(
+          tap(() => console.log(`handled ${req.method} ${req.originalUrl} in ${Date.now() - start}ms`)),
+        );
+      }
+    }
+  callouts:
+    - line: 7
+      text: "Horodatage avant handler"
+    - line: 10
+      text: "`tap` : side-effect après exécution"
+  expected_output: "Log de perf par requête (ms)"
+
+covers:
+  - "Interceptors : transformation de réponse, mesure des temps"
+
+notes_formateur: |
+  ## Déroulé (5 min)
+
+  ### Points clés
+  - Mesurer d'abord, optimiser ensuite.
+  - Même principe avec un vrai logger/metrics.
+
+  ### Transition
+  On ancre l'idée clé : interceptors = cohérence.
+
+notes_stagiaire: |
+  ## À retenir
+
+  **Timing** : donne un indicateur simple.
+  **But** : repérer les endpoints lents.

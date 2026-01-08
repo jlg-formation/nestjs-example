@@ -1,0 +1,41 @@
+id: nestjs-backend-3j-04-quiz-http-contract
+type: quiz
+title: "Quiz : contrat HTTP"
+
+layout:
+  template: quiz
+  density: low
+  emphasis: text
+
+visual:
+  kind: none
+  source: none
+  placement: full
+  alt: null
+
+quiz:
+  question: "Quel est le bon comportement quand `clientId` est inconnu sur POST /recharge ?"
+  choices:
+    A: "200 OK avec balance = 0"
+    B: "201 Created mais sans body"
+    C: "404 Not Found"
+    D: "500 Internal Server Error"
+
+notes_formateur: |
+  ## Déroulé (2 min)
+
+  ### Réponse
+  - C : 404 (ressource absente).
+
+  ### Points clés
+  - 500 = bug serveur.
+  - 200 = succès, donc incohérent ici.
+
+  ### Transition
+  Place au TP : implémenter les 3 endpoints.
+
+notes_stagiaire: |
+  ## À retenir
+
+  **Réponse** : C (404 Not Found).
+  **Principe** : ressource absente → 404.

@@ -1,0 +1,44 @@
+id: nestjs-backend-3j-99-warning-sql-injection
+type: warning
+title: "⚠️ SQL brut : une erreur = une injection"
+
+layout:
+  template: warning
+  density: low
+  emphasis: visual
+
+visual:
+  kind: icon
+  query: "warning sql injection"
+  source: local
+  placement: left
+  alt: "Alerte sécurité SQL"
+
+covers:
+  - "Organisation du code avec des repositories SQL bruts"
+  - "SQL brut : inserts, updates, relations"
+
+warning:
+  danger: "Une concaténation de chaîne dans une requête peut exposer vos données"
+  consequences:
+    - "Exfiltration de données (clients, réservations)"
+    - "Altération de données (UPDATE/DELETE non autorisés)"
+    - "Contournement d'authentification si logique fragile"
+  prevention: "Utiliser des requêtes paramétrées et centraliser l'accès SQL dans des repositories"
+  real_case: "Anti-pattern : WHERE id = <userInput> (concaténation) — injection possible"
+
+notes_formateur: |
+  ## Déroulé (2 min)
+
+  ### Message
+  SQL brut = contrôle total, donc responsabilité totale.
+
+  ### Question
+  "Qui a déjà vu une injection SQL en prod ?"
+
+notes_stagiaire: |
+  ## À retenir
+
+  **Règle** : jamais de concaténation dans le SQL.
+  **Solution** : paramètres + repository dédié.
+  **Bonus** : loggez les erreurs SQL sans exposer le détail au client.

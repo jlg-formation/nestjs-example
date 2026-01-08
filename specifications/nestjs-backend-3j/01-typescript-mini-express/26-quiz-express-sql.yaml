@@ -1,0 +1,34 @@
+id: ch1-quiz-express-sql
+type: quiz
+title: "Quiz : Express + SQL"
+
+layout:
+  template: quiz
+  density: low
+  emphasis: text
+
+visual:
+  kind: none
+  source: none
+  placement: full
+  alt: null
+
+quiz:
+  question: "Quelle pratique réduit le risque d'injection SQL avec mysql2 ?"
+  choices:
+    A: "Concaténer l'id dans la string SQL"
+    B: "Utiliser une requête paramétrée avec ? et un tableau de valeurs"
+    C: "Mettre le SELECT dans une route GET uniquement"
+    D: "Ajouter plus de logs"
+
+notes_formateur: |
+  ## Déroulé (2 min)
+  - Réponse : B.
+  - Expliquer : paramétrage = séparation code/données.
+  ### Transition
+  On fait la synthèse du chapitre.
+
+notes_stagiaire: |
+  ## À retenir
+  **Réponse** : B.
+  Toujours paramétrer les requêtes SQL, jamais concaténer des entrées.

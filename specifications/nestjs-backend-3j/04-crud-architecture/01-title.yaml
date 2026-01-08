@@ -1,0 +1,39 @@
+id: nestjs-backend-3j-04-title
+type: title
+title: "CRUD complet : votre API devient 'utilisable'"
+subtitle: "Clients, recharges, réservations, et lecture du solde"
+
+layout:
+  template: title
+  density: low
+  emphasis: visual
+
+visual:
+  kind: none
+  source: none
+  placement: background
+  alt: null
+
+notes_formateur: |
+  ## Déroulé (1 min)
+
+  ### Accroche
+  Jusqu'ici : fondations NestJS + validation + SQL brut.
+  Maintenant : on assemble tout en une API CRUD cohérente.
+
+  ### Points clés
+  - L'objectif : des endpoints utilisables par un front.
+  - On garde le code pro : DTO → service → repository.
+
+  ### Transition
+  On commence par le contrat : les DTOs.
+
+notes_stagiaire: |
+  ## À retenir
+
+  **Objectif du chapitre** : construire des endpoints complets.
+
+  **On va pratiquer** :
+  - DTOs (entrée/sortie)
+  - SQL brut (INSERT/UPDATE + relations)
+  - Architecture controller/service/repository

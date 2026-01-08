@@ -1,0 +1,41 @@
+id: ch2-objective
+type: objective
+title: "Ce que vous saurez faire après ce chapitre"
+subtitle: "Démarrer un projet NestJS propre et compréhensible"
+covers:
+  - "Installation du CLI et création du projet"
+  - "Structure : modules, contrôleurs, services"
+  - "Décorateurs @Controller, @Get, @Post"
+  - "Logique métier dans les services"
+  - "Injection de dépendances"
+
+layout:
+  template: objective
+  density: low
+  emphasis: text
+
+visual:
+  kind: icon
+  query: "target goal"
+  source: local
+  placement: left
+  alt: "Icône cible"
+
+objectives:
+  - "Créer un projet avec le Nest CLI et le lancer"
+  - "Identifier le rôle d'un module, d'un contrôleur et d'un service"
+  - "Écrire des endpoints avec @Controller/@Get/@Post"
+  - "Mettre la logique métier dans un service injectable"
+  - "Brancher un service dans un contrôleur via la DI"
+
+notes_formateur: |
+  ## Déroulé (1 min)
+  - Insister : on apprend les rôles (qui fait quoi) avant le CRUD.
+  - On gardera le fil rouge "soldes".
+  ### Transition
+  On commence avec le CLI.
+
+notes_stagiaire: |
+  ## À retenir
+  Ce chapitre pose la base : structure NestJS + décorateurs + DI.
+  Ensuite, on enrichira avec validation et SQL.

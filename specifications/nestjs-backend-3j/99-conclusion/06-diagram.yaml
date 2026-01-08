@@ -1,0 +1,51 @@
+id: nestjs-backend-3j-99-diagram-request-pipeline
+type: diagram
+title: "La requête NestJS traverse un pipeline"
+
+layout:
+  template: diagram
+  density: low
+  emphasis: visual
+
+visual:
+  kind: diagram
+  query: "nestjs request pipeline middleware guard interceptor diagram"
+  source: ai
+  placement: full
+  alt: "Pipeline NestJS : middleware, guard, interceptor, controller"
+
+covers:
+  - "Middlewares : logging et filtrage"
+  - "Guards : authentification par clé API"
+  - "Interceptors : transformation de réponse, mesure des temps"
+
+diagram:
+  description: "À chaque étape, on ajoute une responsabilité transversale sans polluer le métier"
+  components:
+    - name: "Middleware"
+      role: "Logging / filtrage avant le routing"
+    - name: "Guard"
+      role: "Autoriser ou refuser l'accès"
+    - name: "Interceptor"
+      role: "Transformer la réponse et mesurer le temps"
+    - name: "Controller"
+      role: "Adapter HTTP → appel service"
+    - name: "Service + Repository"
+      role: "Règles métier + SQL brut"
+  flow: "HTTP → Middleware → Guard → Interceptor → Controller → Service/Repo → Response"
+
+notes_formateur: |
+  ## Déroulé (3 min)
+
+  ### Points clés
+  - Pipeline = endroit où placer le cross-cutting.
+  - Objectif : éviter le copier-coller dans chaque route.
+
+  ### Transition
+  On relie ça aux tests : comment vérifier chaque couche ?
+
+notes_stagiaire: |
+  ## À retenir
+
+  **Pipeline NestJS** : middleware → guard → interceptor → controller.
+  **Métier** reste dans service/repository.

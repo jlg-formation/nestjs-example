@@ -1,0 +1,44 @@
+id: nestjs-backend-3j-04-process-endpoint-flow
+type: process
+title: "Construire un endpoint CRUD de façon 'pro'"
+subtitle: "Une recette réutilisable"
+
+layout:
+  template: process
+  density: medium
+  emphasis: balanced
+
+visual:
+  kind: diagram
+  query: "api endpoint layers controller service repository"
+  source: ai
+  placement: right
+  alt: "Diagramme couches"
+
+process:
+  steps:
+    - "Définir DTO d'entrée (+ validation)"
+    - "Déclarer la route dans le controller"
+    - "Écrire la logique métier dans le service"
+    - "Encapsuler le SQL dans un repository"
+    - "Standardiser la réponse et les erreurs"
+
+covers:
+  - "Structuration contrôleurs / services / repositories"
+  - "Réponses typées et formats standardisés"
+
+notes_formateur: |
+  ## Déroulé (3 min)
+
+  ### Points clés
+  - La séparation rend le code testable et lisible.
+  - On évite les controllers 'fourre-tout'.
+
+  ### Transition
+  Clarifions les rôles : controller / service / repository.
+
+notes_stagiaire: |
+  ## À retenir
+
+  **Recette** : DTO → controller → service → repository → réponse.
+  **But** : un code maintenable.

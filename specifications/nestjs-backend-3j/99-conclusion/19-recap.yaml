@@ -1,0 +1,38 @@
+id: nestjs-backend-3j-99-recap-livrables
+type: recap
+title: "Livrables : ce que vous repartez avec"
+
+layout:
+  template: recap
+  density: low
+  emphasis: text
+
+visual:
+  kind: icon
+  query: "package deliverables checklist"
+  source: local
+  placement: left
+  alt: "Icône livrables"
+
+takeaways:
+  - "Projet Express minimal (routes + middleware)"
+  - "Projet NestJS complet : SQL brut, DTOs, validation"
+  - "Scripts SQL MariaDB"
+  - "Tests unitaires et e2e"
+  - "Documentation Swagger"
+
+notes_formateur: |
+  ## Déroulé (2 min)
+
+  ### Points clés
+  - Relier chaque livrable au chapitre correspondant.
+  - Rappeler : le support = notes + code.
+
+  ### Transition
+  Dernier slide : suite à donner + ressources.
+
+notes_stagiaire: |
+  ## À retenir
+
+  Vous repartez avec : code + scripts SQL + tests + Swagger.
+  Gardez la checklist et réutilisez-la sur vos projets.

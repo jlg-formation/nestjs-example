@@ -1,0 +1,38 @@
+id: ch2-concept-modules
+type: concept
+title: "Un module = un domaine : découper pour grandir"
+covers:
+  - "Structure : modules, contrôleurs, services"
+
+layout:
+  template: concept
+  density: medium
+  emphasis: balanced
+
+visual:
+  kind: icon
+  query: "puzzle modules"
+  source: local
+  placement: right
+  alt: "Icône modules"
+
+concept:
+  definition: "Un module NestJS regroupe ce qui concerne un domaine (ex: soldes) : controllers + providers."
+  bullets:
+    - "Domaine clair : soldes, clients, réservations"
+    - "Frontières : limiter le couplage"
+    - "Imports/exports : dépendances explicites"
+    - "Lisible : on sait où ajouter une feature"
+  pitfalls:
+    - "❌ Un 'CommonModule' qui contient tout"
+    - "❌ Couper par 'technique' au lieu du métier"
+
+notes_formateur: |
+  ## Déroulé (3 min)
+  - Donner un exemple : module Soldes = endpoints + règles de solde.
+  - Transition : voyons les contrôleurs.
+
+notes_stagiaire: |
+  ## À retenir
+  Module = regroupement par domaine.
+  C'est la première brique d'une architecture maintenable.

@@ -1,0 +1,28 @@
+id: nestjs-backend-3j-05-transition
+type: transition
+title: "Qualité et sécurité : au-delà des endpoints"
+
+layout:
+  template: transition
+  density: low
+  emphasis: visual
+
+visual:
+  kind: image
+  query: "security guard middleware"
+  source: pixabay
+  placement: background
+  alt: "Sécurité et contrôle"
+
+message: "Comment ajouter du logging, de l'auth et des réponses standard sans tout casser ?"
+
+notes_formateur: |
+  ## Déroulé (30 sec)
+
+  ### Points clés
+  - On a une base solide : maintenant, on ajoute des couches transverses.
+
+notes_stagiaire: |
+  ## À retenir
+
+  **Prochaine section** : middleware, guards, interceptors et Swagger.

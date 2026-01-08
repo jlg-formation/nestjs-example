@@ -1,0 +1,36 @@
+id: ch2-example-structure-soldes
+type: example
+title: "Exemple : le domaine 'soldes' en NestJS"
+covers:
+  - "TP NestJS :"
+  - "Créer un module soldes (controller + service + route GET simple)."
+
+layout:
+  template: example
+  density: low
+  emphasis: balanced
+
+visual:
+  kind: image
+  query: "wallet balance" 
+  source: pixabay
+  placement: right
+  alt: "Illustration solde"
+
+example:
+  variant: simple
+  bullets:
+    - "Contexte : on veut exposer un solde client"
+    - "Action : module Soldes + controller GET + service métier"
+    - "Résultat : une route simple, code facile à tester"
+  takeaway: "La structure (module/controller/service) évite la dette dès le début."
+
+notes_formateur: |
+  ## Déroulé (2 min)
+  - Faire visualiser : où ira le SQL plus tard (repo/service).
+  - Transition : on fait le TP.
+
+notes_stagiaire: |
+  ## À retenir
+  Le domaine 'soldes' se prête bien à un premier module.
+  On garde le code petit, mais bien structuré.

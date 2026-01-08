@@ -1,0 +1,38 @@
+id: ch1-concept-express-get
+type: concept
+title: "Une route GET : lire une ressource, pas déclencher un effet"
+covers:
+  - "Mini-projet Express réduit :"
+  - "Route GET"
+
+layout:
+  template: concept
+  density: medium
+  emphasis: balanced
+
+visual:
+  kind: icon
+  query: "http get endpoint"
+  source: local
+  placement: right
+  alt: "Icône endpoint GET"
+
+concept:
+  definition: "Une route GET sert à récupérer des données ; elle doit être idempotente et simple à tester."
+  bullets:
+    - "Entrée : params, query, headers"
+    - "Sortie : status + JSON (format stable)"
+    - "Prévoir les cas : 200, 404, 500"
+    - "Séparer HTTP et logique métier (service)"
+  pitfalls:
+    - "❌ Faire un INSERT/UPDATE dans un GET"
+    - "❌ Renvoyer des formats changeants selon le cas"
+
+notes_formateur: |
+  ## Déroulé (2 min)
+  - Donner un exemple : GET /clients/1 → 404 si absent.
+  - Transition : on code un GET /ping puis /clients.
+
+notes_stagiaire: |
+  ## À retenir
+  GET = lecture. Idempotent, facile à tester, réponses cohérentes.

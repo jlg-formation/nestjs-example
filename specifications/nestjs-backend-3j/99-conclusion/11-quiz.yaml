@@ -1,0 +1,40 @@
+id: nestjs-backend-3j-99-quiz-where-sql
+type: quiz
+title: "Quiz : où doit vivre le SQL ?"
+
+layout:
+  template: quiz
+  density: low
+  emphasis: text
+
+visual:
+  kind: none
+  source: none
+  placement: full
+  alt: null
+
+quiz:
+  question: "Dans l'architecture controller/service/repository, où place-t-on les requêtes SQL ?"
+  choices:
+    A: "Dans le contrôleur, proche de la route"
+    B: "Dans le service, avec la logique métier"
+    C: "Dans le repository, derrière une interface"
+    D: "Dans le module, pour le partager"
+
+notes_formateur: |
+  ## Déroulé (2 min)
+
+  ### Réponse
+  - Réponse : C
+  - A : mélange HTTP + data, vite ingérable
+  - B : métier + data mélangés, tests plus pénibles
+  - D : un module n'est pas un endroit 'exécutable'
+
+  ### Transition
+  On enchaîne avec la validation : l'autre garde-fou.
+
+notes_stagiaire: |
+  ## À retenir
+
+  **Réponse** : C - dans le repository.
+  Cela garde le service centré sur les règles métier.

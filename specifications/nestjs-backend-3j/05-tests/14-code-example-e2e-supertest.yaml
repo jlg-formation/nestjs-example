@@ -1,0 +1,58 @@
+id: nestjs-backend-3j-05-code-e2e-supertest
+type: code_example
+title: "E2E NestJS : tester un endpoint avec Supertest"
+subtitle: "Une requête HTTP, des assertions claires"
+
+layout:
+  template: code_example
+  density: medium
+  emphasis: text
+
+visual:
+  kind: code_render
+  source: none
+  placement: full
+  alt: "Test e2e"
+
+code:
+  language: "ts"
+  snippet: |
+    import request from 'supertest';
+
+    it('POST /recharge retourne { data }', async () => {
+      await request(app.getHttpServer())
+        .post('/recharge')
+        .send({ clientId: 'c1', amount: 10 })
+        .expect(201)
+        .expect(({ body }) => {
+          expect(body.data).toBeDefined();
+          expect(body.data.balance).toBeGreaterThan(0);
+        });
+    });
+  callouts:
+    - line: 3
+      text: "On teste l'API comme un client HTTP"
+    - line: 7
+      text: "On vérifie aussi le status code"
+    - line: 8
+      text: "Assertions sur le contrat (body.data)"
+  expected_output: "Le test échoue si la route ou le format change"
+
+covers:
+  - "Tests end-to-end (remplacent Postman)"
+
+notes_formateur: |
+  ## Déroulé (5 min)
+
+  ### Points clés
+  - E2E = contrat + pipeline.
+  - On n'assert pas tout : seulement l'essentiel.
+
+  ### Transition
+  Démo : exécuter les tests en mode watch.
+
+notes_stagiaire: |
+  ## À retenir
+
+  **Supertest** : envoie des requêtes HTTP sur `app.getHttpServer()`.
+  **Assertions** : status code + shape du body.

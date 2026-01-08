@@ -1,0 +1,35 @@
+id: nestjs-backend-3j-05-title
+type: title
+title: "Sans tests, chaque refactor est une prise de risque"
+subtitle: "Jest, mocks, unit tests et end-to-end"
+
+layout:
+  template: title
+  density: low
+  emphasis: visual
+
+visual:
+  kind: none
+  source: none
+  placement: background
+  alt: null
+
+notes_formateur: |
+  ## Déroulé (1 min)
+
+  ### Accroche
+  On a une API CRUD. Maintenant : comment la rendre durable ?
+
+  ### Points clés
+  - Les tests = filet de sécurité.
+  - On veut tester vite (unit) + tester vrai (e2e).
+
+  ### Transition
+  Commençons par l'outil : Jest.
+
+notes_stagiaire: |
+  ## À retenir
+
+  **But du chapitre** : sécuriser l'API avec des tests.
+  - unit tests : rapides
+  - e2e : réalistes

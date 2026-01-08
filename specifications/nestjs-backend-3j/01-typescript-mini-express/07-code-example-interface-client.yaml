@@ -1,0 +1,51 @@
+id: ch1-code-interface-client
+type: code_example
+title: "Interface Client : une structure claire"
+subtitle: "Lisibilité et autocomplétion"
+covers:
+  - "Types de base, interfaces, fonctions"
+
+layout:
+  template: code_example
+  density: medium
+  emphasis: text
+
+visual:
+  kind: code_render
+  source: none
+  placement: full
+  alt: "Exemple TypeScript avec interface Client"
+
+code:
+  language: "ts"
+  snippet: |
+    interface Client {
+      id: number;
+      name: string;
+      balance: number;
+    }
+
+    function getDisplayName(client: Client): string {
+      return `${client.name} (#${client.id})`;
+    }
+
+    const alice: Client = { id: 1, name: "Alice", balance: 120 };
+    console.log(getDisplayName(alice));
+  callouts:
+    - line: 1
+      text: "Contrat de données : id, name, balance"
+    - line: 6
+      text: "Fonction lisible : entrée typée, retour string"
+    - line: 10
+      text: "Le compilateur vérifie la forme de l'objet"
+  expected_output: "Alice (#1)"
+
+notes_formateur: |
+  ## Déroulé (2 min)
+  - Montrer un champ manquant → erreur compile.
+  - Faire le lien : objets DB/JSON → même contrat.
+
+notes_stagiaire: |
+  ## À retenir
+  Le compilateur vérifie que l'objet respecte l'interface.
+  Ça rend le code plus lisible et plus sûr.

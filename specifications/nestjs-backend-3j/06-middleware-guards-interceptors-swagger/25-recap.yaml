@@ -1,0 +1,38 @@
+id: nestjs-backend-3j-06-recap
+type: recap
+title: "Synthèse : couches transverses maîtrisées"
+
+layout:
+  template: recap
+  density: low
+  emphasis: text
+
+visual:
+  kind: icon
+  query: "checklist summary shield"
+  source: local
+  placement: left
+  alt: "Icône checklist"
+
+takeaways:
+  - "Middleware : logging et filtrage avant la route"
+  - "Guard : authentification cohérente (clé API)"
+  - "Interceptor : transformer réponses + mesurer le temps"
+  - "Swagger : documentation et test UI"
+  - "Checklist de revue : réduire les risques"
+
+notes_formateur: |
+  ## Déroulé (2 min)
+
+  ### Questions flash
+  - "Middleware vs guard : différence ?"
+  - "Interceptor : quel usage principal ?"
+
+  ### Transition
+  On passe à la conclusion : bilan et livrables.
+
+notes_stagiaire: |
+  ## À retenir
+
+  **Résumé** : middleware / guard / interceptor / Swagger.
+  **Résultat** : API cohérente et documentée.

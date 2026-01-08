@@ -1,0 +1,31 @@
+id: ch1-title-typescript-express
+type: title
+title: "TypeScript + Express : une base solide en une matinée"
+subtitle: "Juste ce qu'il faut pour démarrer NestJS sereinement"
+
+layout:
+  template: title
+  density: low
+  emphasis: visual
+
+visual:
+  kind: icon
+  query: "typescript nodejs express"
+  source: local
+  placement: background
+  alt: "Icônes TypeScript et Node.js"
+
+notes_formateur: |
+  ## Déroulé (1 min)
+  ### Intention
+  On pose les bases TS + Express, sans s'y perdre.
+  ### Message
+  - On vise l'essentiel : types, async, erreurs
+  - On construit une mini API : GET + SQL + middleware
+  ### Transition
+  On commence par les fondamentaux TypeScript.
+
+notes_stagiaire: |
+  ## À retenir
+  **Objectif** : maîtriser l'essentiel TS + Express.
+  **Résultat** : une mini API prête pour NestJS.

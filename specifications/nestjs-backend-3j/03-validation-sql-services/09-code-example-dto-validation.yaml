@@ -1,0 +1,61 @@
+id: nestjs-backend-3j-03-dto-validation
+type: code_example
+title: "DTO + class-validator : valider un payload"
+subtitle: "Contraintes de format avant d'aller en SQL"
+
+layout:
+  template: code_example
+  density: medium
+  emphasis: text
+
+visual:
+  kind: code_render
+  source: none
+  placement: full
+  alt: "Code TypeScript : DTO validé"
+
+code:
+  language: "ts"
+  snippet: |
+    import { IsInt, IsPositive, IsString, Length } from 'class-validator';
+
+    export class CreateRechargeDto {
+      @IsString()
+      @Length(3, 36)
+      clientId!: string;
+
+      @IsInt()
+      @IsPositive()
+      amount!: number;
+    }
+  callouts:
+    - line: 4
+      text: "Chaque propriété porte ses contraintes"
+    - line: 11
+      text: "On force un entier strictement positif"
+  expected_output: "amount = -5 → erreur 400 (validation)"
+
+covers:
+  - "Validation avec class-validator / class-transformer"
+
+notes_formateur: |
+  ## Déroulé (4 min)
+
+  ### Points clés à aborder
+  - DTO = contrat d'entrée, typé.
+  - `class-validator` = contraintes.
+
+  ### Question
+  "Quelles contraintes sont indispensables sur vos payloads ?"
+
+  ### Transition
+  Le DTO seul ne suffit pas : il faut activer le ValidationPipe.
+
+notes_stagiaire: |
+  ## À retenir
+
+  **DTO** : décrit le payload attendu.
+
+  **class-validator** : ajoute des règles (types, bornes, formats).
+
+  **But** : refuser tôt un payload invalide (400).

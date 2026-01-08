@@ -1,0 +1,45 @@
+id: nestjs-backend-3j-99-key-idea-architecture
+type: key_idea
+title: "L'idée clé : séparer HTTP, métier et data"
+
+layout:
+  template: key_idea
+  density: low
+  emphasis: visual
+
+visual:
+  kind: icon
+  query: "architecture layers"
+  source: local
+  placement: left
+  alt: "Icône architecture en couches"
+
+covers:
+  - "Structure : modules, contrôleurs, services"
+  - "Injection de dépendances"
+
+message: "Une API durable = une architecture qui rend le changement facile."
+
+supporting_points:
+  - "Le contrôleur parle HTTP, pas SQL"
+  - "Le service porte les règles métier"
+  - "Le repository encapsule les requêtes SQL"
+
+notes_formateur: |
+  ## Déroulé (2 min)
+
+  ### Développement
+  Insister : la séparation évite le copier-coller et facilite les tests.
+
+  ### Question
+  "Dans votre code actuel, où se mélange HTTP et SQL ?"
+
+notes_stagiaire: |
+  ## À retenir
+
+  **Règle simple** :
+  - Controller = HTTP
+  - Service = métier
+  - Repository = SQL
+
+  **Effet** : code testable et maintenable.

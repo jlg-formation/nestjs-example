@@ -1,0 +1,34 @@
+id: ch2-quiz-nest-roles
+type: quiz
+title: "Quiz : rôles NestJS"
+
+layout:
+  template: quiz
+  density: low
+  emphasis: text
+
+visual:
+  kind: none
+  source: none
+  placement: full
+  alt: null
+
+quiz:
+  question: "Quel énoncé décrit correctement la séparation des rôles ?"
+  choices:
+    A: "Le controller contient la logique métier et appelle la DB"
+    B: "Le service gère HTTP et renvoie des Response"
+    C: "Le module assemble, le controller expose HTTP, le service porte le métier"
+    D: "La DI est optionnelle, on peut instancier avec new"
+
+notes_formateur: |
+  ## Déroulé (2 min)
+  - Réponse : C.
+  - A/B/D : anti-patterns.
+  ### Transition
+  On fait un dernier point sur les décorateurs.
+
+notes_stagiaire: |
+  ## À retenir
+  **Réponse** : C.
+  Module assemble, controller = HTTP, service = métier.

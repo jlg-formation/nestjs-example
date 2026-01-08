@@ -1,0 +1,46 @@
+id: nestjs-backend-3j-05-concept-e2e
+type: concept
+title: "Un test e2e remplace Postman"
+subtitle: "Même runtime, mêmes pipes, mêmes erreurs"
+
+layout:
+  template: concept
+  density: medium
+  emphasis: balanced
+
+visual:
+  kind: diagram
+  query: "end to end test http request pipeline"
+  source: ai
+  placement: right
+  alt: "Pipeline HTTP"
+
+concept:
+  definition: "Un test end-to-end (e2e) démarre l'app NestJS et envoie de vraies requêtes HTTP pour vérifier le comportement complet."
+  bullets:
+    - "Valide routes, pipes, filters, DI"
+    - "Détecte les bugs d'intégration"
+    - "Remplace des tests manuels (Postman)"
+    - "Plus lent que l'unit test, mais plus fiable"
+  pitfalls:
+    - "❌ E2E partout : feedback trop lent"
+    - "❌ Base partagée : tests flakys"
+
+covers:
+  - "Tests end-to-end (remplacent Postman)"
+
+notes_formateur: |
+  ## Déroulé (3 min)
+
+  ### Points clés
+  - E2E = couverture du pipeline complet.
+  - On en veut quelques-uns très pertinents (happy path + erreurs).
+
+  ### Transition
+  Comparons unit vs e2e.
+
+notes_stagiaire: |
+  ## À retenir
+
+  **E2E** : vraie requête HTTP sur une app Nest démarrée.
+  **But** : remplacer Postman et sécuriser l'intégration.

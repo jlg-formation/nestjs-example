@@ -1,0 +1,37 @@
+id: nestjs-backend-3j-99-recap-fondations
+type: recap
+title: "Synthèse : le socle d'une API pro"
+
+layout:
+  template: recap
+  density: low
+  emphasis: text
+
+visual:
+  kind: icon
+  query: "checklist summary"
+  source: local
+  placement: left
+  alt: "Icône checklist"
+
+takeaways:
+  - "Contrat clair : DTO + validation + réponses typées"
+  - "Architecture lisible : controller/service/repository"
+  - "SQL brut maîtrisé : requêtes paramétrées + relations"
+  - "Qualité : tests unitaires + e2e + erreurs gérées"
+  - "Usage : Swagger comme documentation vivante"
+
+notes_formateur: |
+  ## Déroulé (2 min)
+
+  ### Questions flash
+  - "Quel point vous a le plus aidé aujourd'hui ?"
+
+  ### Transition
+  On revient sur 2 idées clés : architecture et contrat.
+
+notes_stagiaire: |
+  ## À retenir
+
+  **5 piliers** : contrat, architecture, SQL, tests, doc.
+  Si vous gardez ça, vous évitez 80% des dérives.

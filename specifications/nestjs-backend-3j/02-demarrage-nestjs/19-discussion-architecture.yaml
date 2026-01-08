@@ -1,0 +1,37 @@
+id: ch2-discussion-architecture
+type: discussion
+title: "Discussion : où placer la logique dans votre équipe ?"
+covers:
+  - "Logique métier dans les services"
+
+layout:
+  template: discussion
+  density: low
+  emphasis: text
+
+visual:
+  kind: icon
+  query: "group discussion debate conversation"
+  source: local
+  placement: left
+  alt: "Icône discussion"
+
+discussion:
+  question: "Dans vos projets, qu'est-ce qui finit par grossir : controllers, services, ou 'utils' ?"
+  duration: "5 minutes"
+  format: "small_groups"
+  prompts:
+    - "Quels symptômes voyez-vous quand l'architecture dérive ?"
+    - "Quelle règle simple pourriez-vous adopter demain ?"
+    - "Quel exemple de logique devrait vivre dans un service ?"
+  debrief: "Aligner une règle : controller fin, service métier, module par domaine"
+
+notes_formateur: |
+  ## Déroulé (8 min)
+  - Groupes de 3, 5 min, puis 3 min de débrief.
+  - Noter 2 règles d'équipe au tableau.
+
+notes_stagiaire: |
+  ## À retenir
+  Objectif : adopter une règle simple de placement de la logique.
+  Controller fin, service métier, module par domaine.

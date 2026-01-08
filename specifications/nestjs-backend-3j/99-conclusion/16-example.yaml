@@ -1,0 +1,50 @@
+id: nestjs-backend-3j-99-example-case-reservation
+type: example
+title: "Étude de cas : éviter une réservation en double"
+
+layout:
+  template: example
+  density: medium
+  emphasis: text
+
+visual:
+  kind: image
+  query: "calendar booking conflict"
+  source: pixabay
+  placement: right
+  alt: "Illustration calendrier et conflit"
+
+covers:
+  - "SQL brut : inserts, updates, relations"
+  - "Gestion centralisée des erreurs"
+  - "Créer les endpoints :"
+  - "POST /reservation"
+
+example:
+  variant: case_study
+  context: "Une API de réservation reçoit 2 POST identiques quasi simultanés (double clic / retry client)"
+  constraints:
+    - "Le client doit recevoir une réponse claire"
+    - "La base doit rester cohérente (pas de doublon)"
+    - "La logique doit être testable en e2e"
+    - "Le SQL est brut (pas d'ORM)"
+  decision: "Imposer une contrainte d'unicité côté DB + mapper l'erreur en 409 (Conflict)"
+  result: "Une tentative de doublon renvoie 409 avec un message métier, sans fuite d'infos SQL"
+  takeaway: "La DB garantit l'unicité; l'API traduit l'erreur en message métier."
+
+notes_formateur: |
+  ## Déroulé (4 min)
+
+  ### Points clés
+  - La contrainte DB est plus fiable qu'un if en mémoire.
+  - On transforme l'erreur technique en 409 'compréhensible'.
+
+  ### Transition
+  Maintenant : démonstration de Swagger comme contrat vivant.
+
+notes_stagiaire: |
+  ## À retenir
+
+  **Double clic / retry** = cas réel.
+  **Solution robuste** : contrainte DB + gestion d'erreur → 409.
+  **But** : cohérence DB + réponse claire.

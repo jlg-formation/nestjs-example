@@ -1,0 +1,59 @@
+id: nestjs-backend-3j-06-code-guard-apikey
+type: code_example
+title: "Guard : authentification par clé API"
+subtitle: "Simple, efficace, parfait pour un TP"
+
+layout:
+  template: code_example
+  density: medium
+  emphasis: text
+
+visual:
+  kind: code_render
+  source: none
+  placement: full
+  alt: "Guard clé API"
+
+code:
+  language: "ts"
+  snippet: |
+    import { CanActivate, ExecutionContext, Injectable, UnauthorizedException } from '@nestjs/common';
+
+    @Injectable()
+    export class ApiKeyGuard implements CanActivate {
+      canActivate(context: ExecutionContext): boolean {
+        const req = context.switchToHttp().getRequest();
+        const apiKey = req.header('x-api-key');
+        if (!apiKey || apiKey !== process.env.API_KEY) {
+          throw new UnauthorizedException('Invalid API key');
+        }
+        return true;
+      }
+    }
+  callouts:
+    - line: 4
+      text: "Guard injectable"
+    - line: 7
+      text: "Clé API dans un header (x-api-key)"
+    - line: 9
+      text: "401 si invalide"
+  expected_output: "Sans x-api-key → 401 Unauthorized"
+
+covers:
+  - "Guards : authentification par clé API"
+
+notes_formateur: |
+  ## Déroulé (6 min)
+
+  ### Points clés
+  - Auth simple : ok pour atelier.
+  - En prod : rotation, audit, scopes (au-delà du TP).
+
+  ### Transition
+  Guard vs middleware : on clarifie avec un quiz.
+
+notes_stagiaire: |
+  ## À retenir
+
+  **Clé API** : header `x-api-key`.
+  **Guard** : renvoie 401 si invalide.

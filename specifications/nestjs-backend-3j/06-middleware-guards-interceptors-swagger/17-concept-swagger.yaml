@@ -1,0 +1,46 @@
+id: nestjs-backend-3j-06-concept-swagger
+type: concept
+title: "Swagger : une documentation qui ne ment pas"
+subtitle: "Générée depuis le code et le contrat"
+
+layout:
+  template: concept
+  density: medium
+  emphasis: balanced
+
+visual:
+  kind: icon
+  query: "api documentation swagger"
+  source: local
+  placement: right
+  alt: "Icône doc"
+
+concept:
+  definition: "Swagger (OpenAPI) décrit vos endpoints, DTOs, codes de réponse et permet de tester l'API via une UI."
+  bullets:
+    - "Réduit les malentendus front/back"
+    - "Facilite le test manuel et la démo"
+    - "Servira de base à un SDK plus tard"
+    - "Encourage un contrat stable"
+  pitfalls:
+    - "❌ Doc non maintenue (si pas générée)"
+    - "❌ Exposer une Swagger UI en prod sans protection"
+
+covers:
+  - "Documentation Swagger"
+
+notes_formateur: |
+  ## Déroulé (3 min)
+
+  ### Points clés
+  - La doc doit être proche du code pour rester à jour.
+  - Swagger UI est aussi un outil de debug.
+
+  ### Transition
+  Démo : ouvrir Swagger et appeler un endpoint.
+
+notes_stagiaire: |
+  ## À retenir
+
+  **Swagger/OpenAPI** : doc + test UI.
+  **But** : un contrat clair et partageable.

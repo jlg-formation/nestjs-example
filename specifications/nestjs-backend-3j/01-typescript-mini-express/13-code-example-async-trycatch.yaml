@@ -1,0 +1,51 @@
+id: ch1-code-async-trycatch
+type: code_example
+title: "async/await + try/catch : le minimum vital"
+subtitle: "Une route robuste commence ici"
+covers:
+  - "Modules ES, async/await, gestion des erreurs"
+
+layout:
+  template: code_example
+  density: medium
+  emphasis: text
+
+visual:
+  kind: code_render
+  source: none
+  placement: full
+  alt: "Exemple Express async/await avec try/catch"
+
+code:
+  language: "ts"
+  snippet: |
+    import express from "express";
+
+    const app = express();
+
+    app.get("/ping", async (_req, res) => {
+      try {
+        await Promise.resolve();
+        res.json({ ok: true });
+      } catch (err) {
+        res.status(500).json({ ok: false, error: "Unexpected error" });
+      }
+    });
+  callouts:
+    - line: 5
+      text: "Handler async : vous pouvez await de l'I/O"
+    - line: 6
+      text: "try/catch : capturer les erreurs au bon niveau"
+    - line: 9
+      text: "Réponse d'erreur explicite (status + payload)"
+  expected_output: "GET /ping → { ok: true }"
+
+notes_formateur: |
+  ## Déroulé (3 min)
+  - Dire : on va améliorer via middleware, mais ça suffit pour démarrer.
+  - Faire le lien : NestJS fournit des filtres d'exception.
+
+notes_stagiaire: |
+  ## À retenir
+  Dans une route, encapsuler l'I/O dans try/catch.
+  Toujours renvoyer un status et un payload cohérents.

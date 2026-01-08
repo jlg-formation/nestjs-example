@@ -1,0 +1,42 @@
+id: nestjs-backend-3j-05-objective
+type: objective
+title: "Objectifs : tester sans ralentir le dev"
+subtitle: "Aller au bon niveau, au bon coût"
+
+layout:
+  template: objective
+  density: low
+  emphasis: text
+
+visual:
+  kind: icon
+  query: "target checklist tests"
+  source: local
+  placement: left
+  alt: "Icône cible"
+
+objectives:
+  - "Écrire un test Jest simple (arrange/act/assert)"
+  - "Mocker un service ou un repository proprement"
+  - "Tester un contrôleur NestJS"
+  - "Écrire un test e2e qui remplace Postman"
+  - "Choisir une stratégie réaliste pour tester le SQL"
+
+notes_formateur: |
+  ## Déroulé (1 min)
+
+  ### Points clés
+  - On privilégie la clarté et la vitesse de feedback.
+  - On vise des tests utiles, pas des tests 'pour cocher'.
+
+  ### Transition
+  D'abord : les bases Jest.
+
+notes_stagiaire: |
+  ## À retenir
+
+  **Vous saurez** :
+  - écrire des tests Jest
+  - faire des mocks
+  - tester controllers + e2e
+  - tester du SQL de façon pragmatique

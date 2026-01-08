@@ -1,0 +1,47 @@
+id: nestjs-backend-3j-03-demo-validation
+type: demo
+title: "Démo : un payload invalide → 400 lisible"
+
+layout:
+  template: demo
+  density: low
+  emphasis: visual
+
+visual:
+  kind: icon
+  query: "live demo api" 
+  source: local
+  placement: left
+  alt: "Icône démo"
+
+demo:
+  objective: "Montrer l'effet immédiat de ValidationPipe + DTO"
+  tool: "curl / Postman"
+  duration: "2 minutes"
+  steps:
+    - "Envoyer un body invalide (amount = -5, champ inconnu)"
+    - "Observer la réponse 400 et les messages de validation"
+    - "Corriger le body et constater le 200"
+  fallback: "Captures d'écran des réponses 400/200"
+
+covers:
+  - "Validation avec class-validator / class-transformer"
+
+notes_formateur: |
+  ## Déroulé (2 min)
+
+  ### Point clé
+  - On voit tout de suite la valeur : erreurs claires.
+
+  ### Astuce
+  Faire voter : "Que renverrait votre API actuelle ?"
+
+  ### Transition
+  Petit quiz pour vérifier qu'on a compris whitelist/transform.
+
+notes_stagiaire: |
+  ## À retenir
+
+  **Résultat attendu** : une 400 claire et cohérente.
+
+  **Bon réflexe** : tester des cas invalides autant que des cas valides.

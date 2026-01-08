@@ -1,0 +1,37 @@
+id: nestjs-backend-3j-05-quiz-jest
+type: quiz
+title: "Quiz : Jest"
+
+layout:
+  template: quiz
+  density: low
+  emphasis: text
+
+visual:
+  kind: none
+  source: none
+  placement: full
+  alt: null
+
+quiz:
+  question: "À quoi sert principalement un mock dans un unit test ?"
+  choices:
+    A: "À rendre le test plus réaliste"
+    B: "À isoler l'unité testée et accélérer l'exécution"
+    C: "À éviter d'écrire des assertions"
+    D: "À remplacer les tests e2e"
+
+notes_formateur: |
+  ## Déroulé (2 min)
+
+  ### Réponse
+  - B : isolation + vitesse.
+
+  ### Transition
+  Quiz suivant : e2e, qu'est-ce qu'on vérifie ?
+
+notes_stagiaire: |
+  ## À retenir
+
+  **Réponse** : B.
+  **Mock** : isoler, accélérer, rendre le test déterministe.

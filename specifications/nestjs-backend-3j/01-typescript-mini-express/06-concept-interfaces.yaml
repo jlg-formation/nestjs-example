@@ -1,0 +1,40 @@
+id: ch1-concept-interfaces
+type: concept
+title: "Interfaces : documenter la forme des données"
+covers:
+  - "Types de base, interfaces, fonctions"
+
+layout:
+  template: concept
+  density: medium
+  emphasis: balanced
+
+visual:
+  kind: icon
+  query: "contract document"
+  source: local
+  placement: right
+  alt: "Contrat de données"
+
+concept:
+  definition: "Une interface décrit la structure attendue d'un objet (champs + types)."
+  bullets:
+    - "Rend les données explicites (API, DB, JSON)"
+    - "Aide au refactor : si ça compile, c'est cohérent"
+    - "Peut être partagée entre couches (service ↔ route)"
+    - "Se combine avec des types union pour cas métiers"
+  pitfalls:
+    - "❌ Confondre 'interface' et validation runtime"
+    - "❌ Laisser des champs optionnels par défaut"
+
+notes_formateur: |
+  ## Déroulé (2 min)
+  - Insister : TS ne valide pas à l'exécution.
+  - Validation runtime → plus tard (DTO + class-validator).
+  ### Transition
+  On code une interface Client.
+
+notes_stagiaire: |
+  ## À retenir
+  Interface = forme d'un objet pour le compilateur.
+  Pour valider des données externes, il faut une validation runtime.

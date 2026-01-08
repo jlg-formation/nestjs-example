@@ -1,0 +1,51 @@
+id: nestjs-backend-3j-04-response-format
+type: concept
+title: "Une réponse standardisée = moins de bugs côté front"
+subtitle: "Même forme, mêmes codes, mêmes erreurs"
+
+layout:
+  template: concept
+  density: medium
+  emphasis: text
+
+visual:
+  kind: icon
+  query: "api response json"
+  source: local
+  placement: right
+  alt: "Icône réponse JSON"
+
+concept:
+  definition: "Standardiser les réponses (format + codes HTTP) simplifie les intégrations et rend l'API prévisible."
+  bullets:
+    - "Succès : `{ data: ... }`"
+    - "Erreurs : même structure, mêmes champs"
+    - "Toujours des status codes cohérents"
+    - "Typage TS : moins de `any` côté client"
+  pitfalls:
+    - "❌ Un endpoint retourne un array, l'autre un objet wrapper"
+    - "❌ 200 OK avec une erreur dans le body"
+
+covers:
+  - "Réponses typées et formats standardisés"
+
+notes_formateur: |
+  ## Déroulé (3 min)
+
+  ### Points clés
+  - Une API prévisible, c'est une API utilisée.
+  - Codes HTTP et structure de réponse vont ensemble.
+
+  ### Question
+  "Quel statut pour une validation invalide ? Et pour une ressource absente ?"
+
+  ### Transition
+  Attention : standardiser ne veut pas dire tout exposer.
+
+notes_stagiaire: |
+  ## À retenir
+
+  **But** : une API prévisible.
+  - succès : `data`
+  - erreurs : format constant
+  - status codes cohérents

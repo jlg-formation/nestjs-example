@@ -1,0 +1,38 @@
+id: ch1-warning-erreurs-async
+type: warning
+title: "⚠️ Erreurs async : le bug silencieux classique"
+covers:
+  - "Modules ES, async/await, gestion des erreurs"
+
+layout:
+  template: warning
+  density: low
+  emphasis: visual
+
+visual:
+  kind: icon
+  query: "warning error bug"
+  source: local
+  placement: left
+  alt: "Icône alerte"
+
+warning:
+  danger: "Une erreur dans une Promise non await/catch peut être ignorée ou arriver trop tard"
+  consequences:
+    - "Routes Express qui répondent 200 alors que l'IO a échoué"
+    - "Logs incomplets et debugging difficile"
+    - "Comportements aléatoires en prod (timeouts, crash)"
+  prevention: "Toujours await l'IO et centraliser la gestion d'erreurs (try/catch + middleware)"
+  real_case: "Une API renvoyait 'OK' alors que l'INSERT SQL échouait silencieusement"
+
+notes_formateur: |
+  ## Déroulé (2 min)
+  - Montrer le risque : bug silencieux > bug visible.
+  - Donner la règle : await + try/catch + handler central.
+  ### Transition
+  On voit un exemple de try/catch dans une route.
+
+notes_stagiaire: |
+  ## À retenir
+  En asynchrone, le danger n°1 est l'erreur non gérée.
+  Règle : await + try/catch + gestion centralisée.

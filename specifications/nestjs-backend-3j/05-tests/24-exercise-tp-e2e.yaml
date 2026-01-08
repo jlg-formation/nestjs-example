@@ -1,0 +1,55 @@
+id: nestjs-backend-3j-05-exercise-tp
+type: exercise
+title: "TP : écrire 2 tests e2e utiles"
+subtitle: "POST /recharge et GET /clients/:id/soldes"
+
+layout:
+  template: exercise
+  density: medium
+  emphasis: text
+
+visual:
+  kind: icon
+  query: "code laptop testing practice"
+  source: local
+  placement: left
+  alt: "Icône exercice"
+
+exercise:
+  goal: "Remplacer Postman par des tests reproductibles en CI"
+  instructions:
+    - "Préparer une DB de test (seed d'un client c1)"
+    - "Écrire un test e2e : POST /recharge (status + body.data)"
+    - "Écrire un test e2e : GET /clients/:id/soldes (status + balance attendue)"
+    - "Ajouter 1 cas d'erreur : client inconnu → 404"
+    - "Vérifier que les tests sont déterministes (clean/rollback)"
+  deliverable: "2 tests e2e + 1 cas d'erreur qui passent en local et en CI"
+  success_criteria:
+    - "POST /recharge augmente le solde"
+    - "GET /clients/:id/soldes reflète le solde"
+    - "Erreur 404 cohérente"
+    - "Pas de dépendance à l'ordre d'exécution"
+
+covers:
+  - "TP :"
+  - "Créer des tests e2e pour POST /recharge et GET /clients/:id/soldes."
+  - "Tests end-to-end (remplacent Postman)"
+  - "Stratégies de test des requêtes SQL"
+
+notes_formateur: |
+  ## Déroulé (45 min)
+
+  ### Timing
+  - 10 min : setup DB/seed
+  - 25 min : écrire les tests
+  - 10 min : debug et stabilisation (flaky)
+
+  ### Conseils
+  - Commencer par le happy path.
+  - Puis ajouter 404.
+
+notes_stagiaire: |
+  ## À retenir
+
+  **Objectif** : 2 e2e fiables, pas 20 fragiles.
+  **Vérifier** : status code + `body.data`.

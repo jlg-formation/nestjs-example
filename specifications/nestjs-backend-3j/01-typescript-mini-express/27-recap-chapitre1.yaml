@@ -1,0 +1,32 @@
+id: ch1-recap
+type: recap
+title: "Synthèse : les bases TS/Express"
+
+layout:
+  template: recap
+  density: low
+  emphasis: text
+
+visual:
+  kind: icon
+  query: "checklist summary"
+  source: local
+  placement: left
+  alt: "Icône checklist"
+
+takeaways:
+  - "Types = contrats : fonctions et données plus lisibles"
+  - "Modules ES : séparer la logique hors des routes"
+  - "async/await + try/catch : erreurs gérées au bon niveau"
+  - "JSON : pratique pour prototyper, à gérer avec prudence"
+  - "SQL paramétré : indispensable contre l'injection"
+
+notes_formateur: |
+  ## Déroulé (2 min)
+  - Demander : "Quel point est le plus utile pour vous ?"
+  - Préparer : on bascule sur l'architecture NestJS.
+
+notes_stagiaire: |
+  ## À retenir
+  Vous avez les réflexes essentiels pour démarrer NestJS proprement.
+  Prochaine étape : modules, contrôleurs, services, DI.

@@ -1,0 +1,32 @@
+id: ch2-recap
+type: recap
+title: "Synthèse : démarrage NestJS"
+
+layout:
+  template: recap
+  density: low
+  emphasis: text
+
+visual:
+  kind: icon
+  query: "checklist summary"
+  source: local
+  placement: left
+  alt: "Icône checklist"
+
+takeaways:
+  - "CLI : créer et démarrer un projet standard"
+  - "Module : composition d'un domaine"
+  - "Controller : façade HTTP (fine)"
+  - "Service : logique métier testable"
+  - "DI : injection, dépendances explicites"
+
+notes_formateur: |
+  ## Déroulé (2 min)
+  - Faire un mini rappel : dire "où va quoi".
+  - Transition : on ajoute validation et config au prochain chapitre.
+
+notes_stagiaire: |
+  ## À retenir
+  Vous avez la structure et les réflexes NestJS.
+  Prochaine étape : DTOs, validation, config et gestion d'erreurs.

@@ -1,0 +1,47 @@
+id: ch2-exercise-tp-soldes
+type: exercise
+title: "TP : créer le module Soldes"
+subtitle: "Controller + Service + GET simple (45 min)"
+covers:
+  - "TP NestJS :"
+  - "Créer un module soldes (controller + service + route GET simple)."
+
+layout:
+  template: exercise
+  density: medium
+  emphasis: text
+
+visual:
+  kind: icon
+  query: "code laptop practice"
+  source: local
+  placement: left
+  alt: "Icône exercice pratique"
+
+exercise:
+  goal: "Créer un premier domaine NestJS 'soldes' avec une route GET fonctionnelle"
+  instructions:
+    - "Générer SoldesModule, SoldesController, SoldesService"
+    - "Ajouter GET /soldes/ping (ou /soldes/:id)"
+    - "Déplacer la logique dans SoldesService"
+    - "Injecter SoldesService dans SoldesController"
+    - "Tester avec curl et vérifier la réponse JSON"
+  deliverable: "Un module Soldes opérationnel, avec controller fin + service métier"
+  success_criteria:
+    - "Une route GET répond en JSON"
+    - "Le controller ne contient pas de logique métier"
+    - "Le service est injectable et testable"
+    - "Le module déclare controllers et providers"
+
+notes_formateur: |
+  ## Déroulé (45 min)
+  - 10 min : génération + câblage
+  - 15 min : route GET
+  - 20 min : nettoyage et séparation controller/service
+  ### Transition
+  On débriefe : où placer chaque responsabilité.
+
+notes_stagiaire: |
+  ## À retenir
+  Objectif : un module 'soldes' clair.
+  Si ça bloque : commencer par /soldes/ping, puis ajouter le service.

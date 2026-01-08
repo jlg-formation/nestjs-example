@@ -1,0 +1,38 @@
+id: nestjs-backend-3j-05-recap
+type: recap
+title: "Synthèse : tests rapides + tests réalistes"
+
+layout:
+  template: recap
+  density: low
+  emphasis: text
+
+visual:
+  kind: icon
+  query: "checklist summary testing"
+  source: local
+  placement: left
+  alt: "Icône checklist"
+
+takeaways:
+  - "Jest + AAA = tests lisibles"
+  - "Mocks : isoler sans mentir"
+  - "Controller tests : contrat + délégation"
+  - "E2E : remplace Postman et protège l'intégration"
+  - "SQL : seed + isolation pour des tests déterministes"
+
+notes_formateur: |
+  ## Déroulé (2 min)
+
+  ### Questions flash
+  - "Qu'est-ce que vous mockez en unit ?"
+  - "Que vérifie un test e2e ?"
+
+  ### Transition
+  On passe aux cross-cutting concerns : middleware, guards, interceptors.
+
+notes_stagiaire: |
+  ## À retenir
+
+  **Approche** : unit (vitesse) + e2e (réalisme).
+  **Objectif** : prévenir les régressions.

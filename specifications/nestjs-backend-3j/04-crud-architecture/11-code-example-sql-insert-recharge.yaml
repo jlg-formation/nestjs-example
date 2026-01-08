@@ -1,0 +1,68 @@
+id: nestjs-backend-3j-04-code-sql-insert-recharge
+type: code_example
+title: "SQL brut : insérer une recharge"
+subtitle: "INSERT historique + UPDATE solde (dans une transaction)"
+
+layout:
+  template: code_example
+  density: medium
+  emphasis: text
+
+visual:
+  kind: code_render
+  source: none
+  placement: full
+  alt: "SQL et TypeScript : recharge"
+
+code:
+  language: "ts"
+  snippet: |
+    // pseudo-API db: begin/commit/rollback + query
+    await db.begin();
+    try {
+      await db.query(
+        'INSERT INTO recharges (client_id, amount) VALUES (?, ?)',
+        [clientId, amount],
+      );
+      await db.query(
+        'UPDATE clients SET balance = balance + ? WHERE id = ?',
+        [amount, clientId],
+      );
+      await db.commit();
+    } catch (e) {
+      await db.rollback();
+      throw e;
+    }
+  callouts:
+    - line: 2
+      text: "Transaction : les 2 requêtes sont atomiques"
+    - line: 5
+      text: "INSERT : on garde l'historique"
+    - line: 9
+      text: "UPDATE : on met à jour le solde"
+  expected_output: "Recharge enregistrée + balance incrémentée"
+
+covers:
+  - "SQL brut : inserts, updates, relations"
+  - "POST /recharge"
+
+notes_formateur: |
+  ## Déroulé (5 min)
+
+  ### Points clés
+  - SQL paramétré (placeholders) = anti-injection.
+  - Transaction = cohérence.
+
+  ### Question
+  "Que se passe-t-il si l'UPDATE échoue sans transaction ?"
+
+  ### Transition
+  Même logique pour une réservation, mais avec un débit.
+
+notes_stagiaire: |
+  ## À retenir
+
+  **Recharge** :
+  1) INSERT dans l'historique
+  2) UPDATE du solde
+  3) transaction pour garantir la cohérence

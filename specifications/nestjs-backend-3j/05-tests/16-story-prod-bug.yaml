@@ -1,0 +1,41 @@
+id: nestjs-backend-3j-05-story-prod-bug
+type: story
+title: "L'histoire : 'ça marche sur mon Postman'"
+
+layout:
+  template: story
+  density: medium
+  emphasis: visual
+
+visual:
+  kind: image
+  query: "server room incident night"
+  source: pixabay
+  placement: right
+  alt: "Incident en production"
+
+story:
+  hook: "Vendredi 17h : un petit refactor sur /recharge, sans tests…"
+  context: "Le dev a validé 'à la main' via Postman. Tout semblait OK."
+  tension: "Lundi matin : le front casse car l'API renvoie un format légèrement différent."
+  resolution: "Un test e2e aurait échoué immédiatement en CI (contrat { data } + status codes)."
+  moral: "Postman valide un cas, les tests protègent l'équipe et le futur."
+
+covers:
+  - "Tests end-to-end (remplacent Postman)"
+
+notes_formateur: |
+  ## Déroulé (3 min)
+
+  ### Points clés
+  - Postman = utile, mais non reproductible.
+  - E2E en CI = contrat qui ne régresse pas.
+
+  ### Transition
+  OK pour e2e, mais comment tester quand il y a du SQL ?
+
+notes_stagiaire: |
+  ## À retenir
+
+  **Leçon** : tests e2e = remplacement des vérifs manuelles.
+  **But** : détecter les ruptures de contrat tôt.

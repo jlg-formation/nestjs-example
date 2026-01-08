@@ -1,0 +1,39 @@
+id: ch1-demo-debug-express
+type: demo
+title: "Démo : déboguer une route /clients"
+covers:
+  - "Mini-projet Express réduit :"
+  - "Découverte rapide des middlewares Express"
+
+layout:
+  template: demo
+  density: low
+  emphasis: visual
+
+visual:
+  kind: icon
+  query: "live demo presentation screen"
+  source: local
+  placement: left
+  alt: "Icône démonstration live"
+
+demo:
+  objective: "Montrer comment diagnostiquer rapidement un 500 (logs + SQL + handler)"
+  tool: "VS Code + terminal + curl"
+  duration: "5 minutes"
+  steps:
+    - "Provoquer une erreur (DB down ou mauvais SELECT)"
+    - "Lire le log du middleware (method + url + ms)"
+    - "Ajouter un try/catch et un status 500 cohérent"
+    - "Corriger la requête paramétrée"
+  fallback: "Captures d'écran préparées (log + stacktrace)"
+
+notes_formateur: |
+  ## Déroulé (5 min)
+  - Insister : diagnostiquer = logs utiles + reproduction simple.
+  - Relier : en NestJS, on utilisera filters/interceptors.
+
+notes_stagiaire: |
+  ## À retenir
+  Pour debug : reproduire avec curl, lire logs, isoler la DB vs HTTP.
+  Renvoyer un status/payload cohérents côté API.

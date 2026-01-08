@@ -1,0 +1,36 @@
+id: nestjs-backend-3j-03-title
+type: title
+title: "Services, validation et configuration"
+subtitle: "Jour 2 matin — NestJS professionnel"
+
+layout:
+  template: title
+  density: low
+  emphasis: visual
+
+visual:
+  kind: image
+  query: "configuration environment variables code"
+  source: pixabay
+  placement: background
+  alt: "Illustration configuration et code"
+
+notes_formateur: |
+  ## Déroulé (1 min)
+
+  ### Accroche
+  "Aujourd'hui, on rend notre API robuste : config, validation, erreurs."
+
+  ### Objectif
+  Cadrer la demi-journée : services propres + DTO validés + SQL brut organisé.
+
+  ### Transition
+  On commence par le rôle d'un service et @Injectable.
+
+notes_stagiaire: |
+  ## À retenir
+
+  **Objectif** : rendre l'API maintenable et robuste.
+
+  **Thèmes** : services, configuration `.env`, validation DTO,
+  erreurs, repositories SQL.

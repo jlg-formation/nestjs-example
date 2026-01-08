@@ -1,0 +1,36 @@
+id: ch2-warning-fat-controller
+type: warning
+title: "⚠️ Anti-pattern : le controller 'fourre-tout'"
+covers:
+  - "Logique métier dans les services"
+
+layout:
+  template: warning
+  density: low
+  emphasis: visual
+
+visual:
+  kind: icon
+  query: "warning code smell"
+  source: local
+  placement: left
+  alt: "Icône alerte"
+
+warning:
+  danger: "Mettre la logique métier dans les controllers rend le code difficile à tester et à faire évoluer"
+  consequences:
+    - "Controllers énormes et illisibles"
+    - "Tests e2e obligatoires pour tout (lent)"
+    - "Duplication de logique entre endpoints"
+  prevention: "Garder les controllers fins : validation/DTO/HTTP, puis délégation au service"
+  real_case: "Un endpoint 'recharge' dupliquait 3 fois la même règle métier"
+
+notes_formateur: |
+  ## Déroulé (2 min)
+  - Montrer : ce qui grossit trop vite, c'est le controller.
+  - Donner un repère : si vous écrivez du SQL dans un controller, stop.
+
+notes_stagiaire: |
+  ## À retenir
+  Controller = façade HTTP.
+  La logique doit être dans un service, sinon tests et maintenance explosent.

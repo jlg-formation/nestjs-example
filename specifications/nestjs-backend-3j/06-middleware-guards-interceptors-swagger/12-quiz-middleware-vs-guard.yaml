@@ -1,0 +1,36 @@
+id: nestjs-backend-3j-06-quiz-mw-vs-guard
+type: quiz
+title: "Quiz : middleware vs guard"
+
+layout:
+  template: quiz
+  density: low
+  emphasis: text
+
+visual:
+  kind: none
+  source: none
+  placement: full
+  alt: null
+
+quiz:
+  question: "Pour une authentification par clé API, quel composant est le plus adapté ?"
+  choices:
+    A: "Middleware"
+    B: "Guard"
+    C: "Repository"
+    D: "DTO"
+
+notes_formateur: |
+  ## Déroulé (2 min)
+
+  ### Réponse
+  - B : Guard.
+
+  ### Transition
+  Dernière grande couche transverse : interceptors.
+
+notes_stagiaire: |
+  ## À retenir
+
+  **Réponse** : B (Guard).

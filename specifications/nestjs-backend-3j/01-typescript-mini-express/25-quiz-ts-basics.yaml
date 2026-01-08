@@ -1,0 +1,36 @@
+id: ch1-quiz-ts-basics
+type: quiz
+title: "Quiz : TypeScript"
+
+layout:
+  template: quiz
+  density: low
+  emphasis: text
+
+visual:
+  kind: none
+  source: none
+  placement: full
+  alt: null
+
+quiz:
+  question: "Dans TypeScript, quel énoncé est vrai ?"
+  choices:
+    A: "Les interfaces valident les données à l'exécution"
+    B: "TypeScript s'exécute directement dans Node sans compilation"
+    C: "Les types servent de contrats, surtout au build et dans l'IDE"
+    D: "Le type 'any' rend le code plus sûr"
+
+notes_formateur: |
+  ## Déroulé (2 min)
+  - Réponse : C.
+  - A : faux (pas de validation runtime).
+  - B : faux (TS → JS).
+  - D : faux (perte de sécurité).
+  ### Transition
+  On passe à Express et aux middlewares.
+
+notes_stagiaire: |
+  ## À retenir
+  **Réponse** : C.
+  Les types aident au build/IDE, pas à l'exécution.

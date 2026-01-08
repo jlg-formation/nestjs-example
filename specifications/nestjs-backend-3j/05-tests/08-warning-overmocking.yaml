@@ -1,0 +1,44 @@
+id: nestjs-backend-3j-05-warning-overmocking
+type: warning
+title: "⚠️ Over-mocking : tests verts, production rouge"
+
+layout:
+  template: warning
+  density: low
+  emphasis: visual
+
+visual:
+  kind: icon
+  query: "warning green check false confidence"
+  source: local
+  placement: left
+  alt: "Icône alerte"
+
+warning:
+  danger: "Si vous mockez tout, vos tests ne détectent plus les bugs d'intégration (routing, validation, SQL)."
+  consequences:
+    - "Confiance excessive dans la suite de tests"
+    - "Bugs découverts tard (en e2e ou en prod)"
+    - "Refactors 'cassent' les mocks sans casser le produit"
+  prevention: "Mixer unit tests (mocks) et e2e (vrai runtime). Garder des mocks simples."
+  real_case: "Un mock retournait un DTO, mais la DB renvoyait `null` → 500 en prod"
+
+covers:
+  - "Mocks de services"
+  - "Tests end-to-end (remplacent Postman)"
+
+notes_formateur: |
+  ## Déroulé (2 min)
+
+  ### Repère
+  - Unit : on mocke.
+  - E2E : on stoppe les mocks.
+
+  ### Transition
+  Passons aux tests de contrôleurs côté NestJS.
+
+notes_stagiaire: |
+  ## À retenir
+
+  **Risque** : tests unitaires trop mockés.
+  **Solution** : compléter par des tests e2e.

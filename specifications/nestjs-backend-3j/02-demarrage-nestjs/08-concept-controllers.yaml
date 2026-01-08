@@ -1,0 +1,39 @@
+id: ch2-concept-controllers
+type: concept
+title: "Controller : traduire HTTP en appel métier"
+covers:
+  - "Structure : modules, contrôleurs, services"
+  - "Décorateurs @Controller, @Get, @Post"
+
+layout:
+  template: concept
+  density: medium
+  emphasis: balanced
+
+visual:
+  kind: icon
+  query: "api endpoint controller"
+  source: local
+  placement: right
+  alt: "Icône controller"
+
+concept:
+  definition: "Le contrôleur expose des routes et délègue la logique à des services."
+  bullets:
+    - "Décorateurs : @Controller, @Get, @Post"
+    - "Entrées : params, query, body"
+    - "Sorties : status + payload"
+    - "But : rester fin, sans logique métier"
+  pitfalls:
+    - "❌ Mettre des règles métier dans le controller"
+    - "❌ Mélanger accès DB et HTTP dans la même méthode"
+
+notes_formateur: |
+  ## Déroulé (3 min)
+  - Donner la règle : controller = adaptation HTTP.
+  - Transition : on regarde un mini controller.
+
+notes_stagiaire: |
+  ## À retenir
+  Controller = routes + mapping HTTP.
+  La logique doit vivre dans un service injectable.

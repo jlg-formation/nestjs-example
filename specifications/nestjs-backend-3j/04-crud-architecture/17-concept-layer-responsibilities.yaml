@@ -1,0 +1,49 @@
+id: nestjs-backend-3j-04-layer-responsibilities
+type: concept
+title: "Chaque couche a une seule responsabilité"
+subtitle: "Sinon, les bugs et la duplication explosent"
+
+layout:
+  template: concept
+  density: medium
+  emphasis: balanced
+
+visual:
+  kind: diagram
+  query: "controller service repository responsibilities"
+  source: ai
+  placement: right
+  alt: "Schéma responsabilités"
+
+concept:
+  definition: "Controller = HTTP, Service = métier, Repository = SQL. Cette séparation stabilise votre API et vos tests."
+  bullets:
+    - "Controller : routes, DTO, status codes"
+    - "Service : règles (ex: solde suffisant)"
+    - "Repository : requêtes SQL, transactions"
+    - "Mapping : DTO ↔ modèle interne"
+  pitfalls:
+    - "❌ SQL dans un controller"
+    - "❌ Logique métier dupliquée entre endpoints"
+
+covers:
+  - "Structuration contrôleurs / services / repositories"
+
+notes_formateur: |
+  ## Déroulé (3 min)
+
+  ### Repère
+  - Si c'est du HTTP : controller.
+  - Si c'est une règle métier : service.
+  - Si c'est du SQL : repository.
+
+  ### Transition
+  Place à un endpoint concret : POST /recharge.
+
+notes_stagiaire: |
+  ## À retenir
+
+  **Séparation** :
+  - controller = HTTP
+  - service = métier
+  - repository = SQL

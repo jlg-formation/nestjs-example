@@ -1,0 +1,46 @@
+id: nestjs-backend-3j-03-recap
+type: recap
+title: "Synthèse : propreté et robustesse"
+
+layout:
+  template: recap
+  density: low
+  emphasis: text
+
+visual:
+  kind: icon
+  query: "checklist summary"
+  source: local
+  placement: left
+  alt: "Icône synthèse"
+
+takeaways:
+  - "Services `@Injectable` = logique métier testable"
+  - "`.env` + ConfigService = config sans hardcode"
+  - "DTO + ValidationPipe = erreurs 400 claires"
+  - "Exception Filter = format d'erreur stable"
+  - "Repository = SQL brut organisé et réutilisable"
+
+covers:
+  - "Services et décorateur @Injectable"
+  - "Variables d’environnement (.env)"
+  - "Validation avec class-validator / class-transformer"
+  - "Gestion centralisée des erreurs"
+  - "Organisation du code avec des repositories SQL bruts"
+
+notes_formateur: |
+  ## Déroulé (2 min)
+
+  ### Questions flash
+  - "Où place-t-on la validation ?"
+  - "Pourquoi un repository ?"
+
+  ### Transition
+  On passe au CRUD complet : plusieurs DTO, plusieurs tables, relations.
+
+notes_stagiaire: |
+  ## À retenir
+
+  **Checklist endpoint** : DTO → validation → service → repository → erreurs.
+
+  **But** : une API stable, lisible et maintenable.

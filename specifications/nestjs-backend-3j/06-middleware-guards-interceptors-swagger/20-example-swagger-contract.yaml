@@ -1,0 +1,41 @@
+id: nestjs-backend-3j-06-example-swagger-contract
+type: example
+title: "Exemple : Swagger expose les erreurs utiles"
+
+layout:
+  template: example
+  density: low
+  emphasis: balanced
+
+visual:
+  kind: image
+  query: "api documentation screenshot"
+  source: pixabay
+  placement: right
+  alt: "Documentation API"
+
+example:
+  variant: simple
+  bullets:
+    - "Contexte : équipe front/back qui itère vite"
+    - "Action : documenter 401/404 + format `{ data }`"
+    - "Résultat : moins d'aller-retours et moins de bugs d'intégration"
+  takeaway: "Une doc utile décrit aussi les erreurs et la sécurité, pas فقط les happy paths."
+
+covers:
+  - "Documentation Swagger"
+
+notes_formateur: |
+  ## Déroulé (3 min)
+
+  ### Points clés
+  - La doc doit inclure les codes d'erreurs.
+  - C'est une forme de contrat d'équipe.
+
+  ### Transition
+  Petite discussion : où met-on les cross-cutting concerns ?
+
+notes_stagiaire: |
+  ## À retenir
+
+  **Swagger utile** : endpoints + auth + erreurs.

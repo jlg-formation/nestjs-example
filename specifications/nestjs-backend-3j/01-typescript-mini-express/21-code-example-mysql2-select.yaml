@@ -1,0 +1,56 @@
+id: ch1-code-mysql2-select
+type: code_example
+title: "mysql2 : SELECT paramétré"
+subtitle: "Récupérer des clients sans injection SQL"
+covers:
+  - "Mini-projet Express réduit :"
+  - "Exemple SQL brut via mysql2"
+  - "Créer /ping + GET /clients avec requête SQL simple."
+
+layout:
+  template: code_example
+  density: medium
+  emphasis: text
+
+visual:
+  kind: code_render
+  source: none
+  placement: full
+  alt: "Exemple mysql2 SELECT paramétré"
+
+code:
+  language: "ts"
+  snippet: |
+    import mysql from "mysql2/promise";
+
+    const pool = mysql.createPool({
+      host: "localhost",
+      user: "root",
+      database: "training",
+    });
+
+    export async function findClientById(id: number) {
+      const [rows] = await pool.query(
+        "SELECT id, name, balance FROM clients WHERE id = ?",
+        [id]
+      );
+      return rows;
+    }
+  callouts:
+    - line: 1
+      text: "mysql2/promise : API async"
+    - line: 9
+      text: "Requête paramétrée : le ? protège contre l'injection"
+    - line: 13
+      text: "rows = résultat brut à mapper ensuite"
+  expected_output: "Retourne les lignes correspondant à l'id"
+
+notes_formateur: |
+  ## Déroulé (3 min)
+  - Expliquer rapidement : pool = connexions réutilisées.
+  - Dire : on mappe rows vers interface Client dans un vrai projet.
+
+notes_stagiaire: |
+  ## À retenir
+  Utiliser un pool + requêtes paramétrées.
+  Éviter la concaténation de strings pour construire du SQL.

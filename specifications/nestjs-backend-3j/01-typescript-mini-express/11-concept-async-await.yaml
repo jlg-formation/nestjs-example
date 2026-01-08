@@ -1,0 +1,38 @@
+id: ch1-concept-async-await
+type: concept
+title: "async/await : écrire de l'asynchrone lisible"
+covers:
+  - "Modules ES, async/await, gestion des erreurs"
+
+layout:
+  template: concept
+  density: medium
+  emphasis: balanced
+
+visual:
+  kind: icon
+  query: "clock async await"
+  source: local
+  placement: right
+  alt: "Horloge asynchrone"
+
+concept:
+  definition: "async/await permet d'écrire du code asynchrone comme du code synchrone, avec des erreurs gérées au bon endroit."
+  bullets:
+    - "await = attendre une Promise, sans callbacks"
+    - "try/catch = gestion d'erreurs au même niveau"
+    - "Lisible dans les services et les routes"
+    - "Base pour DB/HTTP (mysql2, fetch, etc.)"
+  pitfalls:
+    - "❌ Oublier await : Promise non gérée"
+    - "❌ Catch vide : erreurs perdues"
+
+notes_formateur: |
+  ## Déroulé (2 min)
+  - Rappeler : Promises sous le capot.
+  - Donner un reflexe : toute I/O est async (DB, réseau, fichiers).
+
+notes_stagiaire: |
+  ## À retenir
+  async/await rend l'asynchrone lisible.
+  Toujours gérer les erreurs (try/catch) et les retours.

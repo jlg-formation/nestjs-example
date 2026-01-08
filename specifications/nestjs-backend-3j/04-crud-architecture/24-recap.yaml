@@ -1,0 +1,38 @@
+id: nestjs-backend-3j-04-recap
+type: recap
+title: "Synthèse : une API CRUD stable et maintenable"
+
+layout:
+  template: recap
+  density: low
+  emphasis: text
+
+visual:
+  kind: icon
+  query: "checklist summary api"
+  source: local
+  placement: left
+  alt: "Icône checklist"
+
+takeaways:
+  - "DTO = contrat stable (entrée/sortie)"
+  - "Réponses standardisées = intégration simplifiée"
+  - "SQL brut : paramétré + relations + transactions"
+  - "Controller fin, service métier, repository SQL"
+  - "Erreurs cohérentes : 400/404/409 plutôt que 500"
+
+notes_formateur: |
+  ## Déroulé (2 min)
+
+  ### Questions flash
+  - "DTO vs modèle interne : pourquoi séparer ?"
+  - "Pourquoi une transaction sur recharge/réservation ?"
+
+  ### Transition
+  Prochaine étape : sécuriser la qualité avec des tests.
+
+notes_stagiaire: |
+  ## À retenir
+
+  **5 piliers** : DTO, réponses, SQL, architecture, erreurs.
+  **Suite** : tests unitaires et e2e.

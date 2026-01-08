@@ -1,0 +1,53 @@
+id: nestjs-backend-3j-03-objective
+type: objective
+title: "Objectifs : rendre l'API robuste"
+subtitle: "Services propres, validation, config, erreurs"
+
+layout:
+  template: objective
+  density: low
+  emphasis: text
+
+visual:
+  kind: icon
+  query: "target checklist"
+  source: local
+  placement: left
+  alt: "Icône objectifs"
+
+objectives:
+  - "Créer des services NestJS avec @Injectable"
+  - "Charger une configuration via .env (sans hardcode)"
+  - "Valider des DTO avec class-validator et class-transformer"
+  - "Centraliser la gestion d'erreurs (exception filters)"
+  - "Structurer l'accès SQL brut via des repositories"
+
+covers:
+  - "Services et décorateur @Injectable"
+  - "Variables d’environnement (.env)"
+  - "Validation avec class-validator / class-transformer"
+  - "Gestion centralisée des erreurs"
+  - "Organisation du code avec des repositories SQL bruts"
+
+notes_formateur: |
+  ## Déroulé (1 min)
+
+  ### Points clés à aborder
+  - On vise du "propre" : responsabilités claires.
+  - On garde SQL brut, mais organisé.
+
+  ### Question
+  "Sur vos projets, où naissent les bugs : validation, config, erreurs ?"
+
+  ### Transition
+  D'abord : service = logique métier + dépendances.
+
+notes_stagiaire: |
+  ## À retenir
+
+  **À la fin de ce chapitre, vous saurez** :
+  - Créer un service injectable
+  - Configurer l'app via `.env`
+  - Valider des DTO automatiquement
+  - Avoir des erreurs cohérentes côté API
+  - Ranger le SQL brut dans des repositories

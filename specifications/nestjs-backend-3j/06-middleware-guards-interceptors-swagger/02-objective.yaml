@@ -1,0 +1,41 @@
+id: nestjs-backend-3j-06-objective
+type: objective
+title: "Objectifs : rendre l'API robuste et cohérente"
+subtitle: "Sans complexifier le code métier"
+
+layout:
+  template: objective
+  density: low
+  emphasis: text
+
+visual:
+  kind: icon
+  query: "target shield api"
+  source: local
+  placement: left
+  alt: "Icône cible"
+
+objectives:
+  - "Ajouter du logging via middleware"
+  - "Protéger des routes avec un guard (clé API)"
+  - "Standardiser et mesurer via interceptors"
+  - "Documenter l'API avec Swagger"
+  - "Faire une revue finale du projet"
+
+notes_formateur: |
+  ## Déroulé (1 min)
+
+  ### Points clés
+  - On vise un backend 'pro' : observabilité + sécurité + doc.
+
+  ### Transition
+  D'abord : où se branchent ces composants dans la requête.
+
+notes_stagiaire: |
+  ## À retenir
+
+  **On va couvrir** :
+  - middlewares
+  - guards
+  - interceptors
+  - Swagger

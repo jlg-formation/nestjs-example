@@ -1,0 +1,45 @@
+id: nestjs-backend-3j-03-warning-error-leaks
+type: warning
+title: "⚠️ Ne renvoyez pas le SQL ou la stack au client"
+
+layout:
+  template: warning
+  density: low
+  emphasis: visual
+
+visual:
+  kind: icon
+  query: "warning data leak"
+  source: local
+  placement: left
+  alt: "Alerte fuite d'informations"
+
+warning:
+  danger: "Une erreur non filtrée peut exposer une stack trace, une requête SQL ou des infos sensibles."
+  consequences:
+    - "Aide un attaquant (structure DB, libs, chemins)"
+    - "Expose des données en clair dans les logs/front"
+    - "Rend les erreurs instables selon l'environnement"
+  prevention: "Centraliser les réponses d'erreur, logger côté serveur, et renvoyer un message générique en 500"
+  real_case: "Une stack trace en prod révèle souvent versions et chemins internes"
+
+covers:
+  - "Gestion centralisée des erreurs"
+  - "Organisation du code avec des repositories SQL bruts"
+
+notes_formateur: |
+  ## Déroulé (2 min)
+
+  ### Points clés
+  - Différence logs serveur vs réponse client.
+  - Montrer un exemple : SQL dans un message = dangereux.
+
+  ### Transition
+  Maintenant : organiser SQL brut via le pattern Repository.
+
+notes_stagiaire: |
+  ## À retenir
+
+  **Client API** : message stable et non sensible.
+
+  **Serveur** : logs détaillés (pour debug), pas l'inverse.

@@ -1,0 +1,34 @@
+id: ch1-keyidea-typage
+type: key_idea
+title: "L'idée clé à retenir"
+covers:
+  - "Types de base, interfaces, fonctions"
+
+layout:
+  template: key_idea
+  density: low
+  emphasis: visual
+
+visual:
+  kind: icon
+  query: "lightbulb idea"
+  source: local
+  placement: left
+  alt: "Icône ampoule"
+
+message: "En backend, les types sont des contrats : ils clarifient et protègent vos API."
+
+supporting_points:
+  - "Une signature de fonction = promesse explicite"
+  - "Une interface = forme des données attendues"
+  - "Moins de bugs : l'IDE vous alerte avant l'exécution"
+
+notes_formateur: |
+  ## Déroulé (1 min)
+  - Répéter : lisibilité d'abord, sophistication ensuite.
+  - Relier : NestJS = beaucoup de contrats (DTO, services).
+
+notes_stagiaire: |
+  ## À retenir
+  Types = contrats : paramètres, retours, objets.
+  Plus c'est explicite, plus c'est maintenable.

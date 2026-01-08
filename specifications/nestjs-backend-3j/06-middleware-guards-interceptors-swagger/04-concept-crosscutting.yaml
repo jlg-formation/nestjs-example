@@ -1,0 +1,45 @@
+id: nestjs-backend-3j-06-concept-crosscutting
+type: concept
+title: "Le code métier doit rester 'pur'"
+subtitle: "Les préoccupations transverses se gèrent en périphérie"
+
+layout:
+  template: concept
+  density: medium
+  emphasis: balanced
+
+visual:
+  kind: icon
+  query: "layers onion architecture"
+  source: local
+  placement: right
+  alt: "Icône couches"
+
+concept:
+  definition: "Logging, auth, mesure de temps et doc sont transverses : on les implémente au niveau framework, pas dans chaque endpoint."
+  bullets:
+    - "Moins de duplication"
+    - "Comportement cohérent sur toute l'API"
+    - "Évolution plus simple (un seul endroit)"
+    - "Code métier plus testable"
+  pitfalls:
+    - "❌ Copier-coller du logging dans chaque controller"
+    - "❌ Mélanger auth et logique métier"
+
+covers:
+  - "Revue complète du projet"
+
+notes_formateur: |
+  ## Déroulé (3 min)
+
+  ### Message clé
+  - Le backend 'pro' est cohérent sans duplication.
+
+  ### Transition
+  On attaque la première couche : middleware.
+
+notes_stagiaire: |
+  ## À retenir
+
+  **Principe** : transversal = centralisé.
+  **Résultat** : code plus maintenable.

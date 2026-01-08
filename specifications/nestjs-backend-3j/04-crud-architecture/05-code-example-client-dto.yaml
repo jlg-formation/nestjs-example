@@ -1,0 +1,58 @@
+id: nestjs-backend-3j-04-code-client-dto
+type: code_example
+title: "DTO Client : définir l'objet exposé"
+subtitle: "Le client de l'API sait exactement quoi attendre"
+
+layout:
+  template: code_example
+  density: medium
+  emphasis: text
+
+visual:
+  kind: code_render
+  source: none
+  placement: full
+  alt: "Code TypeScript : DTO de sortie"
+
+code:
+  language: "ts"
+  snippet: |
+    export class ClientDto {
+      id!: string;
+      name!: string;
+      balance!: number;
+    }
+
+    export type ApiResponse<T> = {
+      data: T;
+      meta?: { requestId?: string };
+    };
+  callouts:
+    - line: 1
+      text: "DTO de sortie : stable et documentable"
+    - line: 7
+      text: "Format de réponse standard (data + meta)"
+  expected_output: "GET /clients/:id → { data: { id, name, balance } }"
+
+covers:
+  - "DTOs pour Clients et Réservations"
+  - "Réponses typées et formats standardisés"
+
+notes_formateur: |
+  ## Déroulé (4 min)
+
+  ### Points clés
+  - On standardise le wrapper de réponse.
+  - On garde `meta` optionnel (corrélation/logs).
+
+  ### Question
+  "Avez-vous déjà subi une API qui change de forme selon les endpoints ?"
+
+  ### Transition
+  Maintenant, un DTO d'entrée : créer une réservation.
+
+notes_stagiaire: |
+  ## À retenir
+
+  **DTO de sortie** : décrit la forme des données retournées.
+  **Standardiser** : `data` (et `meta` optionnel) sur tous les endpoints.

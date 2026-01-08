@@ -1,0 +1,49 @@
+id: ch2-code-module-wire
+type: code_example
+title: "Module : déclarer controllers et providers"
+subtitle: "L'assemblage fait par Nest"
+covers:
+  - "Structure : modules, contrôleurs, services"
+  - "Injection de dépendances"
+
+layout:
+  template: code_example
+  density: medium
+  emphasis: text
+
+visual:
+  kind: code_render
+  source: none
+  placement: full
+  alt: "Code module NestJS"
+
+code:
+  language: "ts"
+  snippet: |
+    import { Module } from "@nestjs/common";
+    import { SoldesController } from "./soldes.controller";
+    import { SoldesService } from "./soldes.service";
+
+    @Module({
+      controllers: [SoldesController],
+      providers: [SoldesService],
+    })
+    export class SoldesModule {}
+  callouts:
+    - line: 5
+      text: "@Module = la composition"
+    - line: 6
+      text: "controllers : façade HTTP"
+    - line: 7
+      text: "providers : services injectables"
+  expected_output: "Nest peut instancier et injecter SoldesService"
+
+notes_formateur: |
+  ## Déroulé (3 min)
+  - Dire : c'est ici que la DI trouve les providers.
+  - Transition : mini TP 'soldes'.
+
+notes_stagiaire: |
+  ## À retenir
+  Un module déclare ce que Nest doit créer : controllers + providers.
+  C'est la base de la DI.

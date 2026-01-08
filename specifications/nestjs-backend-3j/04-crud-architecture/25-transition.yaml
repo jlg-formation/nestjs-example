@@ -1,0 +1,29 @@
+id: nestjs-backend-3j-04-transition-tests
+type: transition
+title: "Tests : prouver que l'API marche"
+
+layout:
+  template: transition
+  density: low
+  emphasis: visual
+
+visual:
+  kind: image
+  query: "automated tests api"
+  source: pixabay
+  placement: background
+  alt: "Illustration tests automatisés"
+
+message: "Comment éviter de casser votre API à chaque changement ?"
+
+notes_formateur: |
+  ## Déroulé (30 sec)
+
+  ### Points clés
+  - Maintenant qu'on a du CRUD : il faut des garde-fous.
+  - Les tests remplacent Postman et sécurisent le refactor.
+
+notes_stagiaire: |
+  ## À retenir
+
+  **Prochaine section** : tests unitaires + tests end-to-end.

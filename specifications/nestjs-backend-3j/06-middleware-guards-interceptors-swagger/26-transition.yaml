@@ -1,0 +1,28 @@
+id: nestjs-backend-3j-06-transition
+type: transition
+title: "Conclusion"
+
+layout:
+  template: transition
+  density: low
+  emphasis: visual
+
+visual:
+  kind: image
+  query: "finish flag success"
+  source: pixabay
+  placement: background
+  alt: "Fin de parcours"
+
+message: "Qu'est-ce que vous emportez pour vos projets ?"
+
+notes_formateur: |
+  ## Déroulé (30 sec)
+
+  ### Transition
+  On clôture : récap global, livrables, prochaines étapes.
+
+notes_stagiaire: |
+  ## À retenir
+
+  **Prochaine section** : conclusion et synthèse globale.

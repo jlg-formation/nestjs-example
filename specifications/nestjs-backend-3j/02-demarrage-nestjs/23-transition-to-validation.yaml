@@ -1,0 +1,26 @@
+id: ch2-transition-validation
+type: transition
+title: "Passer d'une API 'qui marche' à une API 'pro'"
+
+layout:
+  template: transition
+  density: low
+  emphasis: visual
+
+visual:
+  kind: image
+  query: "upgrade improvement professional" 
+  source: pixabay
+  placement: background
+  alt: "Illustration amélioration"
+
+message: "Validation, configuration et erreurs : la vraie robustesse."
+
+notes_formateur: |
+  ## Déroulé (30 sec)
+  - Dire : structure OK, maintenant on sécurise les entrées.
+  - Transition : DTO + class-validator.
+
+notes_stagiaire: |
+  ## À retenir
+  Prochaine étape : rendre l'API robuste avec validation, config et erreurs.

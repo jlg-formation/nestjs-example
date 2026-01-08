@@ -1,0 +1,29 @@
+id: nestjs-backend-3j-99-thanks
+type: title
+title: "Merci — à vous de jouer"
+subtitle: "Prochaine étape : appliquer la checklist sur un vrai module"
+
+layout:
+  template: title
+  density: low
+  emphasis: visual
+
+visual:
+  kind: image
+  query: "teamwork success next steps"
+  source: pixabay
+  placement: background
+  alt: "Illustration de fin"
+
+notes_formateur: |
+  ## Déroulé (1 min)
+
+  ### Clôture
+  - Répondre aux questions restantes.
+  - Proposer une 'next step' : implémenter un module métier réel.
+
+notes_stagiaire: |
+  ## À retenir
+
+  **Suite** : choisissez un module réel et refaites :
+  DTO → validation → service → repository → tests → Swagger.

@@ -1,0 +1,38 @@
+id: ch1-concept-es-modules
+type: concept
+title: "Modules ES : organiser votre code dès le début"
+covers:
+  - "Modules ES, async/await, gestion des erreurs"
+
+layout:
+  template: concept
+  density: medium
+  emphasis: balanced
+
+visual:
+  kind: icon
+  query: "folder modules imports"
+  source: local
+  placement: right
+  alt: "Organisation en modules"
+
+concept:
+  definition: "Les modules ES (import/export) permettent de découper le code en fichiers responsables et testables."
+  bullets:
+    - "Un fichier = une responsabilité (util, service, route)"
+    - "export/import explicites : dépendances visibles"
+    - "Favorise la réutilisation et les tests"
+    - "Prépare l'architecture NestJS (modules + providers)"
+  pitfalls:
+    - "❌ Fichier 'utils.ts' fourre-tout"
+    - "❌ Importer en boucle : attention aux dépendances"
+
+notes_formateur: |
+  ## Déroulé (2 min)
+  - Donner une règle : un fichier, une intention.
+  - Expliquer rapidement : Node ESM vs CommonJS (sans entrer trop).
+
+notes_stagiaire: |
+  ## À retenir
+  Import/export = code organisé.
+  Ça rend les dépendances visibles et facilite les tests.

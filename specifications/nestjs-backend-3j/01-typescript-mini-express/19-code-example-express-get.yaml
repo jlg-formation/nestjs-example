@@ -1,0 +1,51 @@
+id: ch1-code-express-get
+type: code_example
+title: "Express : une route GET minimale"
+subtitle: "Un /ping qui prouve que le serveur répond"
+covers:
+  - "Mini-projet Express réduit :"
+  - "Route GET"
+  - "TP Express minimal :"
+  - "Créer /ping + GET /clients avec requête SQL simple."
+
+layout:
+  template: code_example
+  density: medium
+  emphasis: text
+
+visual:
+  kind: code_render
+  source: none
+  placement: full
+  alt: "Code Express GET /ping"
+
+code:
+  language: "ts"
+  snippet: |
+    import express from "express";
+
+    const app = express();
+
+    app.get("/ping", (_req, res) => {
+      res.json({ ok: true, message: "pong" });
+    });
+
+    app.listen(3000, () => console.log("Listening on 3000"));
+  callouts:
+    - line: 1
+      text: "Créer une app Express"
+    - line: 5
+      text: "GET /ping : endpoint de santé"
+    - line: 9
+      text: "Démarrer le serveur"
+  expected_output: "GET /ping → { ok: true, message: 'pong' }"
+
+notes_formateur: |
+  ## Déroulé (2 min)
+  - Dire : /ping est utile pour vérifier l'infra (load balancer, etc.).
+  - Transition : on passe à GET /clients connecté à la DB.
+
+notes_stagiaire: |
+  ## À retenir
+  Un endpoint /ping est une base pour tester que tout fonctionne.
+  Ensuite, même structure pour /clients.

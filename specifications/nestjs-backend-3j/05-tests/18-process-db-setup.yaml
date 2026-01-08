@@ -1,0 +1,43 @@
+id: nestjs-backend-3j-05-process-db-setup
+type: process
+title: "Recette DB de test : seed, isolation, nettoyage"
+subtitle: "Pour des tests reproductibles"
+
+layout:
+  template: process
+  density: medium
+  emphasis: balanced
+
+visual:
+  kind: diagram
+  query: "database seed teardown steps"
+  source: ai
+  placement: right
+  alt: "Seed et cleanup"
+
+process:
+  steps:
+    - "Créer une DB dédiée (ou schema dédié)"
+    - "Seeder les données nécessaires (clients, soldes)"
+    - "Lancer le test (repo/e2e)"
+    - "Nettoyer (truncate / rollback)"
+    - "Isoler : 1 test = 1 état initial connu"
+
+covers:
+  - "Stratégies de test des requêtes SQL"
+
+notes_formateur: |
+  ## Déroulé (3 min)
+
+  ### Points clés
+  - Seed minimal : uniquement ce que le test consomme.
+  - Nettoyage systématique.
+
+  ### Transition
+  Exemple : rollback transactionnel pour nettoyer.
+
+notes_stagiaire: |
+  ## À retenir
+
+  **But** : un état initial connu pour chaque test.
+  **Techniques** : seed + truncate, ou transaction + rollback.

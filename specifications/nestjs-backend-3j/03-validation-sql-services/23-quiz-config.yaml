@@ -1,0 +1,44 @@
+id: nestjs-backend-3j-03-quiz-config
+type: quiz
+title: "Quiz : configuration `.env`"
+
+layout:
+  template: quiz
+  density: low
+  emphasis: text
+
+visual:
+  kind: none
+  source: none
+  placement: full
+  alt: null
+
+quiz:
+  question: "En production, quelle est la bonne pratique pour les secrets ?"
+  choices:
+    A: "Committer `.env` dans Git (plus simple)"
+    B: "Mettre les secrets dans le code en constante"
+    C: "Injecter les secrets via l'environnement (CI/CD, vault)"
+    D: "Afficher les secrets dans les logs au démarrage"
+
+covers:
+  - "Variables d’environnement (.env)"
+
+notes_formateur: |
+  ## Déroulé (2 min)
+
+  ### Réponse
+  C.
+
+  ### Débrief
+  - `.env` est pratique en dev, pas une stratégie de prod.
+
+  ### Transition
+  Synthèse du chapitre.
+
+notes_stagiaire: |
+  ## À retenir
+
+  **Réponse** : C.
+
+  En prod : secrets via l'environnement (CI/CD, vault), pas dans Git.

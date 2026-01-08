@@ -1,0 +1,42 @@
+id: nestjs-backend-3j-05-process-aaa
+type: process
+title: "Recette : écrire un test qui ne ment pas"
+subtitle: "Clarté, isolation, assertions utiles"
+
+layout:
+  template: process
+  density: medium
+  emphasis: balanced
+
+visual:
+  kind: diagram
+  query: "arrange act assert steps"
+  source: ai
+  placement: right
+  alt: "Étapes AAA"
+
+process:
+  steps:
+    - "Nommer le comportement (titre du test)"
+    - "Préparer le contexte (arrange)"
+    - "Exécuter l'action (act)"
+    - "Vérifier le résultat (assert)"
+    - "Nettoyer si nécessaire (afterEach)"
+
+covers:
+  - "Introduction aux tests Jest"
+
+notes_formateur: |
+  ## Déroulé (3 min)
+
+  ### Points clés
+  - Une assertion doit vérifier un résultat observable.
+  - Plus un test est simple, plus il est fiable.
+
+  ### Transition
+  Pour isoler un test, on doit souvent remplacer des dépendances.
+
+notes_stagiaire: |
+  ## À retenir
+
+  **Recette** : nommer → AAA → assertions utiles → nettoyage.

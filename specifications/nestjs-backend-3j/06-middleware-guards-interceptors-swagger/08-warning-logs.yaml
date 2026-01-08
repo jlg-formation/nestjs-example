@@ -1,0 +1,43 @@
+id: nestjs-backend-3j-06-warning-logs
+type: warning
+title: "⚠️ Logs : ne capturez pas de données sensibles"
+
+layout:
+  template: warning
+  density: low
+  emphasis: visual
+
+visual:
+  kind: icon
+  query: "warning privacy logs"
+  source: local
+  placement: left
+  alt: "Alerte logs"
+
+warning:
+  danger: "Logger des tokens, clés API ou payloads peut exposer des secrets (logs, monitoring, support)."
+  consequences:
+    - "Clé API exfiltrée via un export de logs"
+    - "Fuite de données personnelles"
+    - "Incidents de sécurité difficiles à retracer"
+  prevention: "Logger des métadonnées (route, status, durée) et masquer/retirer les secrets"
+  real_case: "Une clé API a été copiée depuis Kibana et utilisée par un tiers"
+
+covers:
+  - "Middlewares : logging et filtrage"
+
+notes_formateur: |
+  ## Déroulé (2 min)
+
+  ### Points clés
+  - Logguer "moins" mais mieux.
+  - Les logs sont souvent partagés (support, ops).
+
+  ### Transition
+  Passons à l'auth : guards.
+
+notes_stagiaire: |
+  ## À retenir
+
+  **Règle** : ne jamais logger un secret.
+  **Log utile** : route + status + durée.

@@ -1,0 +1,46 @@
+id: nestjs-backend-3j-99-demo-swagger
+type: demo
+title: "Démo : Swagger comme contrat vivant"
+
+layout:
+  template: demo
+  density: low
+  emphasis: visual
+
+visual:
+  kind: icon
+  query: "live demo swagger api"
+  source: local
+  placement: left
+  alt: "Icône démonstration"
+
+covers:
+  - "Documentation Swagger"
+
+demo:
+  objective: "Montrer comment Swagger documente ET permet de tester l'API"
+  tool: "Swagger UI (OpenAPI)"
+  duration: "3 minutes"
+  steps:
+    - "Ouvrir Swagger UI et repérer un endpoint"
+    - "Lire le DTO (body) et les codes d'erreur"
+    - "Exécuter une requête (Try it out)"
+    - "Observer la réponse et le format standardisé"
+  fallback: "Capture d'écran ou GIF de Swagger UI"
+
+notes_formateur: |
+  ## Déroulé (3 min)
+
+  ### Astuce
+  Montrer un endpoint critique (reservation/recharge) + un cas d'erreur.
+
+  ### Transition
+  Dernière mise en pratique : mini-challenge final.
+
+notes_stagiaire: |
+  ## À retenir
+
+  **Swagger UI** :
+  - décrit le contrat (DTOs)
+  - liste codes d'erreur
+  - permet de tester sans Postman

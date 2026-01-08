@@ -1,0 +1,46 @@
+id: nestjs-backend-3j-05-concept-mocks
+type: concept
+title: "Un mock remplace une dépendance, pas la réalité"
+subtitle: "Mocker pour isoler, pas pour tricher"
+
+layout:
+  template: concept
+  density: medium
+  emphasis: balanced
+
+visual:
+  kind: icon
+  query: "mock puzzle piece"
+  source: local
+  placement: right
+  alt: "Icône mock"
+
+concept:
+  definition: "Un mock simule une dépendance (service, repo) pour tester une unité de code sans dépendre du réseau ou de la DB."
+  bullets:
+    - "Objectif : isolation + vitesse"
+    - "On mocke ce qu'on ne veut pas tester ici"
+    - "On garde un comportement simple et explicite"
+    - "On évite les mocks trop 'magiques'"
+  pitfalls:
+    - "❌ Mock trop détaillé : test couplé à l'implémentation"
+    - "❌ Tout mocker : on ne teste plus l'intégration"
+
+covers:
+  - "Mocks de services"
+
+notes_formateur: |
+  ## Déroulé (3 min)
+
+  ### Points clés
+  - Mock = pour isoler le SUT (system under test).
+  - On garde 2-3 cas : succès, erreur, edge-case.
+
+  ### Transition
+  Voyons un mock Jest concret.
+
+notes_stagiaire: |
+  ## À retenir
+
+  **Mock** : remplace une dépendance pour isoler un test.
+  **Attention** : trop de mocks = fausse confiance.

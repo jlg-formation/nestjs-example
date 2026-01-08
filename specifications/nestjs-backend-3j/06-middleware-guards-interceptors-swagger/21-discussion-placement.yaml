@@ -1,0 +1,40 @@
+id: nestjs-backend-3j-06-discussion-placement
+type: discussion
+title: "Discussion : où placer une règle transverse ?"
+
+layout:
+  template: discussion
+  density: low
+  emphasis: text
+
+visual:
+  kind: icon
+  query: "group discussion architecture layers"
+  source: local
+  placement: left
+  alt: "Icône discussion"
+
+discussion:
+  question: "Dans votre projet, quelle règle transverse a le plus tendance à finir en copier-coller ?"
+  duration: "6 minutes"
+  format: "small_groups"
+  prompts:
+    - "Logging : quels champs sont indispensables ?"
+    - "Auth : quelles routes doivent être protégées ?"
+    - "Réponses : un wrapper global vous aiderait-il ?"
+  debrief: "Relier chaque règle à l'outil adapté (middleware, guard, interceptor)"
+
+notes_formateur: |
+  ## Déroulé (8 min)
+
+  ### Consigne
+  - 4 minutes en groupe, puis débrief.
+
+  ### Transition
+  On termine par la revue du projet : checklist.
+
+notes_stagiaire: |
+  ## À retenir
+
+  **But** : éviter le copier-coller.
+  **Outil** : choisir la bonne couche.

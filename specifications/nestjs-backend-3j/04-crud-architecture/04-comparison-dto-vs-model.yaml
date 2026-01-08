@@ -1,0 +1,53 @@
+id: nestjs-backend-3j-04-dto-vs-model
+type: comparison
+title: "DTO vs modèle interne"
+subtitle: "Deux objets, deux responsabilités"
+
+layout:
+  template: comparison
+  density: medium
+  emphasis: balanced
+
+visual:
+  kind: none
+  source: none
+  placement: full
+  alt: null
+
+comparison:
+  left:
+    title: "DTO (API)"
+    bullets:
+      - "Contrat réseau (entrée/sortie)"
+      - "Validé (formats, bornes)"
+      - "Stable et documentable"
+      - "Peut masquer des champs internes"
+      - "Évolue avec versioning"
+  right:
+    title: "Modèle interne (service/repo)"
+    bullets:
+      - "Optimisé pour le métier"
+      - "Peut refléter le SQL (rows)"
+      - "Peut avoir des champs sensibles"
+      - "Peut changer sans casser l'API"
+      - "Adapté au test et au refactor"
+
+covers:
+  - "DTOs pour Clients et Réservations"
+  - "Réponses typées et formats standardisés"
+
+notes_formateur: |
+  ## Déroulé (2 min)
+
+  ### Points clés
+  - On traduit : DTO ↔ modèle interne.
+  - Le consommateur de l'API ne doit pas dépendre de vos tables.
+
+  ### Transition
+  On regarde un DTO de client en pratique.
+
+notes_stagiaire: |
+  ## À retenir
+
+  **Règle simple** : ne retournez pas vos rows SQL directement.
+  Utilisez un DTO de sortie.

@@ -1,0 +1,50 @@
+formation:
+  id: nestjs-backend-3j
+  title: "Développement Backend Node.js / NestJS"
+  subtitle: "Construire une API pro : SQL brut, validation, tests et Swagger"
+  duration: "3 jours"
+  version: "1.0"
+  author: "pptx-generator"
+  date: "2026-01-06"
+  chapters:
+    - id: "00-intro"
+      title: "Introduction"
+    - id: "01-typescript-mini-express"
+      title: "TypeScript essentiel + mini Express"
+    - id: "02-demarrage-nestjs"
+      title: "Démarrage NestJS : architecture, modules, contrôleurs, services"
+    - id: "03-validation-sql-services"
+      title: "Validation, configuration et SQL brut"
+    - id: "04-crud-architecture"
+      title: "Architecture API complète & CRUD"
+    - id: "05-tests"
+      title: "Tests unitaires et end-to-end"
+    - id: "06-middleware-guards-interceptors-swagger"
+      title: "Middleware, Guards, Interceptors & Swagger"
+    - id: "99-conclusion"
+      title: "Conclusion"
+
+audience:
+  - "Développeurs débutants/intermédiaires"
+  - "Développeurs souhaitant apprendre un backend moderne"
+
+prerequisites:
+  - "Aisance informatique"
+  - "Aucune expérience web exigée"
+
+objectives:
+  - "Poser les bases TypeScript nécessaires à un backend Node.js"
+  - "Comprendre l'architecture NestJS (modules, contrôleurs, services, DI)"
+  - "Structurer une API avec DTOs validés et gestion des erreurs"
+  - "Accéder à une base via SQL brut (SELECT/INSERT/UPDATE, relations)"
+  - "Écrire des tests unitaires et end-to-end et documenter avec Swagger"
+
+tags:
+  - nestjs
+  - nodejs
+  - typescript
+  - api
+  - sql
+  - validation
+  - tests
+  - swagger

@@ -1,0 +1,47 @@
+id: ch1-comparison-ts-vs-js
+type: comparison
+title: "JavaScript vs TypeScript en backend"
+subtitle: "Même runtime, mais pas la même sécurité"
+covers:
+  - "Types de base, interfaces, fonctions"
+
+layout:
+  template: comparison
+  density: medium
+  emphasis: balanced
+
+visual:
+  kind: none
+  source: none
+  placement: full
+  alt: null
+
+comparison:
+  left:
+    title: "JavaScript"
+    bullets:
+      - "Erreurs de type à l'exécution"
+      - "Refactor plus risqué"
+      - "Contrats implicites"
+      - "Autocomplétion limitée"
+      - "Rapide à démarrer"
+  right:
+    title: "TypeScript"
+    bullets:
+      - "Erreurs de type au build"
+      - "Refactor guidé par l'IDE"
+      - "Contrats explicites (types)"
+      - "API plus lisible et documentée"
+      - "Un peu plus de setup"
+
+notes_formateur: |
+  ## Déroulé (2 min)
+  - Insister : TS compile en JS, même runtime Node.
+  - Mettre en avant le "contrat" des fonctions.
+  ### Transition
+  On illustre avec un petit exemple de types.
+
+notes_stagiaire: |
+  ## À retenir
+  TS aide surtout sur la lisibilité, l'autocomplétion et le refactor.
+  Le code final exécuté reste du JavaScript dans Node.js.

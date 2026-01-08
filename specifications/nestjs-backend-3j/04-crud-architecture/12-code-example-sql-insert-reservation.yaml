@@ -1,0 +1,71 @@
+id: nestjs-backend-3j-04-code-sql-insert-reservation
+type: code_example
+title: "SQL brut : insérer une réservation"
+subtitle: "INSERT réservation + UPDATE solde (avec règle métier)"
+
+layout:
+  template: code_example
+  density: medium
+  emphasis: text
+
+visual:
+  kind: code_render
+  source: none
+  placement: full
+  alt: "TypeScript/SQL : réservation"
+
+code:
+  language: "ts"
+  snippet: |
+    await db.begin();
+    try {
+      // 1) Débit : on protège contre un solde négatif
+      const [result] = await db.query(
+        'UPDATE clients SET balance = balance - ? WHERE id = ? AND balance >= ?',
+        [amount, clientId, amount],
+      );
+      if ((result as any).affectedRows !== 1) {
+        throw new Error('INSUFFICIENT_FUNDS');
+      }
+
+      // 2) Historique
+      await db.query(
+        'INSERT INTO reservations (client_id, reference, amount) VALUES (?, ?, ?)',
+        [clientId, reference, amount],
+      );
+
+      await db.commit();
+    } catch (e) {
+      await db.rollback();
+      throw e;
+    }
+  callouts:
+    - line: 4
+      text: "UPDATE 'conditionnel' : évite solde négatif"
+    - line: 8
+      text: "0 row modifiée → fonds insuffisants"
+    - line: 13
+      text: "INSERT : traçabilité de la réservation"
+  expected_output: "Solde insuffisant → erreur métier, aucune réservation créée"
+
+covers:
+  - "SQL brut : inserts, updates, relations"
+  - "POST /reservation"
+
+notes_formateur: |
+  ## Déroulé (6 min)
+
+  ### Points clés
+  - La règle 'solde >= amount' peut être dans le SQL (atomicité).
+  - `affectedRows` est un signal simple à exploiter.
+
+  ### Transition
+  Regardons l'UPDATE de solde comme un pattern réutilisable.
+
+notes_stagiaire: |
+  ## À retenir
+
+  **Réservation** :
+  - UPDATE conditionnel (solde suffisant)
+  - INSERT dans l'historique
+  - transaction pour éviter l'incohérence

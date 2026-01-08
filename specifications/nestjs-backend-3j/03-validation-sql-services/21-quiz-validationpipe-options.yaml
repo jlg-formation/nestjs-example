@@ -1,0 +1,48 @@
+id: nestjs-backend-3j-03-quiz-validationpipe
+type: quiz
+title: "Quiz : ValidationPipe"
+
+layout:
+  template: quiz
+  density: low
+  emphasis: text
+
+visual:
+  kind: none
+  source: none
+  placement: full
+  alt: null
+
+quiz:
+  question: "À quoi sert `whitelist: true` dans ValidationPipe ?"
+  choices:
+    A: "Convertir automatiquement les types"
+    B: "Supprimer les propriétés non déclarées dans le DTO"
+    C: "Forcer un status code 500 en cas d'erreur"
+    D: "Exécuter une transaction SQL"
+
+covers:
+  - "Validation avec class-validator / class-transformer"
+
+notes_formateur: |
+  ## Déroulé (2 min)
+
+  ### Réponse
+  B.
+
+  ### Débrief
+  - A = `transform`
+  - B = `whitelist`
+  - Refuser plutôt que supprimer : `forbidNonWhitelisted`
+
+  ### Transition
+  On enchaîne sur la config : comment éviter les `process.env` partout ?
+
+notes_stagiaire: |
+  ## À retenir
+
+  **Réponse** : B.
+
+  `whitelist` garde uniquement les champs du DTO.
+
+  Pour refuser un champ inconnu : `forbidNonWhitelisted`.

@@ -1,0 +1,52 @@
+id: nestjs-backend-3j-03-repository-pattern
+type: concept
+title: "SQL brut : le pattern Repository garde le code lisible"
+subtitle: "SQL dans des classes dédiées, pas éparpillé"
+
+layout:
+  template: concept
+  density: medium
+  emphasis: balanced
+
+visual:
+  kind: diagram
+  query: "service repository database arrows"
+  source: ai
+  placement: right
+  alt: "Service appelle repository qui parle à la base"
+
+concept:
+  definition: "Un repository encapsule les requêtes SQL (SELECT/INSERT/UPDATE) et expose des méthodes orientées domaine."
+  bullets:
+    - "Une classe par aggregate (ClientRepository, ReservationRepository)"
+    - "Retourner des objets typés (pas des any)"
+    - "Centraliser la gestion des erreurs SQL"
+    - "Réutilisable par plusieurs services"
+  pitfalls:
+    - "❌ Construire du SQL dans les controllers"
+    - "❌ Retourner des tuples non typés partout"
+
+covers:
+  - "Organisation du code avec des repositories SQL bruts"
+
+notes_formateur: |
+  ## Déroulé (3 min)
+
+  ### Points clés
+  - On garde SQL brut pour apprendre, mais on structure.
+  - On facilite les tests et le refactoring.
+
+  ### Question
+  "Quels sont vos objets clés : client, commande, réservation ?"
+
+  ### Transition
+  Exemple : repository avec `mysql2` / pool.
+
+notes_stagiaire: |
+  ## À retenir
+
+  **Repository** : une façade sur le SQL.
+
+  **But** : éviter le SQL dispersé et garder des retours typés.
+
+  **Résultat** : code plus maintenable.

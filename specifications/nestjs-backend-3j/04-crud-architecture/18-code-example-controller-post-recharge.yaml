@@ -1,0 +1,60 @@
+id: nestjs-backend-3j-04-code-controller-recharge
+type: code_example
+title: "Controller : POST /recharge"
+subtitle: "HTTP + DTO + délégation au service"
+
+layout:
+  template: code_example
+  density: medium
+  emphasis: text
+
+visual:
+  kind: code_render
+  source: none
+  placement: full
+  alt: "Controller NestJS : recharge"
+
+code:
+  language: "ts"
+  snippet: |
+    import { Body, Controller, Post } from '@nestjs/common';
+
+    @Controller()
+    export class RechargeController {
+      constructor(private readonly service: RechargeService) {}
+
+      @Post('/recharge')
+      async recharge(@Body() dto: CreateRechargeDto): Promise<ApiResponse<ClientDto>> {
+        const client = await this.service.recharge(dto);
+        return { data: client };
+      }
+    }
+  callouts:
+    - line: 4
+      text: "Controller fin : délègue la logique"
+    - line: 7
+      text: "Route explicite (POST /recharge)"
+    - line: 8
+      text: "Réponse typée et standardisée"
+  expected_output: "Réponse 200 : { data: { id, name, balance } }"
+
+covers:
+  - "Structuration contrôleurs / services / repositories"
+  - "Réponses typées et formats standardisés"
+  - "POST /recharge"
+
+notes_formateur: |
+  ## Déroulé (5 min)
+
+  ### Points clés
+  - Controller ne fait pas de SQL.
+  - Le wrapper `{ data }` est constant.
+
+  ### Transition
+  La règle métier et l'orchestration vivent dans le service.
+
+notes_stagiaire: |
+  ## À retenir
+
+  **Controller** : reçoit le DTO et appelle le service.
+  **Retour** : une réponse typée (format stable).

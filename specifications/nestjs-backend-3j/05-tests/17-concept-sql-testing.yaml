@@ -1,0 +1,46 @@
+id: nestjs-backend-3j-05-concept-sql-testing
+type: concept
+title: "Tester du SQL : choisir une stratégie pragmatique"
+subtitle: "Isolation, reproductibilité, vitesse"
+
+layout:
+  template: concept
+  density: medium
+  emphasis: balanced
+
+visual:
+  kind: diagram
+  query: "database testing strategy pyramid"
+  source: ai
+  placement: right
+  alt: "Stratégies de test DB"
+
+concept:
+  definition: "Tester une app qui fait du SQL implique de choisir : mock DB, DB de test, ou mix des deux."
+  bullets:
+    - "Unit : mock repository (pas de DB)"
+    - "Integration : repository + vraie DB de test"
+    - "E2E : endpoint + DB de test"
+    - "Seed/cleanup pour garder des tests déterministes"
+  pitfalls:
+    - "❌ DB partagée entre tests (flaky)"
+    - "❌ Tests qui dépendent de l'ordre d'exécution"
+
+covers:
+  - "Stratégies de test des requêtes SQL"
+
+notes_formateur: |
+  ## Déroulé (4 min)
+
+  ### Points clés
+  - Pas de solution unique : on optimise pour le feedback.
+  - DB de test dédiée + seed = base.
+
+  ### Transition
+  Voyons une recette de setup/teardown.
+
+notes_stagiaire: |
+  ## À retenir
+
+  **Stratégie** : unit (mock) + integration/e2e (DB de test).
+  **Règle** : tests déterministes (seed/cleanup).

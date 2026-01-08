@@ -1,0 +1,58 @@
+id: nestjs-backend-3j-06-code-swagger
+type: code_example
+title: "Activer Swagger dans NestJS"
+subtitle: "Un setup minimal et clair"
+
+layout:
+  template: code_example
+  density: medium
+  emphasis: text
+
+visual:
+  kind: code_render
+  source: none
+  placement: full
+  alt: "Setup Swagger"
+
+code:
+  language: "ts"
+  snippet: |
+    import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
+
+    const config = new DocumentBuilder()
+      .setTitle('NestJS Backend 3j')
+      .setDescription('API de démonstration (recharges, réservations, soldes)')
+      .setVersion('1.0')
+      .addApiKey({ type: 'apiKey', name: 'x-api-key', in: 'header' }, 'apiKey')
+      .build();
+
+    const document = SwaggerModule.createDocument(app, config);
+    SwaggerModule.setup('api', app, document);
+  callouts:
+    - line: 3
+      text: "DocumentBuilder = métadonnées OpenAPI"
+    - line: 7
+      text: "Déclare la clé API pour Swagger"
+    - line: 11
+      text: "UI accessible via /api"
+  expected_output: "Swagger UI sur /api"
+
+covers:
+  - "Documentation Swagger"
+  - "Guards : authentification par clé API"
+
+notes_formateur: |
+  ## Déroulé (5 min)
+
+  ### Points clés
+  - Swagger doit refléter le contrat.
+  - On peut documenter l'auth par clé API.
+
+  ### Transition
+  Exemple de valeur : rendre visible le format de réponse.
+
+notes_stagiaire: |
+  ## À retenir
+
+  **Setup** : `SwaggerModule.setup('api', ...)`.
+  **Bonus** : déclarer `x-api-key` dans la doc.

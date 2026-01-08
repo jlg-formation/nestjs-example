@@ -1,0 +1,35 @@
+id: ch1-example-json-seed
+type: example
+title: "Exemple : un JSON pour démarrer un mini dataset"
+covers:
+  - "Manipulation simple d’un fichier JSON"
+
+layout:
+  template: example
+  density: low
+  emphasis: balanced
+
+visual:
+  kind: image
+  query: "database seed data"
+  source: pixabay
+  placement: right
+  alt: "Illustration données"
+
+example:
+  variant: simple
+  bullets:
+    - "Contexte : pas encore de base, on veut tester une route"
+    - "Action : stocker 3 clients dans un fichier JSON"
+    - "Résultat : GET /clients renvoie des données réalistes"
+  takeaway: "Le JSON est idéal pour prototyper, mais ne remplace pas une vraie DB."
+
+notes_formateur: |
+  ## Déroulé (2 min)
+  - Dire : on commence simple pour apprendre les mécanismes.
+  - Transition : ensuite, même route mais en SQL brut.
+
+notes_stagiaire: |
+  ## À retenir
+  JSON est utile pour prototyper et tester.
+  Pour persister et requêter, on passera à la base.

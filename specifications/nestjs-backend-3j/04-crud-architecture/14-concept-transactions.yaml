@@ -1,0 +1,46 @@
+id: nestjs-backend-3j-04-transactions
+type: concept
+title: "Transaction : garantir une cohérence multi-requêtes"
+subtitle: "Sans transaction, vous fabriquez des incohérences"
+
+layout:
+  template: concept
+  density: medium
+  emphasis: balanced
+
+visual:
+  kind: diagram
+  query: "database transaction commit rollback"
+  source: ai
+  placement: right
+  alt: "Schéma transaction"
+
+concept:
+  definition: "Une transaction regroupe plusieurs requêtes SQL pour qu'elles réussissent ou échouent ensemble."
+  bullets:
+    - "Recharge : INSERT historique + UPDATE solde"
+    - "Réservation : UPDATE solde + INSERT historique"
+    - "Rollback si une requête échoue"
+    - "Réduit les états partiels (données incohérentes)"
+  pitfalls:
+    - "❌ Oublier le rollback (verrous, état cassé)"
+    - "❌ Transactions trop longues (risque de blocage)"
+
+covers:
+  - "SQL brut : inserts, updates, relations"
+
+notes_formateur: |
+  ## Déroulé (3 min)
+
+  ### Points clés
+  - Transaction = atomicité.
+  - Court et focalisé (2-3 requêtes max ici).
+
+  ### Transition
+  Voyons le vrai problème : quand on ne met PAS de transaction.
+
+notes_stagiaire: |
+  ## À retenir
+
+  **Transaction** : commit ou rollback.
+  **But** : éviter les états partiels.

@@ -1,0 +1,46 @@
+id: nestjs-backend-3j-06-concept-middleware
+type: concept
+title: "Middleware : voir et filtrer avant la route"
+subtitle: "Logging, headers, blocage simple"
+
+layout:
+  template: concept
+  density: medium
+  emphasis: balanced
+
+visual:
+  kind: icon
+  query: "funnel filter logs"
+  source: local
+  placement: right
+  alt: "Icône filtre"
+
+concept:
+  definition: "Un middleware s'exécute avant d'atteindre le contrôleur. Il est parfait pour le logging et le filtrage générique."
+  bullets:
+    - "Accès à req/res (Express ou Fastify selon adapter)"
+    - "Peut ajouter des headers (requestId)"
+    - "Peut refuser tôt certaines requêtes"
+    - "Doit rester simple et rapide"
+  pitfalls:
+    - "❌ Faire de la logique métier dans un middleware"
+    - "❌ Logging trop verbeux (bruit)"
+
+covers:
+  - "Middlewares : logging et filtrage"
+
+notes_formateur: |
+  ## Déroulé (3 min)
+
+  ### Points clés
+  - Middleware = bon pour aspects HTTP bas niveau.
+  - On garde le middleware stateless.
+
+  ### Transition
+  Exemple : logger minimal.
+
+notes_stagiaire: |
+  ## À retenir
+
+  **Middleware** : avant la route.
+  **Usages** : logging, filtrage, headers.

@@ -1,0 +1,45 @@
+id: nestjs-backend-3j-06-concept-interceptors
+type: concept
+title: "Interceptor : agir avant ET après le handler"
+subtitle: "Transformer la réponse et mesurer"
+
+layout:
+  template: concept
+  density: medium
+  emphasis: balanced
+
+visual:
+  kind: icon
+  query: "interceptor arrows transform"
+  source: local
+  placement: right
+  alt: "Icône interceptor"
+
+concept:
+  definition: "Un interceptor enveloppe l'exécution du handler : il peut transformer la sortie et mesurer le temps d'exécution."
+  bullets:
+    - "Se place autour du controller/service"
+    - "Parfait pour standardiser `{ data }`"
+    - "Peut ajouter des métadonnées (durée, requestId)"
+    - "Peut être global ou par route"
+  pitfalls:
+    - "❌ Logique métier dans l'interceptor"
+    - "❌ Ajouter des side-effects complexes"
+
+covers:
+  - "Interceptors : transformation de réponse, mesure des temps"
+
+notes_formateur: |
+  ## Déroulé (3 min)
+
+  ### Point clé
+  - Interceptor = endroit idéal pour la forme de réponse.
+
+  ### Transition
+  Exemple : wrapper `{ data }`.
+
+notes_stagiaire: |
+  ## À retenir
+
+  **Interceptor** : avant + après.
+  **Usages** : transformer réponse, mesurer le temps.

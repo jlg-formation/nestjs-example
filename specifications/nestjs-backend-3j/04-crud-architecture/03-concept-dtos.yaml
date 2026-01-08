@@ -1,0 +1,53 @@
+id: nestjs-backend-3j-04-dtos
+type: concept
+title: "Un DTO = contrat d'API, pas un détail technique"
+subtitle: "Il protège votre code et vos consommateurs"
+
+layout:
+  template: concept
+  density: medium
+  emphasis: balanced
+
+visual:
+  kind: icon
+  query: "contract document api"
+  source: local
+  placement: right
+  alt: "Icône contrat"
+
+concept:
+  definition: "Un DTO (Data Transfer Object) décrit ce que l'API accepte et retourne. C'est un contrat stable pour les clients."
+  bullets:
+    - "Entrée : payload validé (class-validator)"
+    - "Sortie : réponse typée, stable dans le temps"
+    - "Découple l'API de votre modèle interne (SQL, entities)"
+    - "Réduit les fuites (champs sensibles)"
+  pitfalls:
+    - "❌ Réutiliser des types internes en réponse (couplage fort)"
+    - "❌ Laisser passer des champs inconnus (pollution du contrat)"
+
+covers:
+  - "DTOs pour Clients et Réservations"
+
+notes_formateur: |
+  ## Déroulé (3 min)
+
+  ### Points clés
+  - Le DTO est un contrat versionnable.
+  - On sépare DTO d'entrée et DTO de sortie.
+
+  ### Question
+  "Quels champs ne devraient JAMAIS sortir d'une API ?"
+
+  ### Transition
+  Voyons DTO vs modèle interne (row SQL / domaine).
+
+notes_stagiaire: |
+  ## À retenir
+
+  **DTO** : décrit ce qui passe sur le réseau.
+
+  **Pourquoi** :
+  - stabilité du contrat
+  - validation explicite
+  - découplage du SQL/modèle interne

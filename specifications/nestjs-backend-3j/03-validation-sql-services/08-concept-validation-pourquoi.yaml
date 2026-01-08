@@ -1,0 +1,52 @@
+id: nestjs-backend-3j-03-why-validation
+type: concept
+title: 'Sans validation, une API tombe sur des cas "bizarres"'
+subtitle: "Valider tôt = erreurs lisibles + bugs évités"
+
+layout:
+  template: concept
+  density: medium
+  emphasis: balanced
+
+visual:
+  kind: icon
+  query: "shield check validation"
+  source: local
+  placement: left
+  alt: "Icône validation"
+
+concept:
+  definition: "La validation d'entrée vérifie le format et les contraintes d'un payload avant d'exécuter la logique métier."
+  bullets:
+    - "Bloque les données incohérentes (types, bornes, champs manquants)"
+    - "Évite des bugs SQL (NULL inattendu, chaînes vides, etc.)"
+    - "Retourne une erreur 400 claire au client"
+    - "Rend la logique métier plus simple"
+  pitfalls:
+    - "❌ Valider dans chaque route à la main"
+    - "❌ Mélanger validation format et règles métier"
+
+covers:
+  - "Validation avec class-validator / class-transformer"
+
+notes_formateur: |
+  ## Déroulé (3 min)
+
+  ### Exemple rapide
+  "amount = 'abc'" ou "amount = -10" : que fait notre code ?
+
+  ### Points clés
+  - Validation = garde-fou à l'entrée.
+  - Règles métier (ex: solde suffisant) = dans le service.
+
+  ### Transition
+  On met en place la validation automatique avec DTO + pipes.
+
+notes_stagiaire: |
+  ## À retenir
+
+  **Validation** : vérifier le payload AVANT la logique métier.
+
+  **But** : des erreurs 400 claires et un code backend plus simple.
+
+  **Règle** : format/contraintes dans DTO, règles métier dans service.

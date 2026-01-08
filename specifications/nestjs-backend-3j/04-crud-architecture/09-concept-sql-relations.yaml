@@ -1,0 +1,46 @@
+id: nestjs-backend-3j-04-sql-relations
+type: concept
+title: "Relations SQL : le modèle devient 'réel'"
+subtitle: "Clients, recharges, réservations : qui dépend de qui ?"
+
+layout:
+  template: concept
+  density: medium
+  emphasis: balanced
+
+visual:
+  kind: diagram
+  query: "sql tables foreign key relationship"
+  source: ai
+  placement: right
+  alt: "Schéma tables SQL"
+
+concept:
+  definition: "Dès qu'on a plusieurs entités, on doit définir des relations et des règles (FK, intégrité, cohérence)."
+  bullets:
+    - "Client 1 → N recharges"
+    - "Client 1 → N réservations"
+    - "FK = garde-fou : pas de recharge sans client"
+    - "Relations = requêtes + updates plus complexes"
+  pitfalls:
+    - "❌ Pas de FK : données orphelines"
+    - "❌ Updates non atomiques : solde incohérent"
+
+covers:
+  - "SQL brut : inserts, updates, relations"
+
+notes_formateur: |
+  ## Déroulé (3 min)
+
+  ### Points clés
+  - On veut une base qui protège la cohérence.
+  - Les relations impactent le CRUD (insert + update + lecture).
+
+  ### Transition
+  Posons un schéma minimal (clients/recharges/réservations).
+
+notes_stagiaire: |
+  ## À retenir
+
+  **Relations** : liens entre tables.
+  **FK** : empêche des enregistrements incohérents.

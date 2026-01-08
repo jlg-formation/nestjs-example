@@ -1,0 +1,49 @@
+id: nestjs-backend-3j-06-diagram-pipeline
+type: diagram
+title: "Pipeline NestJS : où se brancher ?"
+
+layout:
+  template: diagram
+  density: low
+  emphasis: visual
+
+visual:
+  kind: diagram
+  query: "nestjs request lifecycle middleware guard interceptor controller"
+  source: ai
+  placement: full
+  alt: "Pipeline requête NestJS"
+
+diagram:
+  description: "Comprendre l'ordre d'exécution des couches transverses"
+  components:
+    - name: "Middleware"
+      role: "Avant la route : logging, filtrage, headers"
+    - name: "Guard"
+      role: "Autorise ou refuse l'accès (auth/roles)"
+    - name: "Interceptor"
+      role: "Avant/après : transformer réponse, mesurer le temps"
+    - name: "Controller/Service"
+      role: "Logique applicative (HTTP + métier)"
+  flow: "Request → Middleware → Guard → Interceptor → Controller → Interceptor → Response"
+
+covers:
+  - "Middlewares : logging et filtrage"
+  - "Guards : authentification par clé API"
+  - "Interceptors : transformation de réponse, mesure des temps"
+
+notes_formateur: |
+  ## Déroulé (4 min)
+
+  ### Points clés
+  - Le placement est essentiel : chaque mécanisme a un bon usage.
+  - On veut éviter de mélanger les responsabilités.
+
+  ### Question
+  "Où mettriez-vous un rate limit : middleware, guard ou interceptor ?"
+
+notes_stagiaire: |
+  ## À retenir
+
+  **Ordre** : middleware → guard → interceptor → controller → interceptor.
+  **But** : brancher au bon endroit.

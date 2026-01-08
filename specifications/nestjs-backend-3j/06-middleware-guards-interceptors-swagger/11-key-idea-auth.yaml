@@ -1,0 +1,41 @@
+id: nestjs-backend-3j-06-key-idea-auth
+type: key_idea
+title: "L'idée clé : l'auth ne doit pas être optionnelle"
+
+layout:
+  template: key_idea
+  density: low
+  emphasis: visual
+
+visual:
+  kind: icon
+  query: "lock shield"
+  source: local
+  placement: left
+  alt: "Icône verrou"
+
+message: "Si l'accès n'est pas centralisé (guard), il sera incohérent et fragile."
+
+supporting_points:
+  - "Une règle d'accès doit être appliquée au même endroit"
+  - "Une exception doit donner un code cohérent (401/403)"
+  - "Le controller ne doit pas connaître les détails d'auth"
+
+covers:
+  - "Guards : authentification par clé API"
+
+notes_formateur: |
+  ## Déroulé (1 min)
+
+  ### Points clés
+  - Centraliser l'auth évite les oublis.
+  - Cela simplifie aussi les tests.
+
+  ### Transition
+  Quiz : middleware ou guard ?
+
+notes_stagiaire: |
+  ## À retenir
+
+  **Règle** : auth centralisée via guard.
+  **Bénéfice** : cohérence et maintenance.

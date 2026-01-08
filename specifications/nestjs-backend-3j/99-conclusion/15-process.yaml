@@ -1,0 +1,46 @@
+id: nestjs-backend-3j-99-process-prod-ready
+type: process
+title: "Passer de 'ça marche' à 'prod-ready'"
+subtitle: "Checklist de fin de sprint"
+
+layout:
+  template: process
+  density: medium
+  emphasis: balanced
+
+visual:
+  kind: diagram
+  query: "production checklist deployment"
+  source: ai
+  placement: right
+  alt: "Checklist de mise en production"
+
+covers:
+  - "Variables d’environnement (.env)"
+  - "Middlewares : logging et filtrage"
+  - "Guards : authentification par clé API"
+  - "Documentation Swagger"
+  - "Tests unitaires et end-to-end dans NestJS"
+
+process:
+  steps:
+    - "Configurer .env + validation de config au démarrage"
+    - "Logging utile (corrélation, temps, erreurs)"
+    - "Auth minimale (API key) + contrôles d'accès"
+    - "Swagger : endpoints, DTOs, exemples, codes d'erreur"
+    - "Tests : unit sur métier + e2e sur parcours critiques"
+
+notes_formateur: |
+  ## Déroulé (3 min)
+
+  ### Message
+  Une API pro se voit dans les détails répétés partout.
+
+  ### Question
+  "Quel item de cette checklist manque le plus souvent chez vous ?"
+
+notes_stagiaire: |
+  ## À retenir
+
+  **Prod-ready** : config, logs, auth, doc, tests.
+  Gardez cette checklist pour vos revues de PR.

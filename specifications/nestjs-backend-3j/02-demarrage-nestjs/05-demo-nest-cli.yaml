@@ -1,0 +1,38 @@
+id: ch2-demo-nest-cli
+type: demo
+title: "Démo : créer et lancer un projet NestJS"
+covers:
+  - "Installation du CLI et création du projet"
+
+layout:
+  template: demo
+  density: low
+  emphasis: visual
+
+visual:
+  kind: icon
+  query: "live demo terminal"
+  source: local
+  placement: left
+  alt: "Icône démo"
+
+demo:
+  objective: "Montrer le flux complet : CLI → projet → serveur qui répond"
+  tool: "Terminal + VS Code"
+  duration: "5 minutes"
+  steps:
+    - "Installer le CLI (si besoin)"
+    - "Créer le projet"
+    - "Lancer en dev"
+    - "Appeler l'endpoint de base"
+  fallback: "Projet déjà créé (zip) si le réseau bloque"
+
+notes_formateur: |
+  ## Déroulé (5 min)
+  - Dire : on ne s'attarde pas sur chaque option.
+  - Point clé : le projet tourne, donc on peut avancer.
+
+notes_stagiaire: |
+  ## À retenir
+  Le CLI bootstrap un projet standard.
+  Vérifier rapidement que le serveur répond avant de continuer.

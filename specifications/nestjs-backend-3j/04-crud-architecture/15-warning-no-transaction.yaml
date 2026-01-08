@@ -1,0 +1,42 @@
+id: nestjs-backend-3j-04-warning-no-transaction
+type: warning
+title: "⚠️ Sans transaction : historique et solde peuvent diverger"
+
+layout:
+  template: warning
+  density: low
+  emphasis: visual
+
+visual:
+  kind: icon
+  query: "warning database inconsistent"
+  source: local
+  placement: left
+  alt: "Alerte cohérence"
+
+warning:
+  danger: "Si vous faites un INSERT puis un UPDATE sans transaction, une panne entre les deux laisse des données incohérentes."
+  consequences:
+    - "Recharge créée mais solde inchangé"
+    - "Solde débité sans réservation créée"
+    - "Impossible d'auditer correctement"
+  prevention: "Encapsuler les opérations multi-requêtes dans une transaction courte (commit/rollback)"
+  real_case: "Un timeout DB a laissé 20 réservations sans débit associé"
+
+covers:
+  - "SQL brut : inserts, updates, relations"
+
+notes_formateur: |
+  ## Déroulé (2 min)
+
+  ### Question
+  "Comment investigueriez-vous ce bug en prod ?"
+
+  ### Transition
+  Maintenant qu'on sait écrire le SQL, structurons le code proprement.
+
+notes_stagiaire: |
+  ## À retenir
+
+  **Risque** : opérations multi-requêtes sans transaction.
+  **Solution** : transaction courte avec rollback.

@@ -1,0 +1,65 @@
+id: nestjs-backend-3j-04-code-get-balance
+type: code_example
+title: "GET /clients/:id/soldes : réponse typée"
+subtitle: "Lecture simple, contrat stable"
+
+layout:
+  template: code_example
+  density: medium
+  emphasis: text
+
+visual:
+  kind: code_render
+  source: none
+  placement: full
+  alt: "Controller : get solde"
+
+code:
+  language: "ts"
+  snippet: |
+    import { Controller, Get, NotFoundException, Param } from '@nestjs/common';
+
+    export class ClientBalanceDto {
+      clientId!: string;
+      balance!: number;
+    }
+
+    @Controller()
+    export class ClientController {
+      constructor(private readonly repo: ClientRepository) {}
+
+      @Get('/clients/:id/soldes')
+      async soldes(@Param('id') id: string): Promise<ApiResponse<ClientBalanceDto>> {
+        const row = await this.repo.findBalanceById(id);
+        if (!row) throw new NotFoundException('Client not found');
+        return { data: { clientId: id, balance: row.balance } };
+      }
+    }
+  callouts:
+    - line: 3
+      text: "DTO de sortie dédié à l'endpoint"
+    - line: 12
+      text: "Route : GET /clients/:id/soldes"
+    - line: 16
+      text: "Réponse standard `{ data: ... }`"
+  expected_output: "404 si client inconnu, sinon balance"
+
+covers:
+  - "Réponses typées et formats standardisés"
+  - "GET /clients/:id/soldes"
+
+notes_formateur: |
+  ## Déroulé (5 min)
+
+  ### Points clés
+  - DTO dédié : évite de sur-exposer le client.
+  - 404 explicite si client absent.
+
+  ### Transition
+  On vérifie la compréhension avec un quiz rapide.
+
+notes_stagiaire: |
+  ## À retenir
+
+  **DTO dédié** : un endpoint = une réponse claire.
+  **Codes** : 404 si absent.

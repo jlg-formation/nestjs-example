@@ -1,0 +1,70 @@
+id: nestjs-backend-3j-03-main-validationpipe
+type: code_example
+title: "Activer ValidationPipe en global"
+subtitle: "Une seule config pour toute l'API"
+
+layout:
+  template: code_example
+  density: medium
+  emphasis: text
+
+visual:
+  kind: code_render
+  source: none
+  placement: full
+  alt: "Code NestJS : ValidationPipe global"
+
+code:
+  language: "ts"
+  snippet: |
+    import { ValidationPipe } from '@nestjs/common';
+    import { NestFactory } from '@nestjs/core';
+    import { AppModule } from './app.module';
+
+    async function bootstrap() {
+      const app = await NestFactory.create(AppModule);
+
+      app.useGlobalPipes(
+        new ValidationPipe({
+          whitelist: true,
+          forbidNonWhitelisted: true,
+          transform: true,
+        }),
+      );
+
+      await app.listen(3000);
+    }
+    bootstrap();
+  callouts:
+    - line: 9
+      text: "whitelist: supprime les champs inattendus"
+    - line: 10
+      text: "forbidNonWhitelisted: 400 si champ inconnu"
+    - line: 11
+      text: "transform: conversion selon les types"
+  expected_output: "Un body avec un champ inconnu → 400"
+
+covers:
+  - "Validation avec class-validator / class-transformer"
+
+notes_formateur: |
+  ## Déroulé (4 min)
+
+  ### Points clés
+  - On le met global pour ne pas l'oublier sur une route.
+  - `forbidNonWhitelisted` aide à détecter les erreurs de client.
+
+  ### Question
+  "Quel impact sur la compatibilité des clients existants ?"
+
+  ### Transition
+  Point clé : validation format ≠ validation métier.
+
+notes_stagiaire: |
+  ## À retenir
+
+  **Global pipes** : appliqués à toutes les routes.
+
+  **Recommandé** : `whitelist` + `forbidNonWhitelisted` pour une API stricte.
+
+  **Attention** : `transform` change les types reçus (utile, mais à comprendre).

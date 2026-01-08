@@ -1,0 +1,39 @@
+id: ch1-process-mini-projet
+type: process
+title: "Mini-projet Express : l'enchaînement logique"
+subtitle: "Construire petit, mais propre"
+covers:
+  - "Mini-projet Express réduit :"
+  - "Route GET"
+  - "Exemple SQL brut via mysql2"
+  - "Découverte rapide des middlewares Express"
+
+layout:
+  template: process
+  density: medium
+  emphasis: balanced
+
+visual:
+  kind: diagram
+  query: "simple api build steps"
+  source: ai
+  placement: right
+  alt: "Étapes de construction d'une API"
+
+process:
+  steps:
+    - "Créer /ping (sanity check)"
+    - "Ajouter GET /clients (données mock)"
+    - "Brancher mysql2 (SELECT simple)"
+    - "Ajouter un middleware de logging"
+    - "Gérer erreurs et statuts (200/404/500)"
+
+notes_formateur: |
+  ## Déroulé (3 min)
+  - Insister : progression incrémentale = moins de bugs.
+  - Question : "À quelle étape ça casse le plus souvent chez vous ?"
+
+notes_stagiaire: |
+  ## À retenir
+  Construire incrémentalement : d'abord /ping, puis /clients, puis SQL.
+  Ajouter logging + gestion d'erreurs dès le départ.

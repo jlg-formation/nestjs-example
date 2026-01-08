@@ -1,0 +1,51 @@
+id: nestjs-backend-3j-99-exercise-mini-challenge
+type: exercise
+title: "Mini-challenge : ajouter un endpoint de A à Z"
+subtitle: "Mise en pratique (30 minutes)"
+
+layout:
+  template: exercise
+  density: medium
+  emphasis: text
+
+visual:
+  kind: icon
+  query: "code laptop practice"
+  source: local
+  placement: left
+  alt: "Icône exercice pratique"
+
+covers:
+  - "Tests end-to-end (remplacent Postman)"
+  - "DTOs pour Clients et Réservations"
+  - "Documentation Swagger"
+
+exercise:
+  goal: "Ajouter un endpoint (ex: GET /clients) avec DTO, SQL brut, tests e2e et doc"
+  instructions:
+    - "Définir le DTO de réponse (format standardisé)"
+    - "Écrire la requête SQL dans un repository (paramétrée)"
+    - "Implémenter le service (règles + erreurs)"
+    - "Créer la route dans un controller"
+    - "Ajouter Swagger + 1 test e2e (cas OK + cas erreur)"
+  deliverable: "Un endpoint documenté et couvert par un test e2e"
+  success_criteria:
+    - "Validation active (payload propre)"
+    - "Aucune concaténation SQL"
+    - "Erreurs cohérentes (400/404/409)"
+    - "Swagger à jour"
+
+notes_formateur: |
+  ## Déroulé (30 min)
+
+  ### Timing
+  5 min cadrage, 20 min implémentation, 5 min retour.
+
+  ### Coaching
+  Passer dans les rangs : vérifier DTO/validation/SQL paramétré.
+
+notes_stagiaire: |
+  ## À retenir
+
+  **Objectif** : refaire la checklist une dernière fois.
+  Pensez : DTO → validation → service → repo → tests → Swagger.

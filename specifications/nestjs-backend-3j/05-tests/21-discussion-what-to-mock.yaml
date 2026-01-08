@@ -1,0 +1,41 @@
+id: nestjs-backend-3j-05-discussion-mock
+type: discussion
+title: "Discussion : qu'est-ce qu'on mocke ?"
+
+layout:
+  template: discussion
+  density: low
+  emphasis: text
+
+visual:
+  kind: icon
+  query: "group discussion testing"
+  source: local
+  placement: left
+  alt: "Icône discussion"
+
+discussion:
+  question: "Dans votre contexte, quelle dépendance est la plus coûteuse à tester 'pour de vrai' ?"
+  duration: "6 minutes"
+  format: "small_groups"
+  prompts:
+    - "DB : vous avez une DB de test fiable ?"
+    - "HTTP externe : vous utilisez un stub (mock server) ?"
+    - "Temps : quels tests doivent rester < 1 minute au total ?"
+  debrief: "Distinguer unit (mocks) vs e2e (réalité) et fixer une stratégie d'équipe"
+
+notes_formateur: |
+  ## Déroulé (8 min)
+
+  ### Consigne
+  - Groupes de 3, 4 minutes, puis 2 minutes de débrief.
+
+  ### Transition
+  On vérifie la compréhension avec un quiz.
+
+notes_stagiaire: |
+  ## À retenir
+
+  **But** : choisir une stratégie pragmatique.
+  - unit : mocks
+  - e2e : réel

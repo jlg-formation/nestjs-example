@@ -1,0 +1,52 @@
+id: nestjs-backend-3j-03-env-config
+type: concept
+title: "La configuration ne doit jamais être hardcodée"
+subtitle: "`.env` + variables d'environnement = déploiements faciles"
+
+layout:
+  template: concept
+  density: medium
+  emphasis: balanced
+
+visual:
+  kind: icon
+  query: "settings environment variables"
+  source: local
+  placement: left
+  alt: "Icône configuration"
+
+concept:
+  definition: "Les variables d'environnement permettent d'adapter l'application à chaque environnement (dev, recette, prod) sans changer le code."
+  bullets:
+    - "Stocker secrets et URLs hors du code"
+    - "Avoir une config différente par environnement"
+    - "Éviter les commits accidentels de mots de passe"
+    - "Faciliter le déploiement (CI/CD)"
+  pitfalls:
+    - "❌ Mettre des secrets dans Git"
+    - "❌ Une seule config pour dev/prod"
+
+covers:
+  - "Variables d’environnement (.env)"
+
+notes_formateur: |
+  ## Déroulé (3 min)
+
+  ### Points clés à aborder
+  - Rappeler : `.env` en dev, variables système en prod.
+  - Secrets : jamais dans le repo.
+
+  ### Question
+  "Qui a déjà dû changer du code pour un déploiement ?"
+
+  ### Transition
+  Voyons comment lire une variable et définir des defaults.
+
+notes_stagiaire: |
+  ## À retenir
+
+  **Objectif** : changer la config sans toucher au code.
+
+  **Exemples** : `DB_HOST`, `DB_USER`, `DB_PASSWORD`, `PORT`.
+
+  **Règle** : secrets = variables d'environnement (pas dans Git).

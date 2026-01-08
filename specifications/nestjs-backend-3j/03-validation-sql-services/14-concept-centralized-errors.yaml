@@ -1,0 +1,52 @@
+id: nestjs-backend-3j-03-centralized-errors
+type: concept
+title: "Centraliser les erreurs pour une API cohérente"
+subtitle: "Même format d'erreur, mêmes status codes"
+
+layout:
+  template: concept
+  density: medium
+  emphasis: balanced
+
+visual:
+  kind: icon
+  query: "error bug report"
+  source: local
+  placement: left
+  alt: "Icône erreur"
+
+concept:
+  definition: "La gestion centralisée des erreurs impose un format de réponse stable et évite les `try/catch` partout."
+  bullets:
+    - "Transformer les exceptions en réponses HTTP lisibles"
+    - "Garder les controllers/services plus propres"
+    - "Éviter les fuites d'informations (stack/SQL)"
+    - "Ajouter un `errorCode` pour le front"
+  pitfalls:
+    - "❌ Retourner des messages différents selon les routes"
+    - "❌ Logger des secrets (SQL, mots de passe)"
+
+covers:
+  - "Gestion centralisée des erreurs"
+
+notes_formateur: |
+  ## Déroulé (3 min)
+
+  ### Points clés
+  - Un client API aime la stabilité.
+  - Le backend doit être prévisible.
+
+  ### Question
+  "Quel format d'erreur attendez-vous côté front ?"
+
+  ### Transition
+  Implémentation : Exception Filter.
+
+notes_stagiaire: |
+  ## À retenir
+
+  **But** : réponses d'erreur homogènes.
+
+  **Exemple** : `{ statusCode, message, errorCode }`.
+
+  **Outil NestJS** : Exception Filters.

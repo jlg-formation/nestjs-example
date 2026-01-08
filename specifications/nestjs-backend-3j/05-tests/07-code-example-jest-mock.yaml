@@ -1,0 +1,63 @@
+id: nestjs-backend-3j-05-code-jest-mock
+type: code_example
+title: "Mocker un service avec Jest"
+subtitle: "Tester un contrôleur sans DB"
+
+layout:
+  template: code_example
+  density: medium
+  emphasis: text
+
+visual:
+  kind: code_render
+  source: none
+  placement: full
+  alt: "Mock Jest"
+
+code:
+  language: "ts"
+  snippet: |
+    const service = {
+      recharge: jest.fn(),
+    };
+
+    it('retourne { data } quand la recharge réussit', async () => {
+      // arrange
+      service.recharge.mockResolvedValue({ id: 'c1', name: 'A', balance: 20 });
+      const controller = new RechargeController(service as any);
+
+      // act
+      const res = await controller.recharge({ clientId: 'c1', amount: 10 } as any);
+
+      // assert
+      expect(service.recharge).toHaveBeenCalledWith({ clientId: 'c1', amount: 10 });
+      expect(res).toEqual({ data: { id: 'c1', name: 'A', balance: 20 } });
+    });
+  callouts:
+    - line: 2
+      text: "`jest.fn()` = fonction mockable"
+    - line: 7
+      text: "On contrôle le retour (success path)"
+    - line: 16
+      text: "On vérifie le contrat côté controller"
+  expected_output: "Le controller reste fin et testable"
+
+covers:
+  - "Mocks de services"
+  - "Test des contrôleurs"
+
+notes_formateur: |
+  ## Déroulé (5 min)
+
+  ### Points clés
+  - Le controller est testé sans DB.
+  - On vérifie : appel service + format de réponse.
+
+  ### Transition
+  Attention : l'over-mocking rend les tests fragiles.
+
+notes_stagiaire: |
+  ## À retenir
+
+  **Mock** : `jest.fn()` + `mockResolvedValue`.
+  **Vérifier** : appels + résultat.

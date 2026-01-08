@@ -1,0 +1,37 @@
+id: nestjs-backend-3j-06-title
+type: title
+title: "La qualité se joue dans les couches transverses"
+subtitle: "Middleware, guards, interceptors et Swagger"
+
+layout:
+  template: title
+  density: low
+  emphasis: visual
+
+visual:
+  kind: none
+  source: none
+  placement: background
+  alt: null
+
+notes_formateur: |
+  ## Déroulé (1 min)
+
+  ### Accroche
+  On a des endpoints. Maintenant : logging, auth, réponses, perf.
+
+  ### Points clés
+  - Couches transverses = mêmes règles pour toute l'API.
+  - Objectif : cohérence sans copier-coller.
+
+  ### Transition
+  On pose la carte du pipeline HTTP NestJS.
+
+notes_stagiaire: |
+  ## À retenir
+
+  **Objectif** : ajouter des comportements transverses.
+  - logging
+  - authentification
+  - standardisation des réponses
+  - mesures (temps)

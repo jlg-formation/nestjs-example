@@ -1,0 +1,42 @@
+id: nestjs-backend-3j-06-process-review
+type: process
+title: "Revue finale : checklist 'projet pro'"
+subtitle: "Ce qu'on vérifie avant de livrer"
+
+layout:
+  template: process
+  density: medium
+  emphasis: balanced
+
+visual:
+  kind: icon
+  query: "checklist review code"
+  source: local
+  placement: right
+  alt: "Icône checklist"
+
+process:
+  steps:
+    - "Routes : status codes cohérents (200/201/400/401/404)"
+    - "Validation : DTOs et pipes actifs"
+    - "SQL : paramétré + transactions où nécessaire"
+    - "Cross-cutting : middleware/guard/interceptor en place"
+    - "Doc : Swagger UI + exemples d'usage"
+
+covers:
+  - "Revue complète du projet"
+
+notes_formateur: |
+  ## Déroulé (4 min)
+
+  ### Points clés
+  - Revue = moment où on réduit les risques.
+  - Check simple, mais systématique.
+
+  ### Transition
+  TP final : implémenter guard + interceptor.
+
+notes_stagiaire: |
+  ## À retenir
+
+  **Checklist** : routes, validation, SQL, couches transverses, doc.

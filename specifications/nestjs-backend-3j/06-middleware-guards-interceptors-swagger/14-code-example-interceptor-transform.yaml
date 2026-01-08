@@ -1,0 +1,53 @@
+id: nestjs-backend-3j-06-code-interceptor-transform
+type: code_example
+title: "Interceptor : standardiser la réponse"
+subtitle: "Tout devient `{ data: ... }`"
+
+layout:
+  template: code_example
+  density: medium
+  emphasis: text
+
+visual:
+  kind: code_render
+  source: none
+  placement: full
+  alt: "Interceptor transform"
+
+code:
+  language: "ts"
+  snippet: |
+    import { CallHandler, ExecutionContext, Injectable, NestInterceptor } from '@nestjs/common';
+    import { map, Observable } from 'rxjs';
+
+    @Injectable()
+    export class WrapResponseInterceptor implements NestInterceptor {
+      intercept(_: ExecutionContext, next: CallHandler): Observable<any> {
+        return next.handle().pipe(map((data) => ({ data })));
+      }
+    }
+  callouts:
+    - line: 2
+      text: "Interceptor NestJS"
+    - line: 7
+      text: "`map` pour transformer la réponse"
+  expected_output: "Retour `ClientDto` → JSON `{ data: ClientDto }`"
+
+covers:
+  - "Interceptors : transformation de réponse, mesure des temps"
+
+notes_formateur: |
+  ## Déroulé (5 min)
+
+  ### Points clés
+  - Réduit la duplication dans les controllers.
+  - Attention : exceptions ne passent pas dans ce `map`.
+
+  ### Transition
+  Deuxième usage : mesurer le temps de traitement.
+
+notes_stagiaire: |
+  ## À retenir
+
+  **But** : standardiser la forme des réponses.
+  **Technique** : `next.handle().pipe(map(...))`.

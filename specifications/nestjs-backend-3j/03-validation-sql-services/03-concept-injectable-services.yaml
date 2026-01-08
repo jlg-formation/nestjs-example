@@ -1,0 +1,56 @@
+id: nestjs-backend-3j-03-injectable
+type: concept
+title: "Un service NestJS porte la logique métier"
+subtitle: "@Injectable + dépendances = code testable"
+
+layout:
+  template: concept
+  density: medium
+  emphasis: balanced
+
+visual:
+  kind: diagram
+  query: "controller service repository arrows"
+  source: ai
+  placement: right
+  alt: "Contrôleur appelle service qui appelle repository"
+
+concept:
+  definition: "Un service NestJS encapsule la logique métier et orchestre des dépendances (repositories, clients, config)."
+  bullets:
+    - "Créé via `@Injectable()`"
+    - "Injecté dans un contrôleur (constructor)"
+    - "Responsabilité claire : règles métier, pas HTTP"
+    - "Testable : dépendances mockables"
+  pitfalls:
+    - "❌ Mettre du SQL/HTTP dans le contrôleur"
+    - "❌ Service qui retourne des `any` (pas de types/DTO)"
+
+covers:
+  - "Services et décorateur @Injectable"
+
+notes_formateur: |
+  ## Déroulé (3 min)
+
+  ### Points clés à aborder
+  - Contrôleur = adaptation HTTP.
+  - Service = règles métier.
+  - Repository = accès données (SQL brut ici).
+
+  ### Question
+  "Dans vos projets, où placez-vous la validation métier ?"
+
+  ### Transition
+  Voyons un exemple minimal de service injectable.
+
+notes_stagiaire: |
+  ## À retenir
+
+  **Service** : logique métier + orchestration.
+
+  **Rôles** :
+  - Contrôleur : HTTP (routes, status codes)
+  - Service : règles métier
+  - Repository : SQL brut
+
+  **Objectif** : un code testable (dépendances injectées).

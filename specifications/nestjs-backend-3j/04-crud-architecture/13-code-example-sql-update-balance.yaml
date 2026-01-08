@@ -1,0 +1,49 @@
+id: nestjs-backend-3j-04-code-sql-update
+type: code_example
+title: "UPDATE SQL : une règle métier peut être atomique"
+subtitle: "Le `WHERE` devient un garde-fou"
+
+layout:
+  template: code_example
+  density: medium
+  emphasis: text
+
+visual:
+  kind: code_render
+  source: none
+  placement: full
+  alt: "SQL : update conditionnel"
+
+code:
+  language: "sql"
+  snippet: |
+    -- Débiter un client uniquement si le solde est suffisant
+    UPDATE clients
+    SET balance = balance - :amount
+    WHERE id = :clientId
+      AND balance >= :amount;
+  callouts:
+    - line: 4
+      text: "L'état (balance) est vérifié au moment de l'UPDATE"
+    - line: 5
+      text: "0 lignes modifiées = règle non satisfaite"
+  expected_output: "Si balance < amount → aucune ligne modifiée"
+
+covers:
+  - "SQL brut : inserts, updates, relations"
+
+notes_formateur: |
+  ## Déroulé (3 min)
+
+  ### Points clés
+  - Pattern utile en concurrence (plusieurs requêtes).
+  - Le service transforme '0 row' en erreur métier.
+
+  ### Transition
+  Tout ça doit être cohérent : parlons transactions.
+
+notes_stagiaire: |
+  ## À retenir
+
+  **UPDATE conditionnel** : le `WHERE` empêche un état invalide.
+  **Signal** : 0 lignes modifiées → l'opération est refusée.

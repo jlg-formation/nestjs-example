@@ -1,0 +1,61 @@
+id: nestjs-backend-3j-03-tp-sql-service
+type: exercise
+title: "TP : service SQL brut + DTO validé"
+subtitle: "SELECT + INSERT avec validation et erreurs propres"
+
+layout:
+  template: exercise
+  density: medium
+  emphasis: text
+
+visual:
+  kind: icon
+  query: "code laptop practice"
+  source: local
+  placement: left
+  alt: "Icône TP"
+
+exercise:
+  goal: "Créer un endpoint qui insère une donnée via SQL brut, avec un DTO validé"
+  instructions:
+    - "Créer un DTO (contraintes : types + bornes)"
+    - "Activer/valider ValidationPipe (global ou sur la route)"
+    - "Créer un repository SQL brut (SELECT, INSERT)"
+    - "Créer un service `@Injectable()` qui orchestre la logique"
+    - "Tester : cas valide + cas invalides (400 lisible)"
+  deliverable: "Un endpoint fonctionnel qui écrit en base et refuse les payloads invalides"
+  success_criteria:
+    - "DTO validé automatiquement (400 si invalide)"
+    - "SQL paramétré (pas de concaténation)"
+    - "Repository séparé du service"
+    - "Erreurs cohérentes (format stable)"
+
+covers:
+  - "TP : Créer un service SQL brut (SELECT, INSERT) avec DTO validé."
+  - "Organisation du code avec des repositories SQL bruts"
+  - "Validation avec class-validator / class-transformer"
+  - "Services et décorateur @Injectable"
+  - "Gestion centralisée des erreurs"
+
+notes_formateur: |
+  ## Déroulé (35–45 min)
+
+  ### Cadre
+  - 10 min : DTO + validation
+  - 15 min : repository SQL
+  - 10 min : service + route
+
+  ### Questions à poser
+  - "Qui a une 400 propre sur un payload invalide ?"
+
+  ### Transition
+  On termine par une synthèse et on enchaîne sur le CRUD complet.
+
+notes_stagiaire: |
+  ## À retenir
+
+  **Objectif** : construire un endpoint propre de bout en bout.
+
+  **Check-list** : DTO → ValidationPipe → service → repository → erreurs.
+
+  **Critère** : cas invalides = 400 lisible.

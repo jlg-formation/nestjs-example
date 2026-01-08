@@ -1,0 +1,38 @@
+id: nestjs-backend-3j-99-quiz-validation
+type: quiz
+title: "Quiz : ValidationPipe (whitelist)"
+
+layout:
+  template: quiz
+  density: low
+  emphasis: text
+
+visual:
+  kind: none
+  source: none
+  placement: full
+  alt: null
+
+quiz:
+  question: "Avec ValidationPipe, que fait 'forbidNonWhitelisted: true' ?"
+  choices:
+    A: "Il convertit automatiquement les strings en nombres"
+    B: "Il supprime silencieusement les champs inconnus"
+    C: "Il autorise des champs additionnels, mais les ignore"
+    D: "Il rejette la requête si un champ inconnu est présent"
+
+notes_formateur: |
+  ## Déroulé (2 min)
+
+  ### Réponse
+  - Réponse : D
+  - B correspond à whitelist:true (sans forbid)
+
+  ### Transition
+  Après le contrat, parlons du débat : qu'adopter lundi ?
+
+notes_stagiaire: |
+  ## À retenir
+
+  **Réponse** : D.
+  Avec forbidNonWhitelisted, un champ inattendu → 400.

@@ -1,0 +1,35 @@
+id: ch2-keyidea-roles
+type: key_idea
+title: "L'idée clé à retenir"
+covers:
+  - "Structure : modules, contrôleurs, services"
+  - "Logique métier dans les services"
+
+layout:
+  template: key_idea
+  density: low
+  emphasis: visual
+
+visual:
+  kind: icon
+  query: "lightbulb idea"
+  source: local
+  placement: left
+  alt: "Icône ampoule"
+
+message: "Controller = HTTP. Service = métier. Module = assemblage."
+
+supporting_points:
+  - "Si le controller grossit, l'architecture se dégrade"
+  - "Le service se teste sans serveur"
+  - "Le module rend les dépendances explicites"
+
+notes_formateur: |
+  ## Déroulé (1 min)
+  - Faire répéter cette phrase par le groupe.
+  - Transition : on met ça en pratique avec un module 'soldes'.
+
+notes_stagiaire: |
+  ## À retenir
+  Retenir la séparation des responsabilités :
+  Controller (HTTP) / Service (métier) / Module (composition).

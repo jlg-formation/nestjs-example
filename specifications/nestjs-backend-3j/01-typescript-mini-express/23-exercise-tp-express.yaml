@@ -1,0 +1,46 @@
+id: ch1-exercise-tp-express
+type: exercise
+title: "TP : /ping + GET /clients avec SQL simple"
+subtitle: "Mise en pratique (45 min)"
+covers:
+  - "TP Express minimal :"
+  - "Créer /ping + GET /clients avec requête SQL simple."
+
+layout:
+  template: exercise
+  density: medium
+  emphasis: text
+
+visual:
+  kind: icon
+  query: "code laptop practice"
+  source: local
+  placement: left
+  alt: "Icône exercice pratique"
+
+exercise:
+  goal: "Créer une mini API Express avec un endpoint de santé et une liste de clients depuis MariaDB"
+  instructions:
+    - "Créer un projet Node/TS minimal (tsconfig + scripts)"
+    - "Ajouter Express et créer GET /ping"
+    - "Configurer mysql2 (pool) et créer GET /clients (SELECT simple)"
+    - "Tester avec curl : /ping puis /clients"
+    - "Ajouter un middleware de logging (method + url + ms)"
+  deliverable: "Une API qui répond sur /ping et retourne une liste JSON sur /clients"
+  success_criteria:
+    - "GET /ping renvoie { ok: true }"
+    - "GET /clients renvoie un JSON avec id/name/balance"
+    - "Aucune concaténation de strings dans le SQL"
+    - "Un log par requête (middleware)"
+
+notes_formateur: |
+  ## Déroulé (45 min)
+  - 5 min : setup, 10 min : /ping, 20 min : SQL, 10 min : middleware.
+  - Circuler, vérifier la requête paramétrée.
+  ### Transition
+  On fait une démo de debug et des points communs avec NestJS.
+
+notes_stagiaire: |
+  ## À retenir
+  Objectif : une mini API fonctionnelle.
+  Si blocage : commencer par /ping, puis brancher la DB ensuite.

@@ -1,0 +1,59 @@
+id: nestjs-backend-3j-04-code-service-recharge
+type: code_example
+title: "Service : logique métier de recharge"
+subtitle: "Orchestration + erreurs métiers"
+
+layout:
+  template: code_example
+  density: medium
+  emphasis: text
+
+visual:
+  kind: code_render
+  source: none
+  placement: full
+  alt: "Service NestJS : recharge"
+
+code:
+  language: "ts"
+  snippet: |
+    import { Injectable, NotFoundException } from '@nestjs/common';
+
+    @Injectable()
+    export class RechargeService {
+      constructor(private readonly repo: RechargeRepository) {}
+
+      async recharge(dto: CreateRechargeDto): Promise<ClientDto> {
+        const client = await this.repo.applyRecharge(dto.clientId, dto.amount);
+        if (!client) throw new NotFoundException('Client not found');
+        return client;
+      }
+    }
+  callouts:
+    - line: 3
+      text: "Service injectable = testable"
+    - line: 8
+      text: "Orchestration : délègue au repository"
+    - line: 9
+      text: "Erreur métier/HTTP propre (404)"
+  expected_output: "clientId inconnu → 404"
+
+covers:
+  - "Structuration contrôleurs / services / repositories"
+  - "POST /recharge"
+
+notes_formateur: |
+  ## Déroulé (4 min)
+
+  ### Points clés
+  - Le service transforme les cas métiers en exceptions propres.
+  - Le repository cache les détails SQL/transaction.
+
+  ### Transition
+  Passons au repository : SQL + transaction.
+
+notes_stagiaire: |
+  ## À retenir
+
+  **Service** : règles + orchestration.
+  **Repository** : exécution SQL.

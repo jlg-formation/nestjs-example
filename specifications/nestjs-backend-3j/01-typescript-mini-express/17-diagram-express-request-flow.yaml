@@ -1,0 +1,41 @@
+id: ch1-diagram-express-flow
+type: diagram
+title: "Ce qui se passe quand vous appelez une route Express"
+covers:
+  - "Mini-projet Express réduit :"
+  - "Découverte rapide des middlewares Express"
+
+layout:
+  template: diagram
+  density: low
+  emphasis: visual
+
+visual:
+  kind: diagram
+  query: "express middleware request response flow"
+  source: ai
+  placement: full
+  alt: "Schéma request → middleware → route → response"
+
+diagram:
+  description: "Le pipeline HTTP : request → middlewares → handler → response"
+  components:
+    - name: "Request"
+      role: "Entrée HTTP (URL, headers, body)"
+    - name: "Middleware(s)"
+      role: "Logging, parsing JSON, auth, validation"
+    - name: "Route handler"
+      role: "Logique : appeler service/DB et construire la réponse"
+    - name: "Response"
+      role: "Status + JSON retourné au client"
+  flow: "Client → Express → Middleware(s) → Handler → Response"
+
+notes_formateur: |
+  ## Déroulé (3 min)
+  - Faire le lien : NestJS = même idée, mais plus structuré.
+  - Insister : un middleware est une fonction qui peut stop/continue.
+
+notes_stagiaire: |
+  ## À retenir
+  Express exécute les middlewares dans l'ordre.
+  Chaque middleware peut enrichir req/res ou arrêter la requête.

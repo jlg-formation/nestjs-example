@@ -1,0 +1,41 @@
+id: nestjs-backend-3j-06-demo-swagger
+type: demo
+title: "Démo : Swagger UI pour tester l'API"
+
+layout:
+  template: demo
+  density: low
+  emphasis: visual
+
+visual:
+  kind: icon
+  query: "live demo swagger ui"
+  source: local
+  placement: left
+  alt: "Icône démo"
+
+demo:
+  objective: "Montrer le contrat et exécuter une requête sans Postman"
+  tool: "Swagger UI (/api)"
+  duration: "3 minutes"
+  steps:
+    - "Démarrer l'app"
+    - "Ouvrir Swagger UI"
+    - "Tester GET /clients/:id/soldes"
+    - "Tester POST /recharge (avec x-api-key si nécessaire)"
+  fallback: "Captures écran de la UI + exemples de requêtes"
+
+covers:
+  - "Documentation Swagger"
+
+notes_formateur: |
+  ## Déroulé (3 min)
+
+  ### Checklist
+  - Avoir un client seedé pour la démo.
+  - Montrer l'erreur 401 si clé API manquante.
+
+notes_stagiaire: |
+  ## À retenir
+
+  **Swagger UI** : tester l'API et comprendre le contrat.

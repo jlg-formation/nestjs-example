@@ -1,0 +1,54 @@
+id: nestjs-backend-3j-05-code-rollback
+type: code_example
+title: "Stratégie : transaction + rollback par test"
+subtitle: "Nettoyer sans réinitialiser toute la DB"
+
+layout:
+  template: code_example
+  density: medium
+  emphasis: text
+
+visual:
+  kind: code_render
+  source: none
+  placement: full
+  alt: "Rollback en test"
+
+code:
+  language: "ts"
+  snippet: |
+    let tx: any;
+
+    beforeEach(async () => {
+      tx = await db.begin();
+      await db.query('INSERT INTO clients (id, name, balance) VALUES (?, ?, ?)', ['c1', 'A', 10]);
+    });
+
+    afterEach(async () => {
+      await db.rollback(tx);
+    });
+  callouts:
+    - line: 3
+      text: "Chaque test démarre dans une transaction"
+    - line: 9
+      text: "Rollback = état clean, rapide"
+  expected_output: "Tests indépendants, DB propre après chaque run"
+
+covers:
+  - "Stratégies de test des requêtes SQL"
+
+notes_formateur: |
+  ## Déroulé (4 min)
+
+  ### Points clés
+  - Solution très efficace si le driver le permet.
+  - Attention aux connexions multiples (pool) en e2e.
+
+  ### Transition
+  Quel piège classique ? La DB partagée.
+
+notes_stagiaire: |
+  ## À retenir
+
+  **Idée** : 1 test → 1 transaction → rollback.
+  **Limite** : en e2e, plusieurs connexions peuvent compliquer.

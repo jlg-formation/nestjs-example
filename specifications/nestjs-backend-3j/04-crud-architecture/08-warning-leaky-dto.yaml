@@ -1,0 +1,44 @@
+id: nestjs-backend-3j-04-warning-leaky-dto
+type: warning
+title: "⚠️ Anti-pattern : exposer votre modèle interne"
+
+layout:
+  template: warning
+  density: low
+  emphasis: visual
+
+visual:
+  kind: icon
+  query: "warning data leak"
+  source: local
+  placement: left
+  alt: "Icône alerte"
+
+warning:
+  danger: "Retourner directement une row SQL ou un objet interne fige l'API et peut exposer des champs sensibles."
+  consequences:
+    - "Breaking change dès qu'une table évolue"
+    - "Champs internes exposés (ex: timestamps, flags)"
+    - "Couplage fort front ↔ base de données"
+  prevention: "Créer des DTOs de sortie et mapper explicitement (whitelist des champs)"
+  real_case: "Un champ `isAdmin` ajouté en DB a été exposé par erreur dans une API"
+
+covers:
+  - "DTOs pour Clients et Réservations"
+  - "Réponses typées et formats standardisés"
+
+notes_formateur: |
+  ## Déroulé (2 min)
+
+  ### Repère simple
+  - Si vous renvoyez ce qui sort du DB driver : stop.
+
+  ### Transition
+  Une fois le contrat défini, passons au moteur : SQL brut
+  (relations, inserts, updates).
+
+notes_stagiaire: |
+  ## À retenir
+
+  **Ne retournez pas** vos rows SQL.
+  **Retournez** un DTO de sortie (sélection explicite des champs).

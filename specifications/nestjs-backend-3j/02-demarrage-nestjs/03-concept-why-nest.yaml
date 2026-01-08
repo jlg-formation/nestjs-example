@@ -1,0 +1,38 @@
+id: ch2-concept-why-nest
+type: concept
+title: "NestJS standardise votre backend : lisibilité d'équipe"
+covers:
+  - "Structure : modules, contrôleurs, services"
+
+layout:
+  template: concept
+  density: medium
+  emphasis: balanced
+
+visual:
+  kind: icon
+  query: "blueprint architecture building"
+  source: local
+  placement: right
+  alt: "Plan d'architecture"
+
+concept:
+  definition: "NestJS impose une structure (modules/contrôleurs/services) qui rend le code prévisible et testable."
+  bullets:
+    - "Prévisible : même organisation d'un projet à l'autre"
+    - "Testable : services isolés + DI"
+    - "Scalable : modules pour découper par domaine"
+    - "Écosystème : validation, docs, guards, interceptors"
+  pitfalls:
+    - "❌ Mettre la logique dans les contrôleurs"
+    - "❌ Multiplier les fichiers sans intention claire"
+
+notes_formateur: |
+  ## Déroulé (2 min)
+  - Donner l'idée : "Nest = architecture par conventions".
+  - Transition : on installe et on crée un projet.
+
+notes_stagiaire: |
+  ## À retenir
+  NestJS vous évite de réinventer l'architecture à chaque projet.
+  Les rôles sont clairs : controller (HTTP) vs service (métier).

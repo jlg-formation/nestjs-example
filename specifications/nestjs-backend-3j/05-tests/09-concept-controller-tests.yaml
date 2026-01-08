@@ -1,0 +1,46 @@
+id: nestjs-backend-3j-05-concept-controller-tests
+type: concept
+title: "Tester un contrôleur = vérifier le contrat HTTP"
+subtitle: "Input, erreurs, shape de réponse"
+
+layout:
+  template: concept
+  density: medium
+  emphasis: balanced
+
+visual:
+  kind: diagram
+  query: "controller contract dto response"
+  source: ai
+  placement: right
+  alt: "Schéma controller"
+
+concept:
+  definition: "Un test de contrôleur vérifie que l'endpoint délègue bien au service et retourne une réponse cohérente (format, codes, erreurs)."
+  bullets:
+    - "On mocke le service"
+    - "On vérifie le format `{ data: ... }`"
+    - "On vérifie les erreurs (404, 400)"
+    - "On garde le contrôleur fin"
+  pitfalls:
+    - "❌ Tester le SQL dans un test de controller"
+    - "❌ Assertions sur l'ordre exact des appels internes"
+
+covers:
+  - "Test des contrôleurs"
+
+notes_formateur: |
+  ## Déroulé (3 min)
+
+  ### Points clés
+  - On teste le contrat et la délégation.
+  - Le métier se teste côté service.
+
+  ### Transition
+  Exemple : test d'un controller NestJS avec TestingModule.
+
+notes_stagiaire: |
+  ## À retenir
+
+  **Test controller** : contrat + délégation.
+  **Pas** de SQL ici.

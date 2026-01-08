@@ -1,0 +1,36 @@
+id: ch1-objective
+type: objective
+title: "Ce que vous saurez faire à la fin du chapitre"
+subtitle: "Coder une mini API Express typée et robuste"
+
+layout:
+  template: objective
+  density: low
+  emphasis: text
+
+visual:
+  kind: icon
+  query: "target goal"
+  source: local
+  placement: left
+  alt: "Icône cible"
+
+objectives:
+  - "Écrire du TypeScript lisible : types, interfaces, fonctions"
+  - "Utiliser async/await et gérer les erreurs proprement"
+  - "Lire/écrire un JSON simplement pour config ou données"
+  - "Créer une route GET Express et un middleware"
+  - "Faire un SELECT SQL brut via mysql2"
+
+notes_formateur: |
+  ## Déroulé (1 min)
+  ### Cadrage
+  - Ce chapitre est un tremplin vers NestJS.
+  - On privilégie la clarté et les bonnes habitudes.
+  ### Transition
+  D'abord : types et fonctions en TypeScript.
+
+notes_stagiaire: |
+  ## À retenir
+  Vous repartez avec les réflexes TS/Express nécessaires pour NestJS :
+  types, async/await, erreurs, JSON, route GET, SQL brut.

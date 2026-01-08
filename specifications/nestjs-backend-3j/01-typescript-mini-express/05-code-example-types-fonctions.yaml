@@ -1,0 +1,53 @@
+id: ch1-code-types-fonctions
+type: code_example
+title: "Types + fonctions : des contrats simples"
+subtitle: "Ce que votre code promet, explicitement"
+covers:
+  - "Types de base, interfaces, fonctions"
+
+layout:
+  template: code_example
+  density: medium
+  emphasis: text
+
+visual:
+  kind: code_render
+  source: none
+  placement: full
+  alt: "Exemple TypeScript avec types et fonctions"
+
+code:
+  language: "ts"
+  snippet: |
+    type ClientId = number;
+
+    function formatEuros(amount: number): string {
+      return `${amount.toFixed(2)} €`;
+    }
+
+    function canRecharge(clientId: ClientId, amount: number): boolean {
+      return clientId > 0 && amount > 0;
+    }
+
+    console.log(formatEuros(12));
+    console.log(canRecharge(42, 50));
+  callouts:
+    - line: 1
+      text: "Alias de type pour clarifier l'intention"
+    - line: 3
+      text: "Signature : entrées et sortie explicites"
+    - line: 7
+      text: "Contrat métier minimal typé"
+  expected_output: "12.00 €\ntrue"
+
+notes_formateur: |
+  ## Déroulé (3 min)
+  - Montrer : l'IDE détecte les appels invalides.
+  - Relier au futur : DTOs NestJS = contrats d'entrée.
+  ### Question
+  "Quels contrats d'API devez-vous clarifier sur vos projets ?"
+
+notes_stagiaire: |
+  ## À retenir
+  Typage = contrat : paramètres + retour.
+  Ça aide l'IDE et évite des erreurs simples.

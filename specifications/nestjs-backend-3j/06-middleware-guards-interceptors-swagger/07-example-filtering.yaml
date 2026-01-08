@@ -1,0 +1,42 @@
+id: nestjs-backend-3j-06-example-filtering
+type: example
+title: "Exemple : filtrer une route en middleware"
+
+layout:
+  template: example
+  density: low
+  emphasis: balanced
+
+visual:
+  kind: icon
+  query: "door access filter"
+  source: local
+  placement: right
+  alt: "Icône filtre"
+
+example:
+  variant: simple
+  bullets:
+    - "Contexte : endpoint interne (ex: /health)"
+    - "Action : refuser hors réseau privé / sans header attendu"
+    - "Résultat : exposition réduite, logs plus propres"
+  takeaway: "Le filtrage doit rester générique. L'auth applicative se fait plutôt via guard."
+
+covers:
+  - "Middlewares : logging et filtrage"
+
+notes_formateur: |
+  ## Déroulé (3 min)
+
+  ### Points clés
+  - Filtrage OK pour des règles HTTP simples.
+  - Dès que c'est une règle d'accès applicative : guard.
+
+  ### Transition
+  Attention : les logs peuvent aussi devenir un problème de sécurité.
+
+notes_stagiaire: |
+  ## À retenir
+
+  **Filtrage middleware** : pour règles simples (techniques).
+  **Auth** : plutôt avec guard.

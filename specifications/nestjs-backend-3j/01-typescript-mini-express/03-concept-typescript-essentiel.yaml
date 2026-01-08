@@ -1,0 +1,41 @@
+id: ch1-concept-typescript-essentiel
+type: concept
+title: "TypeScript : des erreurs détectées avant d'arriver en prod"
+covers:
+  - "Types de base, interfaces, fonctions"
+
+layout:
+  template: concept
+  density: medium
+  emphasis: balanced
+
+visual:
+  kind: icon
+  query: "type safety shield"
+  source: local
+  placement: right
+  alt: "Bouclier de sécurité de types"
+
+concept:
+  definition: "TypeScript ajoute un typage statique à JavaScript pour sécuriser votre code et votre refactor." 
+  bullets:
+    - "Types simples : string, number, boolean, union"
+    - "Types structurés : interfaces et objets"
+    - "Fonctions : signature claire (params + retour)"
+    - "IDE : autocomplétion fiable et refactor guidé"
+  pitfalls:
+    - "❌ Mettre 'any' partout : vous perdez l'intérêt"
+    - "❌ Sur-typer trop tôt : commencez simple"
+
+notes_formateur: |
+  ## Déroulé (2 min)
+  ### Points clés
+  - On veut des bugs trouvés tôt, pas à l'exécution.
+  - Le gain : lisibilité + refactor en confiance.
+  ### Question
+  "Sur votre dernier projet, quel bug aurait été évité par TS ?"
+
+notes_stagiaire: |
+  ## À retenir
+  **TypeScript** = JavaScript + types.
+  But : réduire les erreurs runtime et faciliter le refactor.

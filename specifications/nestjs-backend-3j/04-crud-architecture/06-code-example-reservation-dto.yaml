@@ -1,0 +1,61 @@
+id: nestjs-backend-3j-04-code-reservation-dto
+type: code_example
+title: "DTO Réservation : valider l'entrée"
+subtitle: "On refuse tôt un payload incohérent"
+
+layout:
+  template: code_example
+  density: medium
+  emphasis: text
+
+visual:
+  kind: code_render
+  source: none
+  placement: full
+  alt: "Code TypeScript : DTO reservation validé"
+
+code:
+  language: "ts"
+  snippet: |
+    import { IsInt, IsPositive, IsString, Length } from 'class-validator';
+
+    export class CreateReservationDto {
+      @IsString()
+      @Length(3, 36)
+      clientId!: string;
+
+      @IsString()
+      @Length(3, 40)
+      reference!: string;
+
+      @IsInt()
+      @IsPositive()
+      amount!: number;
+    }
+  callouts:
+    - line: 3
+      text: "clientId : identifiant attendu côté API"
+    - line: 8
+      text: "reference : une valeur lisible (pas vide)"
+    - line: 12
+      text: "amount : entier strictement positif"
+  expected_output: "amount = 0 → erreur 400 (validation)"
+
+covers:
+  - "DTOs pour Clients et Réservations"
+
+notes_formateur: |
+  ## Déroulé (4 min)
+
+  ### Points clés
+  - On valide les formats et bornes (pas le métier).
+  - Le métier (solde suffisant) restera dans le service.
+
+  ### Transition
+  Garder le contrat stable implique aussi de gérer les erreurs proprement.
+
+notes_stagiaire: |
+  ## À retenir
+
+  **Validation** : formats/tailles/bornes.
+  **Métier** : règles (solde suffisant) dans le service.

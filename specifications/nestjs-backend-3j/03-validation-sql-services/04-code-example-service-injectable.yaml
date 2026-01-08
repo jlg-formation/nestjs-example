@@ -1,0 +1,59 @@
+id: nestjs-backend-3j-03-code-service
+type: code_example
+title: "@Injectable : un service minimal"
+subtitle: "Dépendances injectées, logique isolée"
+
+layout:
+  template: code_example
+  density: medium
+  emphasis: text
+
+visual:
+  kind: code_render
+  source: none
+  placement: full
+  alt: "Code TypeScript : service NestJS @Injectable"
+
+code:
+  language: "ts"
+  snippet: |
+    import { Injectable } from '@nestjs/common';
+
+    @Injectable()
+    export class PricingService {
+      computeTotal(amount: number, discountPct: number) {
+        const boundedDiscount = Math.min(Math.max(discountPct, 0), 100);
+        return Math.round(amount * (1 - boundedDiscount / 100));
+      }
+    }
+  callouts:
+    - line: 3
+      text: "@Injectable() permet l'injection via le container Nest"
+    - line: 5
+      text: "Logique métier pure (pas de HTTP, pas de SQL)"
+  expected_output: "computeTotal(100, 10) → 90"
+
+covers:
+  - "Services et décorateur @Injectable"
+
+notes_formateur: |
+  ## Déroulé (4 min)
+
+  ### Points clés à aborder
+  - Exemple volontairement "pur" pour montrer le rôle du service.
+  - Une dépendance (repo/config) viendra ensuite.
+
+  ### Question
+  "Quels sont vos invariants métier (ex: bornes, règles) ?"
+
+  ### Transition
+  Maintenant, comment on paramètre l'app sans hardcoder : `.env`.
+
+notes_stagiaire: |
+  ## À retenir
+
+  **@Injectable()** : déclare une classe gérée par Nest.
+
+  **Bon réflexe** : commencer par une logique pure, puis injecter les dépendances.
+
+  **But** : éviter de mélanger HTTP/SQL/métier.

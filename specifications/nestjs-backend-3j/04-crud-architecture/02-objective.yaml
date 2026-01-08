@@ -1,0 +1,42 @@
+id: nestjs-backend-3j-04-objective
+type: objective
+title: "Objectifs du chapitre"
+subtitle: "Ce que vous saurez implémenter (CRUD + architecture)"
+
+layout:
+  template: objective
+  density: low
+  emphasis: text
+
+visual:
+  kind: icon
+  query: "target checklist"
+  source: local
+  placement: left
+  alt: "Icône cible"
+
+objectives:
+  - "Définir des DTOs d'entrée et de sortie pour l'API"
+  - "Implémenter INSERT/UPDATE SQL brut avec relations"
+  - "Structurer controllers/services/repositories sans duplication"
+  - "Standardiser les réponses (types + formats)"
+  - "Livrer les 3 endpoints du TP"
+
+notes_formateur: |
+  ## Déroulé (1 min)
+
+  ### Points clés
+  - On vise une API stable : contrats, types, formats.
+  - On assemble tout ce qu'on a vu : validation + SQL + erreurs.
+
+  ### Transition
+  D'abord : définir les DTOs (contrats d'entrée/sortie).
+
+notes_stagiaire: |
+  ## À retenir
+
+  **À la fin** vous saurez :
+  - écrire des DTOs d'entrée/sortie
+  - structurer controller/service/repository
+  - écrire du SQL brut pour CRUD et relations
+  - standardiser les réponses

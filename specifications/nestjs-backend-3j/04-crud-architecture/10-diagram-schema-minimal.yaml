@@ -1,0 +1,47 @@
+id: nestjs-backend-3j-04-diagram-schema
+type: diagram
+title: "Schéma minimal : clients, recharges, réservations"
+
+layout:
+  template: diagram
+  density: low
+  emphasis: visual
+
+visual:
+  kind: diagram
+  query: "database schema clients reservations recharges"
+  source: ai
+  placement: full
+  alt: "Schéma DB minimal"
+
+diagram:
+  description: "Un modèle simple pour implémenter les endpoints du TP"
+  components:
+    - name: "clients"
+      role: "Table principale (id, name, balance)"
+    - name: "recharges"
+      role: "Historique des crédits (client_id FK, amount, created_at)"
+    - name: "reservations"
+      role: "Historique des débits (client_id FK, amount, reference)"
+    - name: "FK recharges.client_id → clients.id"
+      role: "Intégrité : recharge impossible sans client"
+  flow: "POST /recharge → INSERT recharges + UPDATE clients.balance"
+
+covers:
+  - "SQL brut : inserts, updates, relations"
+
+notes_formateur: |
+  ## Déroulé (4 min)
+
+  ### Points clés
+  - L'historique (recharges/réservations) sert aux audits.
+  - `balance` est un cache : attention à la cohérence.
+
+  ### Transition
+  Passons au SQL brut : INSERT puis UPDATE.
+
+notes_stagiaire: |
+  ## À retenir
+
+  **3 tables** : clients / recharges / reservations.
+  **Idée** : l'historique justifie le solde.

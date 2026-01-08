@@ -1,0 +1,45 @@
+id: nestjs-backend-3j-99-process-endpoint-pro
+type: process
+title: "Construire un endpoint pro : la checklist"
+subtitle: "Du routeur au SQL, sans raccourcis"
+
+layout:
+  template: process
+  density: medium
+  emphasis: balanced
+
+visual:
+  kind: diagram
+  query: "checklist steps workflow"
+  source: ai
+  placement: right
+  alt: "Étapes de construction d'un endpoint"
+
+covers:
+  - "Structuration contrôleurs / services / repositories"
+  - "Validation avec class-validator / class-transformer"
+  - "Gestion centralisée des erreurs"
+  - "SQL brut : inserts, updates, relations"
+
+process:
+  steps:
+    - "Définir DTO d'entrée + DTO de réponse"
+    - "Activer ValidationPipe (whitelist, forbidNonWhitelisted)"
+    - "Écrire la méthode de service (règles métier + cas limites)"
+    - "Implémenter la requête SQL paramétrée dans un repository"
+    - "Gérer erreurs : 400/404/409/500 de façon cohérente"
+
+notes_formateur: |
+  ## Déroulé (3 min)
+
+  ### Astuce
+  Faire le lien avec le TP : on applique cette checklist à chaque endpoint.
+
+  ### Question
+  "Quelle étape est la plus souvent oubliée en projet ?"
+
+notes_stagiaire: |
+  ## À retenir
+
+  **Checklist** : DTO → validation → service → repository → erreurs.
+  Si vous sautez une étape, vous paierez plus tard.

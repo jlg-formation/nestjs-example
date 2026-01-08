@@ -1,0 +1,45 @@
+id: nestjs-backend-3j-03-key-validation-vs-metier
+type: key_idea
+title: "Validation : format d'entrée ≠ règles métier"
+
+layout:
+  template: key_idea
+  density: low
+  emphasis: visual
+
+visual:
+  kind: icon
+  query: "lightbulb checklist"
+  source: local
+  placement: left
+  alt: "Idée clé"
+
+message: "Validez le format dans les DTO ; validez le métier dans les services."
+
+supporting_points:
+  - "DTO : types, bornes, formats, champs obligatoires"
+  - "Service : invariants métier (ex: solde suffisant)"
+  - "Résultat : erreurs plus claires et code plus simple"
+
+covers:
+  - "Validation avec class-validator / class-transformer"
+  - "Services et décorateur @Injectable"
+
+notes_formateur: |
+  ## Déroulé (1 min)
+
+  ### Exemple
+  - DTO : `amount` doit être un entier positif.
+  - Métier : le client ne doit pas dépasser un plafond.
+
+  ### Transition
+  On va visualiser le chemin d'une requête et où se placent pipes/filters.
+
+notes_stagiaire: |
+  ## À retenir
+
+  **DTO** : validation de format (ce qui est "bien formé").
+
+  **Service** : validation métier (ce qui est "autorisé").
+
+  **But** : garder des responsabilités nettes.
