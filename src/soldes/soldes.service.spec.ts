@@ -1,15 +1,26 @@
 import { Test, TestingModule } from '@nestjs/testing';
+import { ConfigService } from '@nestjs/config';
 import { SoldesService } from './soldes.service';
 
 describe('SoldesService', () => {
   let service: SoldesService;
+  let config: ConfigService;
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
-      providers: [SoldesService],
+      providers: [
+        SoldesService,
+        {
+          provide: ConfigService,
+          useValue: {
+            get: jest.fn(),
+          },
+        },
+      ],
     }).compile();
 
     service = module.get<SoldesService>(SoldesService);
+    config = module.get<ConfigService>(ConfigService);
   });
 
   it('should be defined', () => {
@@ -36,6 +47,19 @@ describe('SoldesService', () => {
 
     it('should return 0 when clientId is valid', () => {
       expect(service.getBalance(1)).toBe(0);
+    });
+  });
+
+  describe('getDbHost', () => {
+    it("should return 'localhost' when DB_HOST is missing", () => {
+      jest
+        .spyOn(config, 'get')
+        .mockImplementation((key: string, defaultValue?: string) => {
+          if (key === 'DB_HOST') return defaultValue;
+          return defaultValue;
+        });
+
+      expect(service.getDbHost()).toBe('localhost');
     });
   });
 });
