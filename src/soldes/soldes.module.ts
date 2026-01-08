@@ -12,12 +12,16 @@ import { SoldesService } from './soldes.service';
     {
       provide: DB_CLIENT,
       useValue: {
-        query: async (
-          _sql: string,
-          _params: readonly unknown[],
+        query: (
+          sql: string,
+          params: readonly unknown[],
         ): Promise<[unknown[]]> => {
-          throw new Error(
-            'DB client not configured yet. Implement DB client wiring before using repositories.',
+          void sql;
+          void params;
+          return Promise.reject(
+            new Error(
+              'DB client not configured yet. Implement DB client wiring before using repositories.',
+            ),
           );
         },
       },
