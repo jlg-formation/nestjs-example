@@ -33,7 +33,7 @@ describe('SoldesController', () => {
 
   describe('recharge', () => {
     it('should return ok + amount from body', () => {
-      expect(controller.recharge({ amount: 100 })).toEqual({
+      expect(controller.recharge({ clientId: 'abc', amount: 100 })).toEqual({
         ok: true,
         amount: 100,
       });

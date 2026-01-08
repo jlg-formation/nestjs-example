@@ -22,8 +22,8 @@ Chaque tâche contient :
 
 ## 03-validation-sql-services
 
-- [ ] id08 Charger `.env` avec `ConfigModule` et injecter `ConfigService` — Intention: centraliser la config ; Livrable: `ConfigModule.forRoot({ isGlobal: true })` + usage `config.get()` (specifications/nestjs-backend-3j/03-validation-sql-services/06-code-example-configservice.yaml)
-- [ ] id09 Créer un DTO d’entrée validé avec `class-validator` — Intention: refuser les payloads invalides ; Livrable: DTO (ex: `CreateRechargeDto`) avec contraintes (specifications/nestjs-backend-3j/03-validation-sql-services/09-code-example-dto-validation.yaml)
+- [x] id08 Charger `.env` avec `ConfigModule` et injecter `ConfigService` — Intention: centraliser la config ; Livrable: `ConfigModule.forRoot({ isGlobal: true })` + usage `config.get()` (specifications/nestjs-backend-3j/03-validation-sql-services/06-code-example-configservice.yaml)
+- [x] id09 Créer un DTO d’entrée validé avec `class-validator` — Intention: refuser les payloads invalides ; Livrable: DTO (ex: `CreateRechargeDto`) avec contraintes (specifications/nestjs-backend-3j/03-validation-sql-services/09-code-example-dto-validation.yaml)
 - [ ] id10 Activer `ValidationPipe` global (whitelist/forbid/transform) — Intention: rendre l’API stricte par défaut ; Livrable: config dans `main.ts` + 400 sur champs inattendus (specifications/nestjs-backend-3j/03-validation-sql-services/11-code-example-main-validationpipe.yaml)
 - [ ] id11 Créer un repository SQL brut injectable (SELECT + INSERT paramétrés) — Intention: isoler le SQL ; Livrable: repository avec placeholders `?` (specifications/nestjs-backend-3j/03-validation-sql-services/18-code-example-sql-repository.yaml)
 - [ ] id12 Centraliser les erreurs avec un Exception Filter — Intention: format d’erreur stable ; Livrable: `ApiExceptionFilter` qui renvoie un JSON cohérent (specifications/nestjs-backend-3j/03-validation-sql-services/15-code-example-exception-filter.yaml)
