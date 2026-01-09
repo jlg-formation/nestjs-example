@@ -10,7 +10,7 @@ describe('RechargeController', () => {
   let rechargeMock: jest.Mock<Promise<ClientDto>, [CreateRechargeDto]>;
 
   beforeEach(async () => {
-    rechargeMock = jest.fn();
+    rechargeMock = jest.fn<Promise<ClientDto>, [CreateRechargeDto]>();
     rechargeService = {
       recharge: rechargeMock,
     };
