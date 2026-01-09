@@ -2,8 +2,17 @@ import { Inject, Injectable } from '@nestjs/common';
 
 export const DB_CLIENT = 'DB_CLIENT';
 
+export interface DbTransactionClient {
+  query(sql: string, params: readonly unknown[]): Promise<[unknown[]]>;
+  begin(): Promise<void>;
+  commit(): Promise<void>;
+  rollback(): Promise<void>;
+  release(): Promise<void>;
+}
+
 export interface DbClient {
   query(sql: string, params: readonly unknown[]): Promise<[unknown[]]>;
+  createTransaction(): Promise<DbTransactionClient>;
 }
 
 export type ClientRow = { id: string; name: string };

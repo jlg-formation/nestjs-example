@@ -6,12 +6,15 @@ import { RechargeRepository } from './recharge.repository';
 describe('SoldesService', () => {
   let service: SoldesService;
   let config: ConfigService;
-  let rechargeRepo: { clientExists: jest.Mock; insertRecharge: jest.Mock };
+  let rechargeRepo: { applyRecharge: jest.Mock };
 
   beforeEach(async () => {
     rechargeRepo = {
-      clientExists: jest.fn().mockResolvedValue(true),
-      insertRecharge: jest.fn().mockResolvedValue(undefined),
+      applyRecharge: jest.fn().mockResolvedValue({
+        id: 'abc',
+        name: 'Test',
+        balance: 100,
+      }),
     };
 
     const module: TestingModule = await Test.createTestingModule({
@@ -47,11 +50,8 @@ describe('SoldesService', () => {
     });
 
     it('should insert a recharge when client exists', async () => {
-      rechargeRepo.clientExists.mockResolvedValueOnce(true);
-
       await expect(service.recharge('abc', 100)).resolves.toEqual({ ok: true });
-      expect(rechargeRepo.clientExists).toHaveBeenCalledWith('abc');
-      expect(rechargeRepo.insertRecharge).toHaveBeenCalledWith('abc', 100);
+      expect(rechargeRepo.applyRecharge).toHaveBeenCalledWith('abc', 100);
     });
   });
 

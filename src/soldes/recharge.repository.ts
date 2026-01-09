@@ -2,31 +2,50 @@ import { Inject, Injectable } from '@nestjs/common';
 
 import { DB_CLIENT } from './client.repository';
 import type { DbClient } from './client.repository';
+import { ClientDto } from './dto/client.dto';
 
 @Injectable()
 export class RechargeRepository {
   constructor(@Inject(DB_CLIENT) private readonly db: DbClient) {}
 
-  async clientExists(clientId: string): Promise<boolean> {
-    const [rows] = await this.db.query(
-      'SELECT id FROM clients WHERE id = ? LIMIT 1',
-      [clientId],
-    );
+  async applyRecharge(
+    clientId: string,
+    amount: number,
+  ): Promise<ClientDto | null> {
+    const tx = await this.db.createTransaction();
+    await tx.begin();
 
-    return ((rows as Array<{ id: string }>)[0] ?? null) !== null;
-  }
+    try {
+      const [result] = await tx.query(
+        'UPDATE clients SET balance = balance + ? WHERE id = ?',
+        [amount, clientId],
+      );
 
-  async insertRecharge(clientId: string, amount: number): Promise<void> {
-    await this.db.query(
-      'INSERT INTO recharges (client_id, amount) VALUES (?, ?)',
-      [clientId, amount],
-    );
-  }
+      const affectedRows = (result as unknown as { affectedRows?: number })
+        .affectedRows;
 
-  async incrementBalance(clientId: string, amount: number): Promise<void> {
-    await this.db.query(
-      'UPDATE clients SET balance = balance + ? WHERE id = ?',
-      [amount, clientId],
-    );
+      if (affectedRows !== 1) {
+        await tx.rollback();
+        return null;
+      }
+
+      await tx.query(
+        'INSERT INTO recharges (client_id, amount) VALUES (?, ?)',
+        [clientId, amount],
+      );
+
+      const [rows] = await tx.query(
+        'SELECT id, name, balance FROM clients WHERE id = ?',
+        [clientId],
+      );
+
+      await tx.commit();
+      return (rows as ClientDto[])[0] ?? null;
+    } catch (error) {
+      await tx.rollback();
+      throw error;
+    } finally {
+      await tx.release();
+    }
   }
 }

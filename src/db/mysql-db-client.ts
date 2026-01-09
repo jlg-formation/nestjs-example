@@ -1,7 +1,11 @@
 import { Injectable, OnModuleDestroy } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import { createPool, Pool } from 'mysql2/promise';
-import type { DbClient } from '../soldes/client.repository';
+import type { PoolConnection } from 'mysql2/promise';
+import type {
+  DbClient,
+  DbTransactionClient,
+} from '../soldes/client.repository';
 
 @Injectable()
 export class MysqlDbClient implements DbClient, OnModuleDestroy {
@@ -27,6 +31,30 @@ export class MysqlDbClient implements DbClient, OnModuleDestroy {
   async query(sql: string, params: readonly unknown[]): Promise<[unknown[]]> {
     const [rows] = await this.pool.query(sql, params as unknown[]);
     return [rows as unknown[]];
+  }
+
+  async createTransaction(): Promise<DbTransactionClient> {
+    const connection: PoolConnection = await this.pool.getConnection();
+
+    return {
+      begin: async () => {
+        await connection.beginTransaction();
+      },
+      commit: async () => {
+        await connection.commit();
+      },
+      rollback: async () => {
+        await connection.rollback();
+      },
+      query: async (sql: string, params: readonly unknown[]) => {
+        const [rows] = await connection.query(sql, params as unknown[]);
+        return [rows as unknown[]];
+      },
+      release: () => {
+        connection.release();
+        return Promise.resolve();
+      },
+    };
   }
 
   async onModuleDestroy(): Promise<void> {

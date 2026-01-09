@@ -18,12 +18,11 @@ export class SoldesService {
   }
 
   async recharge(clientId: string, amount: number): Promise<{ ok: true }> {
-    const exists = await this.rechargeRepo.clientExists(clientId);
-    if (!exists) {
+    const updated = await this.rechargeRepo.applyRecharge(clientId, amount);
+    if (!updated) {
       throw new BadRequestException('Client not found');
     }
 
-    await this.rechargeRepo.insertRecharge(clientId, amount);
     return { ok: true };
   }
 
