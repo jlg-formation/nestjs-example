@@ -1,11 +1,4 @@
-import {
-  Body,
-  Controller,
-  Get,
-  Post,
-  UsePipes,
-  ValidationPipe,
-} from '@nestjs/common';
+import { Body, Controller, Get, Post } from '@nestjs/common';
 import { SoldesService } from './soldes.service';
 import { CreateRechargeDto } from './dto/create-recharge.dto';
 
@@ -19,8 +12,7 @@ export class SoldesController {
   }
 
   @Post('recharge')
-  @UsePipes(new ValidationPipe())
   recharge(@Body() body: CreateRechargeDto) {
-    return this.soldes.recharge(body.amount);
+    return this.soldes.recharge(body.clientId, body.amount);
   }
 }

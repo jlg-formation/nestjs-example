@@ -3,11 +3,8 @@ import { Test, TestingModule } from '@nestjs/testing';
 import { randomUUID } from 'node:crypto';
 import { App } from 'supertest/types';
 import { AppModule } from '../src/app.module';
-import {
-  ClientRepository,
-  DB_CLIENT,
-  DbClient,
-} from '../src/soldes/client.repository';
+import { ClientRepository, DB_CLIENT } from '../src/soldes/client.repository';
+import type { DbClient } from '../src/soldes/client.repository';
 
 describe('MariaDB integration (e2e)', () => {
   let app: INestApplication<App>;

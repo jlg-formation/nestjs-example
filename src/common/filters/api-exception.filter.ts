@@ -19,8 +19,27 @@ export class ApiExceptionFilter implements ExceptionFilter {
 
     if (exception instanceof HttpException) {
       status = exception.getStatus();
-      message = status === 500 ? 'Internal error' : exception.message;
-      errorCode = status === 500 ? 'INTERNAL_ERROR' : 'BAD_REQUEST';
+
+      if (status === 500) {
+        message = 'Internal error';
+        errorCode = 'INTERNAL_ERROR';
+      } else {
+        const responseBody = exception.getResponse();
+        const extractedMessage =
+          typeof responseBody === 'object' && responseBody !== null
+            ? (responseBody as { message?: unknown }).message
+            : undefined;
+
+        if (Array.isArray(extractedMessage)) {
+          message = extractedMessage.join('; ');
+        } else if (typeof extractedMessage === 'string') {
+          message = extractedMessage;
+        } else {
+          message = exception.message;
+        }
+
+        errorCode = 'BAD_REQUEST';
+      }
     } else {
       status = HttpStatus.INTERNAL_SERVER_ERROR;
       message = 'Internal error';

@@ -9,7 +9,9 @@ describe('SoldesController', () => {
   beforeEach(async () => {
     soldesService = {
       ping: jest.fn(() => ({ ok: true })),
-      recharge: jest.fn((amount: number) => ({ ok: true, amount })),
+      recharge: jest.fn(async (_clientId: string, _amount: number) => ({
+        ok: true,
+      })),
     };
 
     const module: TestingModule = await Test.createTestingModule({
@@ -33,13 +35,14 @@ describe('SoldesController', () => {
 
   describe('recharge', () => {
     it('should return ok + amount from body', () => {
-      expect(controller.recharge({ clientId: 'abc', amount: 100 })).toEqual({
+      expect(
+        controller.recharge({ clientId: 'abc', amount: 100 }),
+      ).resolves.toEqual({
         ok: true,
-        amount: 100,
       });
 
       expect(soldesService.recharge).toHaveBeenCalledTimes(1);
-      expect(soldesService.recharge).toHaveBeenCalledWith(100);
+      expect(soldesService.recharge).toHaveBeenCalledWith('abc', 100);
     });
   });
 });

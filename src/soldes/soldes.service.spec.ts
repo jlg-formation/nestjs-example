@@ -1,15 +1,23 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { ConfigService } from '@nestjs/config';
 import { SoldesService } from './soldes.service';
+import { RechargeRepository } from './recharge.repository';
 
 describe('SoldesService', () => {
   let service: SoldesService;
   let config: ConfigService;
+  let rechargeRepo: { clientExists: jest.Mock; insertRecharge: jest.Mock };
 
   beforeEach(async () => {
+    rechargeRepo = {
+      clientExists: jest.fn(async () => true),
+      insertRecharge: jest.fn(async () => undefined),
+    };
+
     const module: TestingModule = await Test.createTestingModule({
       providers: [
         SoldesService,
+        { provide: RechargeRepository, useValue: rechargeRepo },
         {
           provide: ConfigService,
           useValue: {
@@ -35,7 +43,15 @@ describe('SoldesService', () => {
 
   describe('recharge', () => {
     it('should return ok + amount', () => {
-      expect(service.recharge(100)).toEqual({ ok: true, amount: 100 });
+      expect(service.recharge('abc', 100)).resolves.toEqual({ ok: true });
+    });
+
+    it('should insert a recharge when client exists', async () => {
+      rechargeRepo.clientExists.mockResolvedValueOnce(true);
+
+      await expect(service.recharge('abc', 100)).resolves.toEqual({ ok: true });
+      expect(rechargeRepo.clientExists).toHaveBeenCalledWith('abc');
+      expect(rechargeRepo.insertRecharge).toHaveBeenCalledWith('abc', 100);
     });
   });
 

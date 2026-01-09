@@ -1,4 +1,5 @@
-import { ClientRepository, DbClient } from './client.repository';
+import { ClientRepository } from './client.repository';
+import type { DbClient } from './client.repository';
 
 describe('ClientRepository', () => {
   describe('findById', () => {
