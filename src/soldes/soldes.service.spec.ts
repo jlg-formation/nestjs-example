@@ -1,14 +1,24 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { ConfigService } from '@nestjs/config';
 import { SoldesService } from './soldes.service';
+import { ClientRepository } from './client.repository';
 import { RechargeRepository } from './recharge.repository';
 
 describe('SoldesService', () => {
   let service: SoldesService;
   let config: ConfigService;
+  let clientRepo: { findByIdWithBalance: jest.Mock };
   let rechargeRepo: { applyRecharge: jest.Mock };
 
   beforeEach(async () => {
+    clientRepo = {
+      findByIdWithBalance: jest.fn().mockResolvedValue({
+        id: 'abc',
+        name: 'Test',
+        balance: 100,
+      }),
+    };
+
     rechargeRepo = {
       applyRecharge: jest.fn().mockResolvedValue({
         id: 'abc',
@@ -20,6 +30,7 @@ describe('SoldesService', () => {
     const module: TestingModule = await Test.createTestingModule({
       providers: [
         SoldesService,
+        { provide: ClientRepository, useValue: clientRepo },
         { provide: RechargeRepository, useValue: rechargeRepo },
         {
           provide: ConfigService,
@@ -63,6 +74,24 @@ describe('SoldesService', () => {
 
     it('should return 0 when clientId is valid', () => {
       expect(service.getBalance(1)).toBe(0);
+    });
+  });
+
+  describe('getClientBalance', () => {
+    it('should return a typed DTO when client exists', async () => {
+      await expect(service.getClientBalance('abc')).resolves.toEqual({
+        clientId: 'abc',
+        balance: 100,
+      });
+      expect(clientRepo.findByIdWithBalance).toHaveBeenCalledWith('abc');
+    });
+
+    it('should throw NotFoundException when client does not exist', async () => {
+      clientRepo.findByIdWithBalance.mockResolvedValueOnce(null);
+      await expect(service.getClientBalance('missing')).rejects.toMatchObject({
+        status: 404,
+        message: 'Client not found',
+      });
     });
   });
 
