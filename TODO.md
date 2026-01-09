@@ -60,3 +60,4 @@ Chaque tâche contient :
 ## Ajoute en plus
 
 - [x] id30 Ajouter un script `npm run startdb` pour démarrer une instance MariaDB via Docker (Docker Desktop). Ajouter ensuite un script `npm run initdb` pour créer la base de données ainsi que ses tables. Déterminer le schéma (tables et colonnes) en parcourant la formation.
+- [x] id31 Ajouter le necessaire dans l'application NestJS pour que la connexion et l'usage de la base de donne MariaDB soit effective. Faire un test E2E d'une insertion en base et son retrieval.

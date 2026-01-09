@@ -1,31 +1,13 @@
 import { Module } from '@nestjs/common';
+import { DbModule } from '../db/db.module';
 import { ClientsController } from './clients.controller';
-import { ClientRepository, DB_CLIENT } from './client.repository';
+import { ClientRepository } from './client.repository';
 import { SoldesController } from './soldes.controller';
 import { SoldesService } from './soldes.service';
 
 @Module({
+  imports: [DbModule],
   controllers: [SoldesController, ClientsController],
-  providers: [
-    SoldesService,
-    ClientRepository,
-    {
-      provide: DB_CLIENT,
-      useValue: {
-        query: (
-          sql: string,
-          params: readonly unknown[],
-        ): Promise<[unknown[]]> => {
-          void sql;
-          void params;
-          return Promise.reject(
-            new Error(
-              'DB client not configured yet. Implement DB client wiring before using repositories.',
-            ),
-          );
-        },
-      },
-    },
-  ],
+  providers: [SoldesService, ClientRepository],
 })
 export class SoldesModule {}
