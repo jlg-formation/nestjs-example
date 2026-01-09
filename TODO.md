@@ -51,7 +51,7 @@ Chaque tâche contient :
 - [x] id25 Ajouter un interceptor qui wrappe la réponse en `{ data }` — Intention: standardiser sans duplication ; Livrable: `WrapResponseInterceptor` appliqué globalement (specifications/nestjs-backend-3j/06-middleware-guards-interceptors-swagger/14-code-example-interceptor-transform.yaml)
 - [x] id26 Ajouter un interceptor de timing (ms par requête) — Intention: signal perf minimal ; Livrable: `TimingInterceptor` (specifications/nestjs-backend-3j/06-middleware-guards-interceptors-swagger/15-code-example-interceptor-timing.yaml)
 - [x] id27 Activer Swagger (UI sur `/api`) + déclarer l’API key dans la doc — Intention: documenter/tester l’API ; Livrable: Swagger setup + apiKey header déclaré (specifications/nestjs-backend-3j/06-middleware-guards-interceptors-swagger/19-code-example-swagger-bootstrap.yaml)
-- [ ] id28 TP : guard + interceptor (auth + format) — Intention: ajouter cross-cutting sans toucher au métier ; Livrable: 401 sans clé + réponses `{ data }` (specifications/nestjs-backend-3j/06-middleware-guards-interceptors-swagger/23-exercise-tp-guard-interceptor.yaml)
+- [x] id28 TP : guard + interceptor (auth + format) — Intention: ajouter cross-cutting sans toucher au métier ; Livrable: 401 sans clé + réponses `{ data }` (specifications/nestjs-backend-3j/06-middleware-guards-interceptors-swagger/23-exercise-tp-guard-interceptor.yaml)
 
 ## 99-conclusion
 
