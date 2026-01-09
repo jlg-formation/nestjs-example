@@ -31,7 +31,7 @@ Chaque tâche contient :
 
 ## 04-crud-architecture
 
-- [ ] id14 Implémenter `POST /recharge` (controller fin + réponse `{ data }`) — Intention: stabiliser le contrat HTTP ; Livrable: controller + DTO d’entrée (specifications/nestjs-backend-3j/04-crud-architecture/18-code-example-controller-post-recharge.yaml)
+- [x] id14 Implémenter `POST /recharge` (controller fin + réponse `{ data }`) — Intention: stabiliser le contrat HTTP ; Livrable: controller + DTO d’entrée (specifications/nestjs-backend-3j/04-crud-architecture/18-code-example-controller-post-recharge.yaml)
 - [ ] id15 Implémenter `RechargeService` (métier + 404 si client absent) — Intention: mapper métier → exceptions Nest ; Livrable: service injectable qui lève `NotFoundException` (specifications/nestjs-backend-3j/04-crud-architecture/19-code-example-service-recharge.yaml)
 - [ ] id16 Implémenter `RechargeRepository` avec transaction (INSERT + UPDATE + SELECT) — Intention: encapsuler SQL + transaction ; Livrable: begin/commit/rollback + SQL paramétré (specifications/nestjs-backend-3j/04-crud-architecture/20-code-example-repository-recharge.yaml)
 - [ ] id17 Implémenter `GET /clients/:id/soldes` avec DTO de sortie dédié — Intention: éviter de sur-exposer des champs ; Livrable: `ClientBalanceDto` + 404 si absent + `{ data }` (specifications/nestjs-backend-3j/04-crud-architecture/21-code-example-get-balance.yaml)

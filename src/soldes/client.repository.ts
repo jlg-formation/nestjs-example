@@ -7,6 +7,11 @@ export interface DbClient {
 }
 
 export type ClientRow = { id: string; name: string };
+export type ClientWithBalanceRow = {
+  id: string;
+  name: string;
+  balance: number;
+};
 
 @Injectable()
 export class ClientRepository {
@@ -19,6 +24,16 @@ export class ClientRepository {
     );
 
     const first = (rows as ClientRow[])[0];
+    return first ?? null;
+  }
+
+  async findByIdWithBalance(id: string): Promise<ClientWithBalanceRow | null> {
+    const [rows] = await this.db.query(
+      'SELECT id, name, balance FROM clients WHERE id = ?',
+      [id],
+    );
+
+    const first = (rows as ClientWithBalanceRow[])[0];
     return first ?? null;
   }
 

@@ -14,4 +14,6 @@ Le repository contiendra des prompts github copilot `/.github/prompts/*.prompt.m
 
 Les règles de codage, de refactoring et de style de code sont dans le fichier `/CODING_RULES.md`
 
-Écris en français académique
+## Contraintes
+
+- Ecriture inclusive strictement interdite.

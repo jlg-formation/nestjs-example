@@ -22,4 +22,11 @@ export class RechargeRepository {
       [clientId, amount],
     );
   }
+
+  async incrementBalance(clientId: string, amount: number): Promise<void> {
+    await this.db.query(
+      'UPDATE clients SET balance = balance + ? WHERE id = ?',
+      [amount, clientId],
+    );
+  }
 }
