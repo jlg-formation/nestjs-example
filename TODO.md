@@ -47,7 +47,7 @@ Chaque tâche contient :
 ## 06-middleware-guards-interceptors-swagger
 
 - [x] id23 Ajouter un middleware logger (method + URL + status + durée) — Intention: observabilité simple ; Livrable: `LoggerMiddleware` branché sur l’app (specifications/nestjs-backend-3j/06-middleware-guards-interceptors-swagger/06-code-example-middleware-logger.yaml)
-- [ ] id24 Ajouter un guard `ApiKeyGuard` (header `x-api-key`) — Intention: protéger l’API ; Livrable: 401 si clé absente/invalide (specifications/nestjs-backend-3j/06-middleware-guards-interceptors-swagger/10-code-example-guard-apikey.yaml)
+- [x] id24 Ajouter un guard `ApiKeyGuard` (header `x-api-key`) — Intention: protéger l’API ; Livrable: 401 si clé absente/invalide (specifications/nestjs-backend-3j/06-middleware-guards-interceptors-swagger/10-code-example-guard-apikey.yaml)
 - [ ] id25 Ajouter un interceptor qui wrappe la réponse en `{ data }` — Intention: standardiser sans duplication ; Livrable: `WrapResponseInterceptor` appliqué globalement (specifications/nestjs-backend-3j/06-middleware-guards-interceptors-swagger/14-code-example-interceptor-transform.yaml)
 - [ ] id26 Ajouter un interceptor de timing (ms par requête) — Intention: signal perf minimal ; Livrable: `TimingInterceptor` (specifications/nestjs-backend-3j/06-middleware-guards-interceptors-swagger/15-code-example-interceptor-timing.yaml)
 - [ ] id27 Activer Swagger (UI sur `/api`) + déclarer l’API key dans la doc — Intention: documenter/tester l’API ; Livrable: Swagger setup + apiKey header déclaré (specifications/nestjs-backend-3j/06-middleware-guards-interceptors-swagger/19-code-example-swagger-bootstrap.yaml)

@@ -12,8 +12,12 @@ describe('POST /recharge (e2e)', () => {
   let app: INestApplication<App>;
   let clientRepo: ClientRepository;
   let db: TestTxDbClient;
+  let apiKey: string;
 
   beforeAll(async () => {
+    process.env.API_KEY = process.env.API_KEY ?? 'test-api-key';
+    apiKey = process.env.API_KEY;
+
     db = new TestTxDbClient();
     await db.connect();
 
@@ -62,6 +66,7 @@ describe('POST /recharge (e2e)', () => {
 
     const initialBalance = await request(app.getHttpServer())
       .get(`/clients/${clientId}/soldes`)
+      .set('x-api-key', apiKey)
       .expect(200)
       .then((res) => {
         const body = res.body as { data?: { balance?: number } };
@@ -74,6 +79,7 @@ describe('POST /recharge (e2e)', () => {
 
     await request(app.getHttpServer())
       .post('/recharge')
+      .set('x-api-key', apiKey)
       .send({ clientId, amount })
       .expect(201)
       .expect(({ body }) => {
@@ -98,11 +104,13 @@ describe('POST /recharge (e2e)', () => {
 
     await request(app.getHttpServer())
       .post('/recharge')
+      .set('x-api-key', apiKey)
       .send({ clientId, amount })
       .expect(201);
 
     await request(app.getHttpServer())
       .get(`/clients/${clientId}/soldes`)
+      .set('x-api-key', apiKey)
       .expect(200)
       .expect(({ body }) => {
         const responseBody = body as {
@@ -123,6 +131,7 @@ describe('POST /recharge (e2e)', () => {
 
     await request(app.getHttpServer())
       .get(`/clients/${unknownClientId}/soldes`)
+      .set('x-api-key', apiKey)
       .expect(404)
       .expect(({ body }) => {
         const responseBody = body as { statusCode?: number; message?: string };

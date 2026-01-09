@@ -8,6 +8,8 @@ describe('AppController (e2e)', () => {
   let app: INestApplication<App>;
 
   beforeEach(async () => {
+    process.env.API_KEY = process.env.API_KEY ?? 'test-api-key';
+
     const moduleFixture: TestingModule = await Test.createTestingModule({
       imports: [AppModule],
     }).compile();
@@ -19,7 +21,12 @@ describe('AppController (e2e)', () => {
   it('/ (GET)', () => {
     return request(app.getHttpServer())
       .get('/')
+      .set('x-api-key', process.env.API_KEY as string)
       .expect(200)
       .expect('Hello World!');
+  });
+
+  it('/ (GET) should return 401 when x-api-key is missing', () => {
+    return request(app.getHttpServer()).get('/').expect(401);
   });
 });

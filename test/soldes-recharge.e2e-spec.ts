@@ -12,8 +12,12 @@ describe('POST /soldes/recharge (e2e)', () => {
   let app: INestApplication<App>;
   let clientRepo: ClientRepository;
   let db: TestTxDbClient;
+  let apiKey: string;
 
   beforeAll(async () => {
+    process.env.API_KEY = process.env.API_KEY ?? 'test-api-key';
+    apiKey = process.env.API_KEY;
+
     db = new TestTxDbClient();
     await db.connect();
 
@@ -60,6 +64,7 @@ describe('POST /soldes/recharge (e2e)', () => {
 
     await request(app.getHttpServer())
       .post('/soldes/recharge')
+      .set('x-api-key', apiKey)
       .send({ clientId, amount: 100 })
       .expect(201)
       .expect({ ok: true });
@@ -77,6 +82,7 @@ describe('POST /soldes/recharge (e2e)', () => {
 
     await request(app.getHttpServer())
       .post('/soldes/recharge')
+      .set('x-api-key', apiKey)
       .send({ clientId, amount: -1 })
       .expect(400)
       .expect((res) => {
