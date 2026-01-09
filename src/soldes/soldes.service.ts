@@ -1,11 +1,18 @@
-import { BadRequestException, Injectable } from '@nestjs/common';
+import {
+  BadRequestException,
+  Injectable,
+  NotFoundException,
+} from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
+import { ClientBalanceDto } from './dto/client-balance.dto';
+import { ClientRepository } from './client.repository';
 import { RechargeRepository } from './recharge.repository';
 
 @Injectable()
 export class SoldesService {
   constructor(
     private readonly config: ConfigService,
+    private readonly clientRepo: ClientRepository,
     private readonly rechargeRepo: RechargeRepository,
   ) {}
 
@@ -24,6 +31,15 @@ export class SoldesService {
     }
 
     return { ok: true };
+  }
+
+  async getClientBalance(clientId: string): Promise<ClientBalanceDto> {
+    const client = await this.clientRepo.findByIdWithBalance(clientId);
+    if (!client) {
+      throw new NotFoundException('Client not found');
+    }
+
+    return { clientId, balance: client.balance };
   }
 
   getBalance(clientId: number): number {
