@@ -1,4 +1,4 @@
-import { BadRequestException, Injectable } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 import { ClientRepository } from './client.repository';
 import { RechargeRepository } from './recharge.repository';
 import { CreateRechargeDto } from './dto/create-recharge.dto';
@@ -14,7 +14,7 @@ export class RechargeService {
   async recharge(dto: CreateRechargeDto): Promise<ClientDto> {
     const existing = await this.clientRepo.findByIdWithBalance(dto.clientId);
     if (!existing) {
-      throw new BadRequestException('Client not found');
+      throw new NotFoundException('Client not found');
     }
 
     await this.rechargeRepo.insertRecharge(dto.clientId, dto.amount);
@@ -22,7 +22,7 @@ export class RechargeService {
 
     const updated = await this.clientRepo.findByIdWithBalance(dto.clientId);
     if (!updated) {
-      throw new BadRequestException('Client not found');
+      throw new NotFoundException('Client not found');
     }
 
     return {
