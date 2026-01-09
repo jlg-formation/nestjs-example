@@ -1,5 +1,6 @@
 import { Module } from '@nestjs/common';
 import { DbModule } from '../db/db.module';
+import { ApiKeyGuard } from '../common/guards/api-key.guard';
 import { ClientsController } from './clients.controller';
 import { ClientRepository } from './client.repository';
 import { RechargeController } from './recharge.controller';
@@ -26,6 +27,7 @@ import { SoldesService } from './soldes.service';
     ClientRepository,
     RechargeRepository,
     ReservationRepository,
+    ApiKeyGuard,
   ],
 })
 export class SoldesModule {}

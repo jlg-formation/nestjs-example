@@ -26,7 +26,14 @@ describe('AppController (e2e)', () => {
       .expect({ data: 'Hello World!' });
   });
 
-  it('/ (GET) should return 401 when x-api-key is missing', () => {
-    return request(app.getHttpServer()).get('/').expect(401);
+  it('/ (GET) should be public (no x-api-key)', () => {
+    return request(app.getHttpServer())
+      .get('/')
+      .expect(200)
+      .expect({ data: 'Hello World!' });
+  });
+
+  it('/soldes/ping (GET) should return 401 when x-api-key is missing', () => {
+    return request(app.getHttpServer()).get('/soldes/ping').expect(401);
   });
 });
