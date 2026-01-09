@@ -3,6 +3,7 @@ import { DbModule } from '../db/db.module';
 import { ApiKeyGuard } from '../common/guards/api-key.guard';
 import { ClientsController } from './clients.controller';
 import { ClientRepository } from './client.repository';
+import { ClientsService } from './clients.service';
 import { RechargeController } from './recharge.controller';
 import { RechargeRepository } from './recharge.repository';
 import { RechargeService } from './recharge.service';
@@ -22,6 +23,7 @@ import { SoldesService } from './soldes.service';
   ],
   providers: [
     SoldesService,
+    ClientsService,
     RechargeService,
     ReservationService,
     ClientRepository,

@@ -55,7 +55,7 @@ Chaque tâche contient :
 
 ## 99-conclusion
 
-- [ ] id29 Mini-challenge : ajouter un endpoint de A à Z — Intention: être autonome (DTO → validation → service → repo → e2e → Swagger) ; Livrable: 1 endpoint documenté + 1 test e2e OK/KO (specifications/nestjs-backend-3j/99-conclusion/18-exercise.yaml)
+- [x] id29 Mini-challenge : ajouter un endpoint de A à Z — Intention: être autonome (DTO → validation → service → repo → e2e → Swagger) ; Livrable: 1 endpoint documenté + 1 test e2e OK/KO (specifications/nestjs-backend-3j/99-conclusion/18-exercise.yaml)
 
 ## Ajoute en plus
 

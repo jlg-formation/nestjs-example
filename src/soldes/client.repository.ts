@@ -46,6 +46,18 @@ export class ClientRepository {
     return first ?? null;
   }
 
+  async findAllWithBalance(
+    limit: number,
+    offset: number,
+  ): Promise<ClientWithBalanceRow[]> {
+    const [rows] = await this.db.query(
+      'SELECT id, name, balance FROM clients ORDER BY name, id LIMIT ? OFFSET ?',
+      [limit, offset],
+    );
+
+    return rows as ClientWithBalanceRow[];
+  }
+
   async insert(client: ClientRow): Promise<void> {
     await this.db.query('INSERT INTO clients (id, name) VALUES (?, ?)', [
       client.id,
