@@ -4,6 +4,7 @@ import { APP_GUARD, APP_INTERCEPTOR } from '@nestjs/core';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { ApiKeyGuard } from './common/guards/api-key.guard';
+import { TimingInterceptor } from './common/interceptors/timing.interceptor';
 import { WrapResponseInterceptor } from './common/interceptors/wrap-response.interceptor';
 import { LoggerMiddleware } from './common/middleware/logger.middleware';
 import { SoldesModule } from './soldes/soldes.module';
@@ -16,6 +17,10 @@ import { SoldesModule } from './soldes/soldes.module';
     {
       provide: APP_GUARD,
       useClass: ApiKeyGuard,
+    },
+    {
+      provide: APP_INTERCEPTOR,
+      useClass: TimingInterceptor,
     },
     {
       provide: APP_INTERCEPTOR,
