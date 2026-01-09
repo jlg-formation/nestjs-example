@@ -79,19 +79,22 @@ describe('SoldesService', () => {
 
   describe('getClientBalance', () => {
     it('should return a typed DTO when client exists', async () => {
-      await expect(service.getClientBalance('abc')).resolves.toEqual({
-        clientId: 'abc',
-        balance: 100,
-      });
+      const dto = await service.getClientBalance('abc');
+      expect(dto).toEqual({ clientId: 'abc', balance: 100 });
       expect(clientRepo.findByIdWithBalance).toHaveBeenCalledWith('abc');
     });
 
     it('should throw NotFoundException when client does not exist', async () => {
       clientRepo.findByIdWithBalance.mockResolvedValueOnce(null);
-      await expect(service.getClientBalance('missing')).rejects.toMatchObject({
-        status: 404,
-        message: 'Client not found',
-      });
+      try {
+        await service.getClientBalance('missing');
+        throw new Error('Expected NotFoundException');
+      } catch (error: unknown) {
+        expect(error).toMatchObject({
+          status: 404,
+          message: 'Client not found',
+        });
+      }
     });
   });
 
