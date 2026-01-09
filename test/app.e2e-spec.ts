@@ -23,7 +23,7 @@ describe('AppController (e2e)', () => {
       .get('/')
       .set('x-api-key', process.env.API_KEY as string)
       .expect(200)
-      .expect('Hello World!');
+      .expect({ data: 'Hello World!' });
   });
 
   it('/ (GET) should return 401 when x-api-key is missing', () => {

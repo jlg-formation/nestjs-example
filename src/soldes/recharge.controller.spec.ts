@@ -28,7 +28,7 @@ describe('RechargeController', () => {
   });
 
   describe('recharge', () => {
-    it('should call service and return { data: client }', async () => {
+    it('should call service and return client', async () => {
       // Arrange
       const dto: CreateRechargeDto = { clientId: 'abc', amount: 100 };
       const client: ClientDto = { id: 'abc', name: 'Alice', balance: 200 };
@@ -41,7 +41,7 @@ describe('RechargeController', () => {
       // Assert
       expect(rechargeService.recharge).toHaveBeenCalledTimes(1);
       expect(rechargeService.recharge).toHaveBeenCalledWith(dto);
-      expect(result).toEqual({ data: client });
+      expect(result).toEqual(client);
     });
   });
 });

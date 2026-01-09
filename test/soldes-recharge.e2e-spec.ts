@@ -67,7 +67,7 @@ describe('POST /soldes/recharge (e2e)', () => {
       .set('x-api-key', apiKey)
       .send({ clientId, amount: 100 })
       .expect(201)
-      .expect({ ok: true });
+      .expect({ data: { ok: true } });
 
     const [rows] = await db.query(
       'SELECT id, client_id, amount FROM recharges WHERE client_id = ? AND amount = ?',

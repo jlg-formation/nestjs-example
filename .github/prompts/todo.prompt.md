@@ -60,6 +60,7 @@ Tu peux ajouter, si utile :
 - Ne propose pas de features “bonus” : reste strictement dans le périmètre du livrable de la tâche.
 - Respecte les conventions du repo : consulte `AGENTS.md`, puis `CODING_RULES.md`.
 - Ne traite pas le chapitre `01-typescript-mini-express` (rappel : ce repo l’exclut volontairement).
+- Dans les critères de vérification, ajoute de vérifier le formatting du code, le lint, les tests (unitaire et e2e)
 
 Si la tâche dépend d’une autre tâche non faite (ex: validation globale avant DTO), le prompt doit :
 
