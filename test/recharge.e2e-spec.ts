@@ -6,17 +6,23 @@ import request from 'supertest';
 import { AppModule } from '../src/app.module';
 import { ApiExceptionFilter } from '../src/common/filters/api-exception.filter';
 import { ClientRepository, DB_CLIENT } from '../src/soldes/client.repository';
-import type { DbClient } from '../src/soldes/client.repository';
+import { TestTxDbClient } from './utils/test-tx-db-client';
 
 describe('POST /recharge (e2e)', () => {
   let app: INestApplication<App>;
   let clientRepo: ClientRepository;
-  let db: DbClient;
+  let db: TestTxDbClient;
 
   beforeAll(async () => {
+    db = new TestTxDbClient();
+    await db.connect();
+
     const moduleFixture: TestingModule = await Test.createTestingModule({
       imports: [AppModule],
-    }).compile();
+    })
+      .overrideProvider(DB_CLIENT)
+      .useValue(db)
+      .compile();
 
     app = moduleFixture.createNestApplication();
 
@@ -33,38 +39,41 @@ describe('POST /recharge (e2e)', () => {
     await app.init();
 
     clientRepo = app.get(ClientRepository);
-    db = app.get(DB_CLIENT);
+  });
+
+  beforeEach(async () => {
+    await db.beginTestTransaction();
+  });
+
+  afterEach(async () => {
+    await db.rollbackTestTransaction();
   });
 
   afterAll(async () => {
     await app.close();
+    await db.close();
   });
 
   it('should return { data } when payload is valid', async () => {
     const clientId = randomUUID();
 
-    try {
-      await clientRepo.insert({ id: clientId, name: 'E2E Bob' });
+    await clientRepo.insert({ id: clientId, name: 'E2E Bob' });
 
-      await request(app.getHttpServer())
-        .post('/recharge')
-        .send({ clientId, amount: 10 })
-        .expect(201)
-        .expect(({ body }) => {
-          const responseBody = body as {
-            data?: {
-              id?: string;
-              balance?: number;
-            };
+    await request(app.getHttpServer())
+      .post('/recharge')
+      .send({ clientId, amount: 10 })
+      .expect(201)
+      .expect(({ body }) => {
+        const responseBody = body as {
+          data?: {
+            id?: string;
+            balance?: number;
           };
+        };
 
-          expect(responseBody.data).toBeDefined();
-          expect(responseBody.data?.id).toBe(clientId);
-          expect(responseBody.data?.balance).toBeGreaterThan(0);
-        });
-    } finally {
-      await db.query('DELETE FROM recharges WHERE client_id = ?', [clientId]);
-      await db.query('DELETE FROM clients WHERE id = ?', [clientId]);
-    }
+        expect(responseBody.data).toBeDefined();
+        expect(responseBody.data?.id).toBe(clientId);
+        expect(responseBody.data?.balance).toBeGreaterThan(0);
+      });
   });
 });

@@ -6,17 +6,23 @@ import request from 'supertest';
 import { AppModule } from '../src/app.module';
 import { ApiExceptionFilter } from '../src/common/filters/api-exception.filter';
 import { ClientRepository, DB_CLIENT } from '../src/soldes/client.repository';
-import type { DbClient } from '../src/soldes/client.repository';
+import { TestTxDbClient } from './utils/test-tx-db-client';
 
 describe('POST /soldes/recharge (e2e)', () => {
   let app: INestApplication<App>;
   let clientRepo: ClientRepository;
-  let db: DbClient;
+  let db: TestTxDbClient;
 
   beforeAll(async () => {
+    db = new TestTxDbClient();
+    await db.connect();
+
     const moduleFixture: TestingModule = await Test.createTestingModule({
       imports: [AppModule],
-    }).compile();
+    })
+      .overrideProvider(DB_CLIENT)
+      .useValue(db)
+      .compile();
 
     app = moduleFixture.createNestApplication();
 
@@ -32,35 +38,38 @@ describe('POST /soldes/recharge (e2e)', () => {
     await app.init();
 
     clientRepo = app.get(ClientRepository);
-    db = app.get(DB_CLIENT);
+  });
+
+  beforeEach(async () => {
+    await db.beginTestTransaction();
+  });
+
+  afterEach(async () => {
+    await db.rollbackTestTransaction();
   });
 
   afterAll(async () => {
     await app.close();
+    await db.close();
   });
 
   it('should insert a recharge when payload is valid', async () => {
     const clientId = randomUUID();
 
-    try {
-      await clientRepo.insert({ id: clientId, name: 'E2E Bob' });
+    await clientRepo.insert({ id: clientId, name: 'E2E Bob' });
 
-      await request(app.getHttpServer())
-        .post('/soldes/recharge')
-        .send({ clientId, amount: 100 })
-        .expect(201)
-        .expect({ ok: true });
+    await request(app.getHttpServer())
+      .post('/soldes/recharge')
+      .send({ clientId, amount: 100 })
+      .expect(201)
+      .expect({ ok: true });
 
-      const [rows] = await db.query(
-        'SELECT id, client_id, amount FROM recharges WHERE client_id = ? AND amount = ?',
-        [clientId, 100],
-      );
+    const [rows] = await db.query(
+      'SELECT id, client_id, amount FROM recharges WHERE client_id = ? AND amount = ?',
+      [clientId, 100],
+    );
 
-      expect(rows.length).toBeGreaterThan(0);
-    } finally {
-      await db.query('DELETE FROM recharges WHERE client_id = ?', [clientId]);
-      await db.query('DELETE FROM clients WHERE id = ?', [clientId]);
-    }
+    expect(rows.length).toBeGreaterThan(0);
   });
 
   it('should return a readable 400 when payload is invalid', async () => {
