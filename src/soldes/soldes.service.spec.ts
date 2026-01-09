@@ -10,8 +10,8 @@ describe('SoldesService', () => {
 
   beforeEach(async () => {
     rechargeRepo = {
-      clientExists: jest.fn(async () => true),
-      insertRecharge: jest.fn(async () => undefined),
+      clientExists: jest.fn().mockResolvedValue(true),
+      insertRecharge: jest.fn().mockResolvedValue(undefined),
     };
 
     const module: TestingModule = await Test.createTestingModule({
@@ -42,8 +42,8 @@ describe('SoldesService', () => {
   });
 
   describe('recharge', () => {
-    it('should return ok + amount', () => {
-      expect(service.recharge('abc', 100)).resolves.toEqual({ ok: true });
+    it('should return ok + amount', async () => {
+      await expect(service.recharge('abc', 100)).resolves.toEqual({ ok: true });
     });
 
     it('should insert a recharge when client exists', async () => {
