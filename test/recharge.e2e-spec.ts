@@ -54,14 +54,27 @@ describe('POST /recharge (e2e)', () => {
     await db.close();
   });
 
-  it('should return { data } when payload is valid', async () => {
+  it('should recharge and return { data } with an increased balance', async () => {
     const clientId = randomUUID();
+    const amount = 10;
 
     await clientRepo.insert({ id: clientId, name: 'E2E Bob' });
 
+    const initialBalance = await request(app.getHttpServer())
+      .get(`/clients/${clientId}/soldes`)
+      .expect(200)
+      .then((res) => {
+        const body = res.body as { data?: { balance?: number } };
+        return body.data?.balance;
+      });
+
+    if (typeof initialBalance !== 'number') {
+      throw new Error('Expected initial balance to be a number');
+    }
+
     await request(app.getHttpServer())
       .post('/recharge')
-      .send({ clientId, amount: 10 })
+      .send({ clientId, amount })
       .expect(201)
       .expect(({ body }) => {
         const responseBody = body as {
@@ -73,7 +86,48 @@ describe('POST /recharge (e2e)', () => {
 
         expect(responseBody.data).toBeDefined();
         expect(responseBody.data?.id).toBe(clientId);
-        expect(responseBody.data?.balance).toBeGreaterThan(0);
+        expect(responseBody.data?.balance).toBe(initialBalance + amount);
+      });
+  });
+
+  it('should expose the current balance on GET /clients/:id/soldes', async () => {
+    const clientId = randomUUID();
+    const amount = 15;
+
+    await clientRepo.insert({ id: clientId, name: 'E2E Alice' });
+
+    await request(app.getHttpServer())
+      .post('/recharge')
+      .send({ clientId, amount })
+      .expect(201);
+
+    await request(app.getHttpServer())
+      .get(`/clients/${clientId}/soldes`)
+      .expect(200)
+      .expect(({ body }) => {
+        const responseBody = body as {
+          data?: {
+            clientId?: string;
+            balance?: number;
+          };
+        };
+
+        expect(responseBody.data).toBeDefined();
+        expect(responseBody.data?.clientId).toBe(clientId);
+        expect(responseBody.data?.balance).toBe(amount);
+      });
+  });
+
+  it('should return 404 when client is unknown', async () => {
+    const unknownClientId = randomUUID();
+
+    await request(app.getHttpServer())
+      .get(`/clients/${unknownClientId}/soldes`)
+      .expect(404)
+      .expect(({ body }) => {
+        const responseBody = body as { statusCode?: number; message?: string };
+        expect(responseBody.statusCode).toBe(404);
+        expect(responseBody.message).toContain('Client');
       });
   });
 });

@@ -42,7 +42,7 @@ Chaque tâche contient :
 - [x] id19 Tester un controller via `TestingModule` avec service mocké — Intention: tester le contrat sans DB ; Livrable: test unitaire controller + `useValue` (specifications/nestjs-backend-3j/05-tests/10-code-example-testing-module.yaml)
 - [x] id20 Écrire un test e2e avec Supertest sur `POST /recharge` — Intention: vérifier le contrat HTTP en intégration ; Livrable: e2e qui assert status + `body.data` (specifications/nestjs-backend-3j/05-tests/14-code-example-e2e-supertest.yaml)
 - [x] id21 Mettre en place une stratégie “transaction + rollback par test” — Intention: tests déterministes ; Livrable: hooks `beforeEach/afterEach` avec rollback (specifications/nestjs-backend-3j/05-tests/19-code-example-transaction-rollback.yaml)
-- [ ] id22 TP : écrire 2 tests e2e utiles — Intention: remplacer Postman par la CI ; Livrable: e2e `POST /recharge` + e2e `GET /clients/:id/soldes` + cas 404, stables (specifications/nestjs-backend-3j/05-tests/24-exercise-tp-e2e.yaml)
+- [x] id22 TP : écrire 2 tests e2e utiles — Intention: remplacer Postman par la CI ; Livrable: e2e `POST /recharge` + e2e `GET /clients/:id/soldes` + cas 404, stables (specifications/nestjs-backend-3j/05-tests/24-exercise-tp-e2e.yaml)
 
 ## 06-middleware-guards-interceptors-swagger
 
